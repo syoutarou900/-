@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="アプリ作成初心者が作成した無料デスクトップツール一覧。軽快な動作で、完全無料。">
-<title>無料版 Windowsアプリサイト - get-quicknote</title>
+<title>自作アプリ一覧 - get-quicknote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@ h1 em { font-style: normal; color: var(--accent); }
 /* App Preview Image */
 .app-image { width: 100%; aspect-ratio: 16 / 10; background: #0F172A; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid var(--line); display: grid; place-items: center; }
 .app-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.app-image-placeholder { color: #8FA0C4; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 12px; }
+.app-image-placeholder { color: #8FA0C4; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 12px; line-height: 1.5; }
 
 .app-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin: 0 0 12px; color: var(--ink); }
 .app-info p { margin: 0 0 24px; color: var(--muted); font-size: 1rem; line-height: 1.6; }
@@ -148,30 +148,28 @@ h1 em { font-style: normal; color: var(--accent); }
     </div>
   </section>
 
-  <!-- 複数アプリのダウンロードセクション（画像プレビュー付き） -->
+  <!-- 複数アプリのダウンロードセクション -->
   <section class="apps-section" id="apps">
     <div class="apps-grid">
       
       <!-- アプリ1つ目 -->
       <div class="app-card">
         <div>
-          <!-- アプリのスクリーンショット画像を表示する領域 -->
           <div class="app-image">
-            <!-- 画像を追加する場合は src="images/app1.png" のようにファイルパスを指定してください -->
             <img src="" alt="get-quicknote プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+            <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
-            <h3>ドロップランチャー</h3>
-            <p>軽快な動作で日常のメモやタスクをスマートに管理できる、便利なフロートメモツールです。</p>
+            <h3 data-i18n="app1_title">ドロップランチャー</h3>
+            <p data-i18n="app1_desc">軽快な動作で日常のメモやタスクをスマートに管理できる、便利なフロートメモツールです。</p>
           </div>
         </div>
         <div>
           <a class="btn" href="app1-setup.exe">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
-            <span>アプリをダウンロード (Windows用)</span>
+            <span data-i18n="btn_text">アプリをダウンロード (Windows用)</span>
           </a>
-          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+          <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
         </div>
       </div>
 
@@ -180,19 +178,19 @@ h1 em { font-style: normal; color: var(--accent); }
         <div>
           <div class="app-image">
             <img src="" alt="アプリ名 2 プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+            <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
-            <h3>アプリ名 2</h3>
-            <p>ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <h3 data-i18n="app2_title">アプリ名 2</h3>
+            <p data-i18n="app2_desc">ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
           </div>
         </div>
         <div>
           <a class="btn" href="app2-setup.exe">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
-            <span>アプリをダウンロード (Windows用)</span>
+            <span data-i18n="btn_text">アプリをダウンロード (Windows用)</span>
           </a>
-          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+          <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
         </div>
       </div>
 
@@ -201,19 +199,19 @@ h1 em { font-style: normal; color: var(--accent); }
         <div>
           <div class="app-image">
             <img src="" alt="アプリ名 3 プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+            <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
-            <h3>アプリ名 3</h3>
-            <p>ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <h3 data-i18n="app3_title">アプリ名 3</h3>
+            <p data-i18n="app3_desc">ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
           </div>
         </div>
         <div>
           <a class="btn" href="app3-setup.exe">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
-            <span>アプリをダウンロード (Windows用)</span>
+            <span data-i18n="btn_text">アプリをダウンロード (Windows用)</span>
           </a>
-          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+          <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
         </div>
       </div>
 
@@ -235,78 +233,195 @@ h1 em { font-style: normal; color: var(--accent); }
       nav_dl: "アプリ一覧",
       eyebrow: "Windows対応・完全無料",
       h1: 'アプリ作成初心者が作成した<em>無料デスクトップツール</em>',
+      preview_text: "アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)",
+      app1_title: "ドロップランチャー",
+      app1_desc: "軽快な動作で日常のメモやタスクをスマートに管理できる、便利なフロートメモツールです。",
+      app2_title: "アプリ名 2",
+      app2_desc: "ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。",
+      app3_title: "アプリ名 3",
+      app3_desc: "ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。",
+      btn_text: "アプリをダウンロード (Windows用)",
+      req_os: "対応OS: Windows 11 / 10 (64bit)",
       foot: "アプリ作成初心者が作成した無料デスクトップツール"
     },
     en: {
       nav_dl: "Apps",
       eyebrow: "For Windows · Completely free",
       h1: 'A free <em>desktop tool</em> built by an app-making beginner',
+      preview_text: "App Image Preview<br>(Screenshot will be displayed here)",
+      app1_title: "Drop Launcher",
+      app1_desc: "A handy floating memo tool with snappy performance to manage your daily notes and tasks smartly.",
+      app2_title: "App Name 2",
+      app2_desc: "Briefly describe the features of your second custom app here.",
+      app3_title: "App Name 3",
+      app3_desc: "Briefly describe the features of your third custom app here.",
+      btn_text: "Download for Windows",
+      req_os: "Supports Windows 11 / 10 (64-bit)",
       foot: "A free desktop tool built by an app-making beginner"
     },
     es: {
       nav_dl: "Aplicaciones",
       eyebrow: "Para Windows · Totalmente gratis",
       h1: 'Una <em>herramienta de escritorio</em> gratuita creada por un principiante',
+      preview_text: "Vista previa de la app<br>(La captura aparecerá aquí)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Una práctica herramienta de notas flotantes con un rendimiento ágil para gestionar tus tareas diarias.",
+      app2_title: "Nombre de app 2",
+      app2_desc: "Describe brevemente las características de tu segunda aplicación aquí.",
+      app3_title: "Nombre de app 3",
+      app3_desc: "Describe brevemente las características de tu tercera aplicación aquí.",
+      btn_text: "Descargar para Windows",
+      req_os: "Compatible con Windows 11 / 10 (64 bits)",
       foot: "Una herramienta de escritorio gratuita creada por un principiante"
     },
     zh: {
       nav_dl: "应用列表",
       eyebrow: "支持 Windows · 完全免费",
       h1: '由应用制作新手开发的<em>免费桌面工具</em>',
+      preview_text: "应用图片预览<br>(此处将显示截图)",
+      app1_title: "拖放启动器",
+      app1_desc: "一款运行流畅、可智能管理日常笔记与任务的便捷悬浮便签工具。",
+      app2_title: "应用名称 2",
+      app2_desc: "在此简要描述您的第二个自制应用的功能与特点。",
+      app3_title: "应用名称 3",
+      app3_desc: "在此简要描述您的第三个自制应用的功能与特点。",
+      btn_text: "下载 Windows 版",
+      req_os: "支持系统:Windows 11 / 10(64 位)",
       foot: "由应用制作新手开发的免费桌面工具"
     },
     fr: {
       nav_dl: "Applications",
       eyebrow: "Pour Windows · Entièrement gratuit",
       h1: 'Un <em>outil de bureau</em> gratuit créé par un débutant',
+      preview_text: "Aperçu de l'application<br>(La capture d'écran s'affichera ici)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Un outil de mémo flottant pratique et réactif pour gérer intelligemment vos notes et tâches quotidiennes.",
+      app2_title: "Nom de l'app 2",
+      app2_desc: "Décrivez brièvement les fonctionnalités de votre deuxième application ici.",
+      app3_title: "Nom de l'app 3",
+      app3_desc: "Décrivez brièvement les fonctionnalités de votre troisième application ici.",
+      btn_text: "Télécharger pour Windows",
+      req_os: "Compatible avec Windows 11 / 10 (64 bits)",
       foot: "Un outil de bureau gratuit créé par un débutant"
     },
     de: {
       nav_dl: "Apps",
       eyebrow: "Für Windows · Völlig kostenlos",
       h1: 'Ein kostenloses <em>Desktop-Tool</em>, entwickelt von einem Einsteiger',
+      preview_text: "App-Vorschau<br>(Screenshot wird hier angezeigt)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Ein praktisches Floating-Memo-Tool mit flüssiger Leistung zur cleveren Verwaltung Ihrer Aufgaben.",
+      app2_title: "App-Name 2",
+      app2_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer zweiten App.",
+      app3_title: "App-Name 3",
+      app3_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer dritten App.",
+      btn_text: "Für Windows herunterladen",
+      req_os: "Unterstützt Windows 11 / 10 (64-Bit)",
       foot: "Ein kostenloses Desktop-Tool von einem Einsteiger"
     },
     pt: {
       nav_dl: "Aplicativos",
       eyebrow: "Para Windows · Totalmente grátis",
       h1: 'Uma <em>ferramenta de desktop</em> gratuita criada por um iniciante',
+      preview_text: "Pré-visualização do app<br>(A captura de tela aparecerá aqui)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Uma ferramenta prática de notas flutuantes com desempenho ágil para gerenciar suas tarefas diárias.",
+      app2_title: "Nome do App 2",
+      app2_desc: "Descreva brevemente os recursos do seu segundo aplicativo aqui.",
+      app3_title: "Nome do App 3",
+      app3_desc: "Descreva brevemente os recursos do seu terceiro aplicativo aqui.",
+      btn_text: "Baixar para Windows",
+      req_os: "Compatível com Windows 11 / 10 (64 bits)",
       foot: "Uma ferramenta de desktop gratuita criada por um iniciante"
     },
     ru: {
       nav_dl: "Приложения",
       eyebrow: "Для Windows · Полностью бесплатно",
       h1: 'Бесплатное <em>настольное приложение</em>, созданное новичком',
+      preview_text: "Предпросмотр приложения<br>(Здесь будет скриншот)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Удобный инструмент плавающих заметок для умного управления вашими задачами.",
+      app2_title: "Приложение 2",
+      app2_desc: "Кратко опишите особенности вашего второго приложения здесь.",
+      app3_title: "Приложение 3",
+      app3_desc: "Кратко опишите особенности вашего третьего приложения здесь.",
+      btn_text: "Скачать для Windows",
+      req_os: "Поддерживаются Windows 11 / 10 (64-бит)",
       foot: "Бесплатное настольное приложение от новичка"
     },
     it: {
       nav_dl: "App",
       eyebrow: "Per Windows · Completamente gratis",
       h1: 'Uno <em>strumento desktop</em> gratuito creato da un principiante',
+      preview_text: "Anteprima app<br>(Lo screenshot verrà mostrato qui)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Un pratico strumento di note mobili con prestazioni scattanti per gestire le tue attività quotidiane.",
+      app2_title: "Nome App 2",
+      app2_desc: "Descrivi brevemente le caratteristiche della tua seconda app qui.",
+      app3_title: "Nome App 3",
+      app3_desc: "Descrivi brevemente le caratteristiche della tua terza app qui.",
+      btn_text: "Scarica per Windows",
+      req_os: "Compatibile con Windows 11 / 10 (64 bit)",
       foot: "Uno strumento desktop gratuito creato da un principiante"
     },
     tr: {
       nav_dl: "Uygulamalar",
       eyebrow: "Windows için · Tamamen ücretsiz",
       h1: 'Yeni başlayan biri tarafından yapılan ücretsiz <em>masaüstü aracı</em>',
+      preview_text: "Uygulama Önizlemesi<br>(Ekran görüntüsü burada görünecek)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Günlük notlarınızı ve görevlerinizi akıllıca yöneten kullanışlı bir kayan not aracı.",
+      app2_title: "Uygulama Adı 2",
+      app2_desc: "İkinci uygulamanızın özelliklerini burada kısaca açıklayın.",
+      app3_title: "Uygulama Adı 3",
+      app3_desc: "Üçüncü uygulamanızın özelliklerini burada kısaca açıklayın.",
+      btn_text: "Windows için indir",
+      req_os: "Windows 11 / 10 (64 bit) desteklenir",
       foot: "Yeni başlayan biri tarafından yapılmış ücretsiz masaüstü aracı"
     },
     ar: {
       nav_dl: "التطبيقات",
       eyebrow: "لنظام ويندوز · مجاني بالكامل",
       h1: '<em>أداة سطح مكتب</em> مجانية صنعها مبتدئ',
+      preview_text: "معاينة التطبيق<br>( ستظهر لقطة الشاشة هنا )",
+      app1_title: "Drop Launcher",
+      app1_desc: "أداة ملاحظات عائمة مفيدة ذات أداء سريع لإدارة مهامك اليومية بذكاء.",
+      app2_title: "اسم التطبيق 2",
+      app2_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الثاني هنا.",
+      app3_title: "اسم التطبيق 3",
+      app3_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الثالث هنا.",
+      btn_text: "تنزيل لنظام ويندوز",
+      req_os: "يدعم ويندوز 11 / 10 (64 بت)",
       foot: "أداة سطح مكتب مجانية صنعها مبتدئ"
     },
     id: {
       nav_dl: "Aplikasi",
       eyebrow: "Untuk Windows · Sepenuhnya gratis",
       h1: '<em>Alat desktop</em> gratis buatan seorang pemula',
+      preview_text: "Pratinjau Aplikasi<br>(Tangkapan layar akan muncul di sini)",
+      app1_title: "Drop Launcher",
+      app1_desc: "Alat catatan mengambang praktis dengan kinerja cepat untuk mengelola tugas harian Anda.",
+      app2_title: "Nama Aplikasi 2",
+      app2_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kedua di sini.",
+      app3_title: "Nama Aplikasi 3",
+      app3_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang ketiga di sini.",
+      btn_text: "Unduh untuk Windows",
+      req_os: "Mendukung Windows 11 / 10 (64-bit)",
       foot: "Alat desktop gratis buatan seorang pemula"
     },
     ko: {
       nav_dl: "앱 목록",
       eyebrow: "Windows 지원 · 완전 무료",
       h1: '앱 제작 초보자가 만든 <em>무료 데스크톱 도구</em>',
+      preview_text: "앱 미리보기 화면<br>(여기에 스크린샷이 표시됩니다)",
+      app1_title: "드롭 런처",
+      app1_desc: "가벼운 동작으로 일상의 메모와 작업을 스마트하게 관리할 수 있는 편리한 플로팅 메모 도구입니다.",
+      app2_title: "앱 이름 2",
+      app2_desc: "여기에 두 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
+      app3_title: "앱 이름 3",
+      app3_desc: "여기에 세 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
+      btn_text: "Windows용 다운로드",
+      req_os: "지원 OS: Windows 11 / 10 (64비트)",
       foot: "앱 제작 초보자가 만든 무료 데스크톱 도구"
     }
   };
