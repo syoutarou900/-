@@ -182,7 +182,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
     <div>
       <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Windows対応・完全無料</span></span>
       <h1 data-i18n="h1"><span class="ph">アプリ作成初心者が</span><span class="ph">作成した</span><br><em>デスクトップツール</em></h1>
-      <p class="lead" data-i18n="lead">洗練されたUIと軽快な動作。自作アプリであなたの日常のタスクをスマートに解決します。Windows対応・完全無料。</p>
+      <!-- 不要なリード文のタグ（<p class="lead">...</p>）を削除しました -->
       <div class="cta">
         <a class="btn js-dl" href="#get">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
@@ -192,10 +192,6 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       </div>
     </div>
 
-    <!-- アプリのスクリーンショットを使う場合:
-         下の <div class="win"> ... </div> をまるごと次の1行に置き換えてください。
-         <img src="screenshot.png" alt="get-quicknote" style="width:100%;border-radius:14px;box-shadow:0 44px 70px -30px rgba(29,78,216,.6)">
-    -->
     <div class="stage" aria-hidden="true">
       <div class="win">
         <div class="win-bar">
@@ -266,10 +262,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
 
 <script>
 (function () {
-  // ダウンロードURLが決まったら、下の "" の中に入れてください(例: "https://example.com/get-quicknote-setup.exe")
   var DOWNLOAD_URL = "";
-
-  // 言語コード → <html lang> の値(中国語は簡体字)
   var HTML_LANG = { zh: "zh-Hans" };
 
   var dict = {
@@ -277,7 +270,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "ダウンロード",
       eyebrow: "Windows対応・完全無料",
       h1: '<span class="ph">アプリ作成初心者が</span><span class="ph">作成した</span><br><em>デスクトップツール</em>',
-      lead: "洗練されたUIと軽快な動作。自作アプリであなたの日常のタスクをスマートに解決します。Windows対応・完全無料。",
+      lead: "",
       btn: "アプリをダウンロード (Windows用)",
       req: "対応OS: Windows 11 / 10 (64bit)",
       feat_h: "主な特徴",
@@ -295,7 +288,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Download",
       eyebrow: "For Windows · Completely free",
       h1: 'A <em>desktop tool</em><br>built by an app-making beginner',
-      lead: "A refined interface and snappy performance. A homemade app that handles your everyday tasks, smartly. Made for Windows and completely free.",
+      lead: "",
       btn: "Download for Windows",
       req: "Supports Windows 11 / 10 (64-bit)",
       feat_h: "Key features",
@@ -313,7 +306,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Descargar",
       eyebrow: "Para Windows · Totalmente gratis",
       h1: 'Una <em>herramienta de escritorio</em><br>creada por un principiante en el desarrollo de apps',
-      lead: "Una interfaz refinada y un rendimiento ágil. Una aplicación hecha por mí que resuelve tus tareas diarias de forma inteligente. Para Windows y totalmente gratuita.",
+      lead: "",
       btn: "Descargar para Windows",
       req: "Compatible con Windows 11 / 10 (64 bits)",
       feat_h: "Características principales",
@@ -331,7 +324,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "下载",
       eyebrow: "支持 Windows · 完全免费",
       h1: '<span class="ph">应用制作新手</span><span class="ph">开发的</span><br><em>桌面工具</em>',
-      lead: "精致的界面,流畅的运行。这款自制应用能智能地解决你的日常任务。支持 Windows,完全免费。",
+      lead: "",
       btn: "下载 Windows 版",
       req: "支持系统:Windows 11 / 10(64 位)",
       feat_h: "主要特点",
@@ -349,7 +342,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Télécharger",
       eyebrow: "Pour Windows · Entièrement gratuit",
       h1: 'Un <em>outil de bureau</em><br>créé par un débutant en création d’applications',
-      lead: "Une interface soignée et des performances réactives. Une application maison qui règle intelligemment vos tâches du quotidien. Pour Windows, entièrement gratuite.",
+      lead: "",
       btn: "Télécharger pour Windows",
       req: "Compatible avec Windows 11 / 10 (64 bits)",
       feat_h: "Fonctionnalités clés",
@@ -367,7 +360,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Herunterladen",
       eyebrow: "Für Windows · Völlig kostenlos",
       h1: 'Ein <em>Desktop-Tool</em>,<br>entwickelt von einem Einsteiger in die App-Entwicklung',
-      lead: "Eine ausgereifte Oberfläche und flotte Leistung. Eine selbst entwickelte App, die Ihre alltäglichen Aufgaben clever erledigt. Für Windows und völlig kostenlos.",
+      lead: "",
       btn: "Für Windows herunterladen",
       req: "Unterstützt Windows 11 / 10 (64-Bit)",
       feat_h: "Hauptmerkmale",
@@ -385,7 +378,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Baixar",
       eyebrow: "Para Windows · Totalmente grátis",
       h1: 'Uma <em>ferramenta de desktop</em><br>criada por um iniciante no desenvolvimento de apps',
-      lead: "Uma interface refinada e desempenho ágil. Um app feito por mim que resolve suas tarefas do dia a dia de forma inteligente. Para Windows e totalmente gratuito.",
+      lead: "",
       btn: "Baixar para Windows",
       req: "Compatível com Windows 11 / 10 (64 bits)",
       feat_h: "Principais recursos",
@@ -403,7 +396,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Скачать",
       eyebrow: "Для Windows · Полностью бесплатно",
       h1: '<em>Настольное приложение</em>,<br>созданное новичком в разработке приложений',
-      lead: "Продуманный интерфейс и быстрая работа. Приложение собственной разработки, которое умно решает ваши повседневные задачи. Для Windows, полностью бесплатно.",
+      lead: "",
       btn: "Скачать для Windows",
       req: "Поддерживаются Windows 11 / 10 (64-бит)",
       feat_h: "Основные возможности",
@@ -421,7 +414,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Scarica",
       eyebrow: "Per Windows · Completamente gratis",
       h1: 'Uno <em>strumento desktop</em><br>creato da un principiante dello sviluppo di app',
-      lead: "Un’interfaccia curata e prestazioni scattanti. Un’app fatta in casa che risolve in modo intelligente le tue attività quotidiane. Per Windows e completamente gratuita.",
+      lead: "",
       btn: "Scarica per Windows",
       req: "Compatibile con Windows 11 / 10 (64 bit)",
       feat_h: "Caratteristiche principali",
@@ -439,7 +432,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "İndir",
       eyebrow: "Windows için · Tamamen ücretsiz",
       h1: 'Uygulama geliştirmeye yeni başlayan birinin yaptığı<br><em>masaüstü aracı</em>',
-      lead: "Şık bir arayüz ve hızlı çalışma. Günlük işlerinizi akıllıca çözen, kendi geliştirdiğim bir uygulama. Windows için, tamamen ücretsiz.",
+      lead: "",
       btn: "Windows için indir",
       req: "Windows 11 / 10 (64 bit) desteklenir",
       feat_h: "Temel özellikler",
@@ -457,7 +450,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "تنزيل",
       eyebrow: "لنظام ويندوز · مجاني بالكامل",
       h1: '<em>أداة سطح مكتب</em><br>صنعها مبتدئ في تطوير التطبيقات',
-      lead: "واجهة أنيقة وأداء سريع. تطبيق من تطويري يحل مهامك اليومية بذكاء. لنظام ويندوز ومجاني بالكامل.",
+      lead: "",
       btn: "تنزيل لنظام ويندوز",
       req: "يدعم ويندوز 11 / 10 (64 بت)",
       feat_h: "الميزات الرئيسية",
@@ -475,7 +468,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "Unduh",
       eyebrow: "Untuk Windows · Sepenuhnya gratis",
       h1: '<em>Alat desktop</em><br>buatan pemula di dunia pembuatan aplikasi',
-      lead: "Antarmuka yang rapi dan kinerja yang gesit. Aplikasi buatan sendiri yang menyelesaikan tugas harian Anda dengan cerdas. Untuk Windows dan sepenuhnya gratis.",
+      lead: "",
       btn: "Unduh untuk Windows",
       req: "Mendukung Windows 11 / 10 (64-bit)",
       feat_h: "Fitur utama",
@@ -493,7 +486,7 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
       nav_dl: "다운로드",
       eyebrow: "Windows 지원 · 완전 무료",
       h1: '앱 제작 초보자가 만든<br><em>데스크톱 도구</em>',
-      lead: "세련된 UI와 가벼운 동작. 직접 만든 앱으로 일상의 작업을 스마트하게 해결합니다. Windows 지원, 완전 무료.",
+      lead: "",
       btn: "Windows용 다운로드",
       req: "지원 OS: Windows 11 / 10 (64비트)",
       feat_h: "주요 특징",
@@ -525,7 +518,6 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
     try { localStorage.setItem("gq-lang", lang); } catch (e) {}
   }
 
-  // 初期言語: 前回の選択 → ブラウザの言語 → 英語
   function detect() {
     var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
     for (var i = 0; i < list.length; i++) {
@@ -544,7 +536,6 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem
   if (DOWNLOAD_URL) {
     document.querySelectorAll(".js-dl").forEach(function (a) { a.setAttribute("href", DOWNLOAD_URL); });
   } else {
-    // URL未設定の間は、ページ内のダウンロード欄までスクロールするだけにする
     document.querySelectorAll(".dl .js-dl").forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); });
     });
