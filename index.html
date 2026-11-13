@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="アプリ作成初心者が作成した無料デスクトップツール get-quicknote。軽快な動作で、完全無料。">
-<title>get-quicknote</title>
+<meta name="description" content="アプリ作成初心者が作成した無料デスクトップツール一覧。軽快な動作で、完全無料。">
+<title>自作アプリ一覧 - get-quicknote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
@@ -69,34 +69,42 @@ a { color: inherit; }
 .nav-dl:hover { background: var(--accent-soft); }
 
 /* Hero */
-.hero { display: block; padding-block: 60px 80px; width: 100%; text-align: left; }
+.hero { display: block; padding-block: 50px 40px; width: 100%; text-align: left; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; line-height: 1.4; color: var(--accent-strong); background: var(--accent-soft); padding: 8px 16px; border-radius: 999px; }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
-h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 4.2rem); line-height: 1.25; letter-spacing: -0.02em; margin: 24px 0 0; width: 100%; word-break: normal; overflow-wrap: normal; white-space: nowrap; }
-:root:lang(ar) h1 { line-height: 1.5; white-space: normal; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 4.2rem); line-height: 1.25; letter-spacing: -0.02em; margin: 24px 0 0; width: 100%; }
 h1 em { font-style: normal; color: var(--accent); }
-.cta { margin-top: 40px; }
-.btn { display: inline-flex; align-items: center; gap: 10px; font: inherit; font-weight: 700; font-size: 1.05rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 16px 32px; border-radius: 999px; text-decoration: none; box-shadow: 0 12px 26px -10px rgba(37, 99, 235, 0.6); transition: transform 0.15s, background 0.15s; }
+
+/* Apps List Section */
+.apps-section { padding-bottom: 80px; }
+.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 32px; margin-top: 32px; }
+.app-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px -10px rgba(15, 27, 51, 0.08); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
+.app-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -12px rgba(37, 99, 235, 0.18); }
+
+/* App Preview Image */
+.app-image { width: 100%; aspect-ratio: 16 / 10; background: #0F172A; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid var(--line); display: grid; place-items: center; }
+.app-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app-image-placeholder { color: #8FA0C4; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 12px; }
+
+.app-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin: 0 0 12px; color: var(--ink); }
+.app-info p { margin: 0 0 24px; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; font-size: 1.05rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 16px 28px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 22px -8px rgba(37, 99, 235, 0.6); transition: transform 0.15s, background 0.15s; width: 100%; }
 .btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
 .btn svg { flex: none; }
-/* 対応OS表記のフォントサイズを大きく調整 (例: 1.15rem) */
-.req { margin: 18px 0 0; font-size: 1.15rem; font-weight: 600; color: var(--muted); }
+.req { display: block; margin-top: 12px; font-size: 0.9rem; color: var(--muted); text-align: center; }
 
 /* Footer */
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
 
-@media (max-width: 980px) {
-  h1 { white-space: normal; }
-  .hero { padding-block: 30px 50px; }
-}
 @media (max-width: 480px) {
   .nav-dl { display: none; }
-  .btn { padding: 14px 22px; }
+  .btn { padding: 14px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .nav-dl, .lang-pick select { transition: none; }
-  .btn:hover { transform: none; }
+  .btn, .nav-dl, .lang-pick select, .app-card { transition: none; }
+  .btn:hover, .app-card:hover { transform: none; }
 }
 </style>
 </head>
@@ -128,7 +136,7 @@ h1 em { font-style: normal; color: var(--accent); }
       </select>
       <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </div>
-    <a class="nav-dl js-dl" href="#top" data-i18n="nav_dl">ダウンロード</a>
+    <a class="nav-dl" href="#apps" data-i18n="nav_dl">アプリ一覧</a>
   </div>
 </header>
 
@@ -137,13 +145,78 @@ h1 em { font-style: normal; color: var(--accent); }
     <div>
       <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Windows対応・完全無料</span></span>
       <h1 data-i18n="h1">アプリ作成初心者が作成した<em>無料デスクトップツール</em></h1>
-      <div class="cta">
-        <a class="btn js-dl" href="#top">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
-          <span data-i18n="btn">アプリをダウンロード (Windows用)</span>
-        </a>
-        <p class="req" data-i18n="req">対応OS: Windows 11 / 10 (64bit)</p>
+    </div>
+  </section>
+
+  <!-- 複数アプリのダウンロードセクション（画像プレビュー付き） -->
+  <section class="apps-section" id="apps">
+    <div class="apps-grid">
+      
+      <!-- アプリ1つ目 -->
+      <div class="app-card">
+        <div>
+          <!-- アプリのスクリーンショット画像を表示する領域 -->
+          <div class="app-image">
+            <!-- 画像を追加する場合は src="images/app1.png" のようにファイルパスを指定してください -->
+            <img src="" alt="get-quicknote プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+          <div class="app-info">
+            <h3>get-quicknote</h3>
+            <p>軽快な動作で日常のメモやタスクをスマートに管理できる、便利なフロートメモツールです。</p>
+          </div>
+        </div>
+        <div>
+          <a class="btn" href="app1-setup.exe">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+            <span>アプリをダウンロード (Windows用)</span>
+          </a>
+          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+        </div>
       </div>
+
+      <!-- アプリ2つ目 -->
+      <div class="app-card">
+        <div>
+          <div class="app-image">
+            <img src="" alt="アプリ名 2 プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+          <div class="app-info">
+            <h3>アプリ名 2</h3>
+            <p>ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+          </div>
+        </div>
+        <div>
+          <a class="btn" href="app2-setup.exe">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+            <span>アプリをダウンロード (Windows用)</span>
+          </a>
+          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+        </div>
+      </div>
+
+      <!-- アプリ3つ目 -->
+      <div class="app-card">
+        <div>
+          <div class="app-image">
+            <img src="" alt="アプリ名 3 プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+          <div class="app-info">
+            <h3>アプリ名 3</h3>
+            <p>ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+          </div>
+        </div>
+        <div>
+          <a class="btn" href="app3-setup.exe">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+            <span>アプリをダウンロード (Windows用)</span>
+          </a>
+          <span class="req">対応OS: Windows 11 / 10 (64bit)</span>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
@@ -155,112 +228,85 @@ h1 em { font-style: normal; color: var(--accent); }
 
 <script>
 (function () {
-  var DOWNLOAD_URL = "";
   var HTML_LANG = { zh: "zh-Hans" };
 
   var dict = {
     ja: {
-      nav_dl: "ダウンロード",
+      nav_dl: "アプリ一覧",
       eyebrow: "Windows対応・完全無料",
       h1: 'アプリ作成初心者が作成した<em>無料デスクトップツール</em>',
-      btn: "アプリをダウンロード (Windows用)",
-      req: "対応OS: Windows 11 / 10 (64bit)",
       foot: "アプリ作成初心者が作成した無料デスクトップツール"
     },
     en: {
-      nav_dl: "Download",
+      nav_dl: "Apps",
       eyebrow: "For Windows · Completely free",
       h1: 'A free <em>desktop tool</em> built by an app-making beginner',
-      btn: "Download for Windows",
-      req: "Supports Windows 11 / 10 (64-bit)",
       foot: "A free desktop tool built by an app-making beginner"
     },
     es: {
-      nav_dl: "Descargar",
+      nav_dl: "Aplicaciones",
       eyebrow: "Para Windows · Totalmente gratis",
       h1: 'Una <em>herramienta de escritorio</em> gratuita creada por un principiante',
-      btn: "Descargar para Windows",
-      req: "Compatible con Windows 11 / 10 (64 bits)",
       foot: "Una herramienta de escritorio gratuita creada por un principiante"
     },
     zh: {
-      nav_dl: "下载",
+      nav_dl: "应用列表",
       eyebrow: "支持 Windows · 完全免费",
       h1: '由应用制作新手开发的<em>免费桌面工具</em>',
-      btn: "下载 Windows 版",
-      req: "支持系统:Windows 11 / 10(64 位)",
       foot: "由应用制作新手开发的免费桌面工具"
     },
     fr: {
-      nav_dl: "Télécharger",
+      nav_dl: "Applications",
       eyebrow: "Pour Windows · Entièrement gratuit",
       h1: 'Un <em>outil de bureau</em> gratuit créé par un débutant',
-      btn: "Télécharger pour Windows",
-      req: "Compatible avec Windows 11 / 10 (64 bits)",
       foot: "Un outil de bureau gratuit créé par un débutant"
     },
     de: {
-      nav_dl: "Herunterladen",
+      nav_dl: "Apps",
       eyebrow: "Für Windows · Völlig kostenlos",
       h1: 'Ein kostenloses <em>Desktop-Tool</em>, entwickelt von einem Einsteiger',
-      btn: "Für Windows herunterladen",
-      req: "Unterstützt Windows 11 / 10 (64-Bit)",
       foot: "Ein kostenloses Desktop-Tool von einem Einsteiger"
     },
     pt: {
-      nav_dl: "Baixar",
+      nav_dl: "Aplicativos",
       eyebrow: "Para Windows · Totalmente grátis",
       h1: 'Uma <em>ferramenta de desktop</em> gratuita criada por um iniciante',
-      btn: "Baixar para Windows",
-      req: "Compatível com Windows 11 / 10 (64 bits)",
       foot: "Uma ferramenta de desktop gratuita criada por um iniciante"
     },
     ru: {
-      nav_dl: "Скачать",
+      nav_dl: "Приложения",
       eyebrow: "Для Windows · Полностью бесплатно",
       h1: 'Бесплатное <em>настольное приложение</em>, созданное новичком',
-      btn: "Скачать для Windows",
-      req: "Поддерживаются Windows 11 / 10 (64-бит)",
       foot: "Бесплатное настольное приложение от новичка"
     },
     it: {
-      nav_dl: "Scarica",
+      nav_dl: "App",
       eyebrow: "Per Windows · Completamente gratis",
       h1: 'Uno <em>strumento desktop</em> gratuito creato da un principiante',
-      btn: "Scarica per Windows",
-      req: "Compatibile con Windows 11 / 10 (64 bit)",
       foot: "Uno strumento desktop gratuito creato da un principiante"
     },
     tr: {
-      nav_dl: "İndir",
+      nav_dl: "Uygulamalar",
       eyebrow: "Windows için · Tamamen ücretsiz",
       h1: 'Yeni başlayan biri tarafından yapılan ücretsiz <em>masaüstü aracı</em>',
-      btn: "Windows için indir",
-      req: "Windows 11 / 10 (64 bit) desteklenir",
       foot: "Yeni başlayan biri tarafından yapılmış ücretsiz masaüstü aracı"
     },
     ar: {
-      nav_dl: "تنزيل",
+      nav_dl: "التطبيقات",
       eyebrow: "لنظام ويندوز · مجاني بالكامل",
       h1: '<em>أداة سطح مكتب</em> مجانية صنعها مبتدئ',
-      btn: "تنزيل لنظام ويندوز",
-      req: "يدعم ويندوز 11 / 10 (64 بت)",
       foot: "أداة سطح مكتب مجانية صنعها مبتدئ"
     },
     id: {
-      nav_dl: "Unduh",
+      nav_dl: "Aplikasi",
       eyebrow: "Untuk Windows · Sepenuhnya gratis",
       h1: '<em>Alat desktop</em> gratis buatan seorang pemula',
-      btn: "Unduh untuk Windows",
-      req: "Mendukung Windows 11 / 10 (64-bit)",
       foot: "Alat desktop gratis buatan seorang pemula"
     },
     ko: {
-      nav_dl: "다운로드",
+      nav_dl: "앱 목록",
       eyebrow: "Windows 지원 · 완전 무료",
       h1: '앱 제작 초보자가 만든 <em>무료 데스크톱 도구</em>',
-      btn: "Windows용 다운로드",
-      req: "지원 OS: Windows 11 / 10 (64비트)",
       foot: "앱 제작 초보자가 만든 무료 데스크톱 도구"
     }
   };
@@ -295,14 +341,6 @@ h1 em { font-style: normal; color: var(--accent); }
   try { saved = localStorage.getItem("gq-lang"); } catch (e) {}
   select.addEventListener("change", function () { setLang(select.value); });
   setLang(saved && dict[saved] ? saved : detect());
-
-  if (DOWNLOAD_URL) {
-    document.querySelectorAll(".js-dl").forEach(function (a) { a.setAttribute("href", DOWNLOAD_URL); });
-  } else {
-    document.querySelectorAll(".js-dl").forEach(function (a) {
-      a.addEventListener("click", function (e) { e.preventDefault(); });
-    });
-  }
 })();
 </script>
 </body>
