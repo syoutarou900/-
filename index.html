@@ -28,7 +28,7 @@
 :root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
 :root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
 :root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
@@ -150,11 +150,11 @@ h1 em { font-style: normal; color: var(--accent); }
     </div>
   </section>
 
-  <!-- 複数アプリのダウンロードセクション -->
+  <!-- アプリ一覧セクション -->
   <section class="apps-section" id="apps">
     <div class="apps-grid">
       
-      <!-- アプリ1つ目 (DropLauncher) -->
+      <!-- 1. DropLauncher -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -168,7 +168,6 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
         </div>
         <div>
-          <!-- DropLauncher: GitHub Releases のダウンロードURL(Windows用 / Mac用) -->
           <a class="btn" href="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-Windows.zip">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
             <span data-i18n="btn_text">アプリをダウンロード (Windows用)</span>
@@ -182,7 +181,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ2つ目 -->
+      <!-- 2. VersionDetective -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -191,7 +190,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app2_title">VersionDetective（バージョンディテクティブ）</h3>
-            <p data-i18n="app2_desc">ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app2_desc">「どれが本当の最新版？」を、ファイルの中身で見分けるアプリ。フォルダを入れると、内容がまったく同じファイルと、同じ文書の別バージョンらしいファイルをグループにまとめます。最新候補は時系列の系図で表示され、本文の更新日時など根拠も一緒に示します。文章や表の差分も確認可能。古い版を勝手に消すことはなく、承認したファイルだけを保管用フォルダへ移動します（取り消しもできます）。</p>
           </div>
         </div>
         <div>
@@ -208,7 +207,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ3つ目 -->
+      <!-- 3. UniList -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -217,7 +216,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app3_title">UniList（ユニリスト）</h3>
-            <p data-i18n="app3_desc">ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app3_desc">顧客・取引先リストの重複を、安全に1件にまとめるアプリ。名前・電話・メール・住所などの表記をそろえたうえで、完全に一致する重複候補だけを提示します。候補は左右に並べて見比べ、残す項目を選んで、人が承認したものだけを統合。元のファイルは書き換えず、統合の取り消しもできます。あいまいな判定で別の会社を候補に挙げることはありません。</p>
           </div>
         </div>
         <div>
@@ -234,7 +233,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ4つ目 -->
+      <!-- 4. TranscribeGuard -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -243,7 +242,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app4_title">TranscribeGuard（トランスクライブガード）</h3>
-            <p data-i18n="app4_desc">ここに4つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app4_desc">資料からシステムへの転記ミスを、入力しながら防ぐアプリ。PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入力欄とその場で照合します。転記できた項目は薄く消え、桁数や合計が合わない箇所は赤く警告。最後に「未入力が○件」と表示されるので、写し残しに気づけます。</p>
           </div>
         </div>
         <div>
@@ -260,7 +259,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ5つ目 -->
+      <!-- 5. TashikaMail -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -269,7 +268,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app5_title">TashikaMail（タシカメール）</h3>
-            <p data-i18n="app5_desc">ここに5つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app5_desc">見積書・請求書メールを送る前の、最終チェックアプリ。本文と添付ファイルの金額・日付・会社名・文書番号を読み比べて、食い違いがあれば理由と根拠つきで信号機のように表示します。宛先のドメインと会社名の不一致、古い版の添付、文字化けの恐れもチェック。画像添付やスキャンPDFは文字読み取り（OCR）で確認します。送信機能はなく、最後に送る判断は人が行います。</p>
           </div>
         </div>
         <div>
@@ -286,7 +285,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ6つ目 -->
+      <!-- 6. StepOnce -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -295,7 +294,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app6_title">StepOnce（ステップワンス）</h3>
-            <p data-i18n="app6_desc">ここに6つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app6_desc">ふだんの操作を記録するだけで、手順書の下書きができるアプリ。記録を始めて、いつも通り操作すると、クリックごとに画面の写真を撮り、押したボタンの名前から説明文の下書きを作ります。パスワード入力欄はモザイクの候補として示されます（自動ではかけません）。仕上げた手順書は、PDFとWordで13言語に書き出せます。キーボードで打った内容は記録しません。※Macでは、ボタンを押して記録する手動方式です。</p>
           </div>
         </div>
         <div>
@@ -312,7 +311,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ7つ目 -->
+      <!-- 7. RedactShot -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -321,7 +320,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app7_title">RedactShot（リダクトショット）</h3>
-            <p data-i18n="app7_desc">ここに7つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app7_desc">スクリーンショットを共有する前に、見せたくない情報を消すアプリ。メールアドレス、電話番号、カード番号らしい並び、金額、パスワード欄の候補などを自動で検出し、モザイク・ぼかし・黒塗りで隠します。項目ごとにオン・オフでき、自分で範囲を指定して隠すことも可能。消す強さは「絶対に読めない」レベルに固定されています。元の画像は変更せず、書き出し前に最終確認の画面が出ます。ネットにつながなくても使えます。</p>
           </div>
         </div>
         <div>
@@ -338,7 +337,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ8つ目 -->
+      <!-- 8. PurePaste -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -346,8 +345,8 @@ h1 em { font-style: normal; color: var(--accent); }
             <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
-            <h3 data-i18n="app8_title">PurePaste（ピュアペースト）</h3>
-            <p data-i18n="app8_desc">ここに8つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <h3 data-i18n="app8_title">PurePaste（ピュアパステル）</h3>
+            <p data-i18n="app8_desc">コピーした文章を、その場できれいに整える常駐アプリ。WebやPDFからコピーしたときに入る変な改行、余分な空白、全角と半角の混在などを、コピーした瞬間に自動で整形します。ルールごとにオン・オフでき、一時停止や「元の文に戻す」も可能。トレイに常駐して、ふだんの作業を邪魔しません。</p>
           </div>
         </div>
         <div>
@@ -364,7 +363,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ9つ目 -->
+      <!-- 9. MatchDetective -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -373,7 +372,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app9_title">MatchDetective（マッチディテクティブ）</h3>
-            <p data-i18n="app9_desc">ここに9つ目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app9_desc">2つの表のズレを、理由つきで見つける突き合わせアプリ。自社の表と相手の表を読み込むと、会社名の法人格（株式会社・Inc.など）や表記のゆれをそろえて照合し、結果を「片方にだけある」「金額・数が違う」「表記違いだが同じ相手らしい」の3種類に分けて、理由と確からしさと一緒に提示します。あいまいな推測では候補に挙げないので、別の会社を取り違える心配がありません。</p>
           </div>
         </div>
         <div>
@@ -390,7 +389,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ10つ目 -->
+      <!-- 10. FormatPassport -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -399,7 +398,7 @@ h1 em { font-style: normal; color: var(--accent); }
           </div>
           <div class="app-info">
             <h3 data-i18n="app10_title">FormatPassport（フォーマットパスポート）</h3>
-            <p data-i18n="app10_desc">ここに10個目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <p data-i18n="app10_desc">国ごとに違う「書き方の形式」を、相手の国の形式に変換するアプリ。日付の並び順、小数点と桁区切り、CSVの区切り文字、文字コード、全角・半角、和暦と西暦などを、送り手と受け手の国に合わせて変換し、変換前と後を並べて確認できます。「03/04」のような曖昧な表記は自動で変えず、要確認リストに残します。金額の通貨換算も、中央銀行などの公式レートで行えます。</p>
           </div>
         </div>
         <div>
@@ -416,7 +415,7 @@ h1 em { font-style: normal; color: var(--accent); }
         </div>
       </div>
 
-      <!-- アプリ11個目 -->
+      <!-- 11. ContextStruct -->
       <div class="app-card">
         <div>
           <div class="app-image">
@@ -424,8 +423,8 @@ h1 em { font-style: normal; color: var(--accent); }
             <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
-            <h3 data-i18n="app11_title">ContextStruct（コンテキストストラクト）</h3>
-            <p data-i18n="app11_desc">ここに11個目の自作アプリの説明文や特徴を簡潔に記載します。</p>
+            <h3 data-i18n="app11_title">ContextStruct（コンテキスト・ストラクト）</h3>
+            <p data-i18n="app11_desc">バラバラな資料を、表の形に整理するアプリ。FAXのPDF、スキャンした納品書、取引先のWebカタログなど、形式の決まっていない資料を読み取り、品名・数量・単価・金額などを項目として抜き出して表にします。読み取りの確からしさは色で表示され、その場で直すことも可能。Excel・CSV・JSONで書き出せます。読み取りAIはパソコンの中で動くため、ネットにつながなくても使えます。</p>
           </div>
         </div>
         <div>
@@ -441,482 +440,41 @@ h1 em { font-style: normal; color: var(--accent); }
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
         </div>
       </div>
+
+      <!-- 12. GlobalHours -->
+      <div class="app-card">
+        <div>
+          <div class="app-image">
+            <img src="" alt="GlobalHours プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+          <div class="app-info">
+            <h3 data-i18n="app12_title">GlobalHours（グローバルアワーズ）</h3>
+            <p data-i18n="app12_desc">世界中の取引先の「今の営業時間」が、ひと目で分かるアプリ。取引先の国と都市を登録しておくと、自分の日時に対して相手が何時で、営業時間内か、週末か、祝日かが、24時間の帯の並びで一目で分かります。双方の営業時間に収まる候補も提示し、相手の言語でそのまま使える提案文も作れます。送信は自分で行う形で、送信機能はありません。</p>
+          </div>
+        </div>
+        <div>
+          <a class="btn" href="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-Windows.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+            <span data-i18n="btn_text">アプリをダウンロード (Windows用)</span>
+          </a>
+          <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+          <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-Mac.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
+          </a>
+          <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
 
 <footer class="wrap foot">
-  <span>&copy; 2026 get-quicknote</span>
-  <span data-i18n="foot">アプリ作成初心者が作成した無料デスクトップツール</span>
+  <div>&copy; get-quicknote</div>
+  <div>Desktop Tools Collection</div>
 </footer>
 
-<script>
-(function () {
-  var HTML_LANG = { zh: "zh-Hans" };
-
-  var dict = {
-    ja: {
-      nav_dl: "アプリ一覧",
-      eyebrow: "Windows・Mac対応・完全無料",
-      h1: 'アプリ作成初心者が作成した<em>無料デスクトップツール</em>',
-      preview_text: "アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)",
-      app1_title: "DropLauncher（ドロップランチャー）",
-      app1_desc: "小さなパネルにファイルをドラッグ＆ドロップするだけで、ファイルの仕分けや名前の変更、画像・PDF・動画・Excelの変換、ZIPの圧縮・解凍などを自動で処理します。面倒な設定は不要で、やりたい作業の枠にファイルを入れるだけ。\n毎日のパソコン作業の「ちょっとした手間」をまとめて引き受けます。",
-      app2_title: "VersionDetective（バージョンディテクティブ）",
-      app2_desc: "ここに2つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app3_title: "UniList（ユニリスト）",
-      app3_desc: "ここに3つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app4_title: "TranscribeGuard（トランスクライブガード）",
-      app4_desc: "ここに4つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app5_title: "TashikaMail（タシカメール）",
-      app5_desc: "ここに5つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app6_title: "StepOnce（ステップワンス）",
-      app6_desc: "ここに6つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app7_title: "RedactShot（リダクトショット）",
-      app7_desc: "ここに7つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app8_title: "PurePaste（ピュアペースト）",
-      app8_desc: "ここに8つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app9_title: "MatchDetective（マッチディテクティブ）",
-      app9_desc: "ここに9つ目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app10_title: "FormatPassport（フォーマットパスポート）",
-      app10_desc: "ここに10個目の自作アプリの説明文や特徴を簡潔に記載します。",
-      app11_title: "ContextStruct（コンテキストストラクト）",
-      app11_desc: "ここに11個目の自作アプリの説明文や特徴を簡潔に記載します。",
-      btn_text: "アプリをダウンロード (Windows用)",
-      btn_text_mac: "アプリをダウンロード (Mac用)",
-      req_mac: "macOS 11以降。Intel製とApple Siliconの両チップ対応です。",
-      req_os: "対応OS: Windows 11 / 10 (64bit)",
-      foot: "アプリ作成初心者が作成した無料デスクトップツール"
-    },
-    en: {
-      nav_dl: "Apps",
-      eyebrow: "For Windows & Mac · Completely free",
-      h1: 'A free <em>desktop tool</em> built by an app-making beginner',
-      preview_text: "App Image Preview<br>(Screenshot will be displayed here)",
-      app1_title: "DropLauncher",
-      app1_desc: "Just drag & drop files onto its small panel to automatically sort, rename, convert images, PDFs, videos, and Excel files, and handle ZIP compression. No complex setup required—just drop files into the box for the task you want.",
-      app2_title: "VersionDetective",
-      app2_desc: "Briefly describe the features of your second custom app here.",
-      app3_title: "UniList",
-      app3_desc: "Briefly describe the features of your third custom app here.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Briefly describe the features of your fourth custom app here.",
-      app5_title: "TashikaMail",
-      app5_desc: "Briefly describe the features of your fifth custom app here.",
-      app6_title: "StepOnce",
-      app6_desc: "Briefly describe the features of your sixth custom app here.",
-      app7_title: "RedactShot",
-      app7_desc: "Briefly describe the features of your seventh custom app here.",
-      app8_title: "PurePaste",
-      app8_desc: "Briefly describe the features of your eighth custom app here.",
-      app9_title: "MatchDetective",
-      app9_desc: "Briefly describe the features of your ninth custom app here.",
-      app10_title: "FormatPassport",
-      app10_desc: "Briefly describe the features of your tenth custom app here.",
-      app11_title: "ContextStruct",
-      app11_desc: "Briefly describe the features of your eleventh custom app here.",
-      btn_text: "Download for Windows",
-      btn_text_mac: "Download for Mac",
-      req_mac: "Requires macOS 11 or later. Works on both Intel and Apple Silicon chips.",
-      req_os: "Supports Windows 11 / 10 (64-bit)",
-      foot: "A free desktop tool built by an app-making beginner"
-    },
-    es: {
-      nav_dl: "Aplicaciones",
-      eyebrow: "Para Windows y Mac · Totalmente gratis",
-      h1: 'Una <em>herramienta de escritorio</em> gratuita creada por un principiante',
-      preview_text: "Vista previa de la app<br>(La captura aparecerá aquí)",
-      app1_title: "DropLauncher",
-      app1_desc: "Simplemente arrastra y suelta archivos en su pequeño panel para ordenar, renombrar, convertir y comprimir automáticamente.",
-      app2_title: "VersionDetective",
-      app2_desc: "Describe brevemente las características de tu segunda aplicación aquí.",
-      app3_title: "UniList",
-      app3_desc: "Describe brevemente las características de tu tercera aplicación aquí.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Describe brevemente las características de tu cuarta aplicación aquí.",
-      app5_title: "TashikaMail",
-      app5_desc: "Describe brevemente las características de tu quinta aplicación aquí.",
-      app6_title: "StepOnce",
-      app6_desc: "Describe brevemente las características de tu sexta aplicación aquí.",
-      app7_title: "RedactShot",
-      app7_desc: "Describe brevemente las características de tu séptima aplicación aquí.",
-      app8_title: "PurePaste",
-      app8_desc: "Describe brevemente las características de tu octava aplicación aquí.",
-      app9_title: "MatchDetective",
-      app9_desc: "Describe brevemente las características de tu novena aplicación aquí.",
-      app10_title: "FormatPassport",
-      app10_desc: "Describe brevemente las características de tu décima aplicación aquí.",
-      app11_title: "ContextStruct",
-      app11_desc: "Describe brevemente las características de tu undécima aplicación aquí.",
-      btn_text: "Descargar para Windows",
-      btn_text_mac: "Descargar para Mac",
-      req_mac: "Requiere macOS 11 o posterior. Compatible con chips Intel y Apple Silicon.",
-      req_os: "Compatible con Windows 11 / 10 (64 bits)",
-      foot: "Una herramienta de escritorio gratuita creada por un principiante"
-    },
-    zh: {
-      nav_dl: "应用列表",
-      eyebrow: "支持 Windows 和 Mac · 完全免费",
-      h1: '由应用制作新手开发的<em>免费桌面工具</em>',
-      preview_text: "应用图片预览<br>(此处将显示截图)",
-      app1_title: "DropLauncher（拖放启动器）",
-      app1_desc: "只需将文件拖放到小面板上，即可自动完成文件分类、重命名、图片/PDF/视频/Excel转换及ZIP压缩解压。无需繁琐设置，放入对应区域即可完成。",
-      app2_title: "VersionDetective",
-      app2_desc: "在此简要描述您的第二个自制应用的功能与特点。",
-      app3_title: "UniList",
-      app3_desc: "在此简要描述您的第三个自制应用的功能与特点。",
-      app4_title: "TranscribeGuard",
-      app4_desc: "在此简要描述您的第4个自制应用的功能与特点。",
-      app5_title: "TashikaMail",
-      app5_desc: "在此简要描述您的第5个自制应用的功能与特点。",
-      app6_title: "StepOnce",
-      app6_desc: "在此简要描述您的第6个自制应用的功能与特点。",
-      app7_title: "RedactShot",
-      app7_desc: "在此简要描述您的第7个自制应用的功能与特点。",
-      app8_title: "PurePaste",
-      app8_desc: "在此简要描述您的第8个自制应用的功能与特点。",
-      app9_title: "MatchDetective",
-      app9_desc: "在此简要描述您的第9个自制应用的功能与特点。",
-      app10_title: "FormatPassport",
-      app10_desc: "在此简要描述您的第10个自制应用的功能与特点。",
-      app11_title: "ContextStruct",
-      app11_desc: "在此简要描述您的第11个自制应用的功能与特点。",
-      btn_text: "下载 Windows 版",
-      btn_text_mac: "下载 Mac 版",
-      req_mac: "需要 macOS 11 或更高版本。同时支持 Intel 和 Apple Silicon 芯片。",
-      req_os: "支持系统:Windows 11 / 10(64 位)",
-      foot: "由应用制作新手开发的免费桌面工具"
-    },
-    fr: {
-      nav_dl: "Applications",
-      eyebrow: "Pour Windows et Mac · Entièrement gratuit",
-      h1: 'Un <em>outil de bureau</em> gratuit créé par un débutant',
-      preview_text: "Aperçu de l'application<br>(La capture d'écran s'affichera ici)",
-      app1_title: "DropLauncher",
-      app1_desc: "Glissez et déposez simplement des fichiers pour trier, renommer, convertir et compresser automatiquement.",
-      app2_title: "VersionDetective",
-      app2_desc: "Décrivez brièvement les fonctionnalités de votre deuxième application ici.",
-      app3_title: "UniList",
-      app3_desc: "Décrivez brièvement les fonctionnalités de votre troisième application ici.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Décrivez brièvement les fonctionnalités de votre quatrième application ici.",
-      app5_title: "TashikaMail",
-      app5_desc: "Décrivez brièvement les fonctionnalités de votre cinquième application ici.",
-      app6_title: "StepOnce",
-      app6_desc: "Décrivez brièvement les fonctionnalités de votre sixième application ici.",
-      app7_title: "RedactShot",
-      app7_desc: "Décrivez brièvement les fonctionnalités de votre septième application ici.",
-      app8_title: "PurePaste",
-      app8_desc: "Décrivez brièvement les fonctionnalités de votre huitième application ici.",
-      app9_title: "MatchDetective",
-      app9_desc: "Décrivez brièvement les fonctionnalités de votre neuvième application ici.",
-      app10_title: "FormatPassport",
-      app10_desc: "Décrivez brièvement les fonctionnalités de votre dixième application ici.",
-      app11_title: "ContextStruct",
-      app11_desc: "Décrivez brièvement les fonctionnalités de votre onzième application ici.",
-      btn_text: "Télécharger pour Windows",
-      btn_text_mac: "Télécharger pour Mac",
-      req_mac: "macOS 11 ou version ultérieure. Compatible avec les puces Intel et Apple Silicon.",
-      req_os: "Compatible avec Windows 11 / 10 (64 bits)",
-      foot: "Un outil de bureau gratuit créé par un débutant"
-    },
-    de: {
-      nav_dl: "Apps",
-      eyebrow: "Für Windows und Mac · Völlig kostenlos",
-      h1: 'Ein kostenloses <em>Desktop-Tool</em>, entwickelt von einem Einsteiger',
-      preview_text: "App-Vorschau<br>(Screenshot wird hier angezeigt)",
-      app1_title: "DropLauncher",
-      app1_desc: "Einfach Dateien per Drag & Drop auf das kleine Panel ziehen, um Sortierung, Konvertierung und Komprimierung automatisch zu erledigen.",
-      app2_title: "VersionDetective",
-      app2_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer zweiten App.",
-      app3_title: "UniList",
-      app3_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer dritten App.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer vierten App.",
-      app5_title: "TashikaMail",
-      app5_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer fünften App.",
-      app6_title: "StepOnce",
-      app6_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer sechsten App.",
-      app7_title: "RedactShot",
-      app7_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer siebten App.",
-      app8_title: "PurePaste",
-      app8_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer achten App.",
-      app9_title: "MatchDetective",
-      app9_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer neunten App.",
-      app10_title: "FormatPassport",
-      app10_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer zehnten App.",
-      app11_title: "ContextStruct",
-      app11_desc: "Beschreiben Sie hier kurz die Funktionen Ihrer elften App.",
-      btn_text: "Für Windows herunterladen",
-      btn_text_mac: "Für Mac herunterladen",
-      req_mac: "macOS 11 oder neuer. Unterstützt Intel- und Apple-Silicon-Chips.",
-      req_os: "Unterstützt Windows 11 / 10 (64-Bit)",
-      foot: "Ein kostenloses Desktop-Tool von einem Einsteiger"
-    },
-    pt: {
-      nav_dl: "Aplicativos",
-      eyebrow: "Para Windows e Mac · Totalmente grátis",
-      h1: 'Uma <em>ferramenta de desktop</em> gratuita criada por um iniciante',
-      preview_text: "Pré-visualização do app<br>(A captura de tela aparecerá aqui)",
-      app1_title: "DropLauncher",
-      app1_desc: "Basta arrastar e soltar arquivos no painel para classificar, renomear, converter e compactar automaticamente.",
-      app2_title: "VersionDetective",
-      app2_desc: "Descreva brevemente os recursos do seu segundo aplicativo aqui.",
-      app3_title: "UniList",
-      app3_desc: "Descreva brevemente os recursos do seu terceiro aplicativo aqui.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Descreva brevemente os recursos do seu quarto aplicativo aqui.",
-      app5_title: "TashikaMail",
-      app5_desc: "Descreva brevemente os recursos do seu quinto aplicativo aqui.",
-      app6_title: "StepOnce",
-      app6_desc: "Descreva brevemente os recursos do seu sexto aplicativo aqui.",
-      app7_title: "RedactShot",
-      app7_desc: "Descreva brevemente os recursos do seu sétimo aplicativo aqui.",
-      app8_title: "PurePaste",
-      app8_desc: "Descreva brevemente os recursos do seu oitavo aplicativo aqui.",
-      app9_title: "MatchDetective",
-      app9_desc: "Descreva brevemente os recursos do seu nono aplicativo aqui.",
-      app10_title: "FormatPassport",
-      app10_desc: "Descreva brevemente os recursos do seu décimo aplicativo aqui.",
-      app11_title: "ContextStruct",
-      app11_desc: "Descreva brevemente os recursos do seu décimo primeiro aplicativo aqui.",
-      btn_text: "Baixar para Windows",
-      btn_text_mac: "Baixar para Mac",
-      req_mac: "macOS 11 ou posterior. Compatível com chips Intel e Apple Silicon.",
-      req_os: "Compatível com Windows 11 / 10 (64 bits)",
-      foot: "Uma ferramenta de desktop gratuita criada por um iniciante"
-    },
-    ru: {
-      nav_dl: "Приложения",
-      eyebrow: "Для Windows и Mac · Полностью бесплатно",
-      h1: 'Бесплатное <em>настольное приложение</em>, созданное новичком',
-      preview_text: "Предпросмотр приложения<br>(Здесь будет скриншот)",
-      app1_title: "DropLauncher",
-      app1_desc: "Просто перетащите файлы на панель для автоматической сортировки, переименования, конвертации и сжатия.",
-      app2_title: "VersionDetective",
-      app2_desc: "Кратко опишите особенности вашего второго приложения здесь.",
-      app3_title: "UniList",
-      app3_desc: "Кратко опишите особенности вашего третьего приложения здесь.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Кратко опишите особенности вашего четвёртого приложения здесь.",
-      app5_title: "TashikaMail",
-      app5_desc: "Кратко опишите особенности вашего пятого приложения здесь.",
-      app6_title: "StepOnce",
-      app6_desc: "Кратко опишите особенности вашего шестого приложения здесь.",
-      app7_title: "RedactShot",
-      app7_desc: "Кратко опишите особенности вашего седьмого приложения здесь.",
-      app8_title: "PurePaste",
-      app8_desc: "Кратко опишите особенности вашего восьмого приложения здесь.",
-      app9_title: "MatchDetective",
-      app9_desc: "Кратко опишите особенности вашего девятого приложения здесь.",
-      app10_title: "FormatPassport",
-      app10_desc: "Кратко опишите особенности вашего десятого приложения здесь.",
-      app11_title: "ContextStruct",
-      app11_desc: "Кратко опишите особенности вашего одиннадцатого приложения здесь.",
-      btn_text: "Скачать для Windows",
-      btn_text_mac: "Скачать для Mac",
-      req_mac: "macOS 11 или новее. Поддерживаются процессоры Intel и Apple Silicon.",
-      req_os: "Поддерживаются Windows 11 / 10 (64-бит)",
-      foot: "Бесплатное настольное приложение от новичка"
-    },
-    it: {
-      nav_dl: "App",
-      eyebrow: "Per Windows e Mac · Completamente gratis",
-      h1: 'Uno <em>strumento desktop</em> gratuito creato da un principiante',
-      preview_text: "Anteprima app<br>(Lo screenshot verrà mostrato qui)",
-      app1_title: "DropLauncher",
-      app1_desc: "Trascina e rilascia i file per ordinare, rinominare, convertire e comprimere automaticamente.",
-      app2_title: "VersionDetective",
-      app2_desc: "Descrivi brevemente le caratteristiche della tua seconda app qui.",
-      app3_title: "UniList",
-      app3_desc: "Descrivi brevemente le caratteristiche della tua terza app qui.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Descrivi brevemente le caratteristiche della tua quarta app qui.",
-      app5_title: "TashikaMail",
-      app5_desc: "Descrivi brevemente le caratteristiche della tua quinta app qui.",
-      app6_title: "StepOnce",
-      app6_desc: "Descrivi brevemente le caratteristiche della tua sesta app qui.",
-      app7_title: "RedactShot",
-      app7_desc: "Descrivi brevemente le caratteristiche della tua settima app qui.",
-      app8_title: "PurePaste",
-      app8_desc: "Descrivi brevemente le caratteristiche della tua ottava app qui.",
-      app9_title: "MatchDetective",
-      app9_desc: "Descrivi brevemente le caratteristiche della tua nona app qui.",
-      app10_title: "FormatPassport",
-      app10_desc: "Descrivi brevemente le caratteristiche della tua decima app qui.",
-      app11_title: "ContextStruct",
-      app11_desc: "Descrivi brevemente le caratteristiche della tua undicesima app qui.",
-      btn_text: "Scarica per Windows",
-      btn_text_mac: "Scarica per Mac",
-      req_mac: "macOS 11 o successivo. Compatibile con chip Intel e Apple Silicon.",
-      req_os: "Compatibile con Windows 11 / 10 (64 bit)",
-      foot: "Uno strumento desktop gratuito creato da un principiante"
-    },
-    tr: {
-      nav_dl: "Uygulamalar",
-      eyebrow: "Windows ve Mac için · Tamamen ücretsiz",
-      h1: 'Yeni başlayan biri tarafından yapılan ücretsiz <em>masaüstü aracı</em>',
-      preview_text: "Uygulama Önizlemesi<br>(Ekran görüntüsü burada görünecek)",
-      app1_title: "DropLauncher",
-      app1_desc: "Dosyaları panoya sürükleyip bırakarak sıralama, yeniden adlandırma ve dönüştürme işlemlerini otomatik yapın.",
-      app2_title: "VersionDetective",
-      app2_desc: "İkinci uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app3_title: "UniList",
-      app3_desc: "Üçüncü uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Dördüncü uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app5_title: "TashikaMail",
-      app5_desc: "Beşinci uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app6_title: "StepOnce",
-      app6_desc: "Altıncı uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app7_title: "RedactShot",
-      app7_desc: "Yedinci uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app8_title: "PurePaste",
-      app8_desc: "Sekizinci uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app9_title: "MatchDetective",
-      app9_desc: "Dokuzuncu uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app10_title: "FormatPassport",
-      app10_desc: "Onuncu uygulamanızın özelliklerini burada kısaca açıklayın.",
-      app11_title: "ContextStruct",
-      app11_desc: "On birinci uygulamanızın özelliklerini burada kısaca açıklayın.",
-      btn_text: "Windows için indir",
-      btn_text_mac: "Mac için indir",
-      req_mac: "macOS 11 veya üzeri. Hem Intel hem de Apple Silicon çiplerle uyumludur.",
-      req_os: "Windows 11 / 10 (64 bit) desteklenir",
-      foot: "Yeni başlayan biri tarafından yapılmış ücretsiz masaüstü aracı"
-    },
-    ar: {
-      nav_dl: "التطبيقات",
-      eyebrow: "لنظامي ويندوز وماك · مجاني بالكامل",
-      h1: '<em>أداة سطح مكتب</em> مجانية صنعها مبتدئ',
-      preview_text: "معاينة التطبيق<br>( ستظهر لقطة الشاشة هنا )",
-      app1_title: "DropLauncher",
-      app1_desc: "فقط قم بالسحب والإفلات لفرز الملفات، إعادة تسميتها، وتحويلها تلقائياً بكل سهولة.",
-      app2_title: "VersionDetective",
-      app2_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الثاني هنا.",
-      app3_title: "UniList",
-      app3_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الثالث هنا.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الرابع هنا.",
-      app5_title: "TashikaMail",
-      app5_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الخامس هنا.",
-      app6_title: "StepOnce",
-      app6_desc: "اكتب وصفًا موجزًا لميزات تطبيقك السادس هنا.",
-      app7_title: "RedactShot",
-      app7_desc: "اكتب وصفًا موجزًا لميزات تطبيقك السابع هنا.",
-      app8_title: "PurePaste",
-      app8_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الثامن هنا.",
-      app9_title: "MatchDetective",
-      app9_desc: "اكتب وصفًا موجزًا لميزات تطبيقك التاسع هنا.",
-      app10_title: "FormatPassport",
-      app10_desc: "اكتب وصفًا موجزًا لميزات تطبيقك العاشر هنا.",
-      app11_title: "ContextStruct",
-      app11_desc: "اكتب وصفًا موجزًا لميزات تطبيقك الحادي عشر هنا.",
-      btn_text: "تنزيل لنظام ويندوز",
-      btn_text_mac: "تنزيل لنظام ماك",
-      req_mac: "يتطلب macOS 11 أو أحدث. يدعم شريحتي Intel وApple Silicon.",
-      req_os: "يدعم ويندوز 11 / 10 (64 بت)",
-      foot: "أداة سطح مكتب مجانية صنعها مبتدئ"
-    },
-    id: {
-      nav_dl: "Aplikasi",
-      eyebrow: "Untuk Windows dan Mac · Sepenuhnya gratis",
-      h1: '<em>Alat desktop</em> gratis buatan seorang pemula',
-      preview_text: "Pratinjau Aplikasi<br>(Tangkapan layar akan muncul di sini)",
-      app1_title: "DropLauncher",
-      app1_desc: "Cukup seret dan letakkan file untuk menyortir, mengubah nama, dan mengonversi secara otomatis.",
-      app2_title: "VersionDetective",
-      app2_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kedua di sini.",
-      app3_title: "UniList",
-      app3_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang ketiga di sini.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang keempat di sini.",
-      app5_title: "TashikaMail",
-      app5_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kelima di sini.",
-      app6_title: "StepOnce",
-      app6_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang keenam di sini.",
-      app7_title: "RedactShot",
-      app7_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang ketujuh di sini.",
-      app8_title: "PurePaste",
-      app8_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kedelapan di sini.",
-      app9_title: "MatchDetective",
-      app9_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kesembilan di sini.",
-      app10_title: "FormatPassport",
-      app10_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kesepuluh di sini.",
-      app11_title: "ContextStruct",
-      app11_desc: "Jelaskan secara singkat fitur aplikasi buatan Anda yang kesebelas di sini.",
-      btn_text: "Unduh untuk Windows",
-      btn_text_mac: "Unduh untuk Mac",
-      req_mac: "macOS 11 atau yang lebih baru. Mendukung chip Intel dan Apple Silicon.",
-      req_os: "Mendukung Windows 11 / 10 (64-bit)",
-      foot: "Alat desktop gratis buatan seorang pemula"
-    },
-    ko: {
-      nav_dl: "앱 목록",
-      eyebrow: "Windows·Mac 지원 · 완전 무료",
-      h1: '앱 제작 초보자가 만든 <em>무료 데스크톱 도구</em>',
-      preview_text: "앱 미리보기 화면<br>(여기에 스크린샷이 표시됩니다)",
-      app1_title: "DropLauncher",
-      app1_desc: "작은 패널에 파일을 드래그＆드롭하는 것만으로 파일 분류, 이름 변경, 포맷 변환 및 압축/해제를 자동으로 처리합니다. 복잡한 설정 없이 원하는 작업 영역에 파일을 넣기만 하세요.",
-      app2_title: "VersionDetective",
-      app2_desc: "여기에 두 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app3_title: "UniList",
-      app3_desc: "여기에 세 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app4_title: "TranscribeGuard",
-      app4_desc: "여기에 네 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app5_title: "TashikaMail",
-      app5_desc: "여기에 다섯 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app6_title: "StepOnce",
-      app6_desc: "여기에 여섯 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app7_title: "RedactShot",
-      app7_desc: "여기에 일곱 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app8_title: "PurePaste",
-      app8_desc: "여기에 여덟 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app9_title: "MatchDetective",
-      app9_desc: "여기에 아홉 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app10_title: "FormatPassport",
-      app10_desc: "여기에 열 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      app11_title: "ContextStruct",
-      app11_desc: "여기에 열한 번째 자작 앱의 설명이나 특징을 간결하게 작성하세요.",
-      btn_text: "Windows용 다운로드",
-      btn_text_mac: "Mac용 다운로드",
-      req_mac: "macOS 11 이상. Intel 및 Apple Silicon 칩 모두 지원합니다.",
-      req_os: "지원 OS: Windows 11 / 10 (64비트)",
-      foot: "앱 제작 초보자가 만든 무료 데스크톱 도구"
-    }
-  };
-
-  var select = document.getElementById("lang");
-
-  function setLang(lang) {
-    if (!dict[lang]) lang = "en";
-    var t = dict[lang];
-    var root = document.documentElement;
-    root.lang = HTML_LANG[lang] || lang;
-    root.dir = lang === "ar" ? "rtl" : "ltr";
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var v = t[el.getAttribute("data-i18n")];
-      if (v !== undefined) el.innerHTML = v;
-    });
-    select.value = lang;
-    try { localStorage.setItem("gq-lang", lang); } catch (e) {}
-  }
-
-  function detect() {
-    var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
-    for (var i = 0; i < list.length; i++) {
-      var code = String(list[i]).toLowerCase().split("-")[0];
-      if (code === "in") code = "id";
-      if (dict[code]) return code;
-    }
-    return "en";
-  }
-
-  var saved = null;
-  try { saved = localStorage.getItem("gq-lang"); } catch (e) {}
-  select.addEventListener("change", function () { setLang(select.value); });
-  setLang(saved && dict[saved] ? saved : detect());
-})();
-</script>
 </body>
 </html>
