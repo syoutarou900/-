@@ -202,7 +202,8 @@ h1 em { font-style: normal; color: var(--accent); }
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective.png" alt="VersionDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- ID付与により言語ごとに画像が切り替わります -->
+            <img id="img-versiondetective" src="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png" alt="VersionDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -540,12 +541,29 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
 </div>
 
 <script>
-// モーダル制御（クリックされたカード内の画像URLを取得してモーダルに反映）
+// バージョン探偵の13言語分スクショファイルパス定義
+const versionDetectiveImages = {
+  ja: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png",
+  en: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-02-English.png",
+  es: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-03-Spanish.png",
+  zh: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-04-Chinese.png",
+  fr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-05-French.png",
+  de: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-06-German.png",
+  pt: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-07-Portuguese.png",
+  ru: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-08-Russian.png",
+  it: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-09-Italian.png",
+  tr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-10-Turkish.png",
+  ar: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-11-Arabic.png",
+  id: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-12-Indonesian.png",
+  ko: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-13-Korean.png"
+};
+
+// モーダル制御
 function openModal(imgEl) {
   if (!imgEl) return;
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
-  modalImg.src = imgEl.src; // 表示されている画像URLをそのままモーダルに渡す
+  modalImg.src = imgEl.src; // 現在表示されている言語の画像URLをそのままモーダルへ渡す
   modal.classList.add('active');
 }
 function closeModal() {
@@ -1046,18 +1064,18 @@ const translations = {
     app10_desc: "국가별로 다른 날짜 표기, 소수점, 구분자, 통화 단위를 상대 국가 형식에 맞게 변환해 주는 앱입니다.",
     app11_title: "ContextStruct (컨텍스트 스트럭트)",
     app11_desc: "형식 없는 문서(FAX PDF, 스캔 청구서)를 읽어 품명, 수량, 단가 등을 표 형태로 깔끔하게 정리하고 Excel/CSV로 내보냅니다.",
-    app12_title: "GlobalHours (글로벌 아워즈)",
+    app12_title: "GlobalHours (글로벌 아워ーズ)",
     app12_desc: "전 세계 거래처의 '현재 영업 시간'을 24시간 타임라인으로 한눈에 파악하고 적절한 제안 문구를 작성할 수 있는 앱입니다."
   }
 };
 
-// 言語切替処理（テキストのみを切り替え、画像は常に正常に表示されるように維持）
+// 言語切替処理（テキスト更新と同時にVersionDetectiveのプレビュー画像も切り替え）
 document.getElementById('lang').addEventListener('change', (e) => {
   const lang = e.target.value;
   document.documentElement.lang = lang;
   const t = translations[lang] || translations['ja'];
 
-  // data-i18n 属性を持つ要素のテキスト更新
+  // テキスト・属性の更新
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key]) {
@@ -1068,6 +1086,12 @@ document.getElementById('lang').addEventListener('change', (e) => {
       }
     }
   });
+
+  // VersionDetectiveの画像を言語に合わせて切り替える
+  const vdImg = document.getElementById('img-versiondetective');
+  if (vdImg && versionDetectiveImages[lang]) {
+    vdImg.src = versionDetectiveImages[lang];
+  }
 });
 </script>
 
