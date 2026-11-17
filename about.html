@@ -1,325 +1,493 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="get-quicknote の運営者情報。開発者プロフィールやお問い合わせについて。">
-<title>運営者情報 - get-quicknote</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>運営者について - 自作アプリ一覧</title>
 <style>
-:root {
-  --bg: #F5F8FD;
-  --surface: #FFFFFF;
-  --ink: #0F1B33;
-  --muted: #4F5E78;
-  --line: #DFE7F3;
-  --accent: #2563EB;
-  --accent-strong: #1D4ED8;
-  --accent-soft: #E7EFFD;
-  --glow: #C4D9FF;
-  --glow-2: #D3F4EE;
-  --cjk: "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", "Noto Sans Arabic";
-  --font-display: "Plus Jakarta Sans", "Inter", var(--cjk), system-ui, sans-serif;
-  --font-body: "Inter", var(--cjk), system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Microsoft YaHei", "Malgun Gothic", Meiryo, sans-serif;
-  color-scheme: light;
-}
-:root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
-:root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
-:root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
-*, *::before, *::after { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(circle 620px at 88% 0%, var(--glow), transparent 70%),
-    radial-gradient(circle 520px at 0% 22%, var(--glow-2), transparent 70%);
-  background-repeat: no-repeat;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.8;
-  line-break: strict;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  overflow-x: clip;
-}
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
-.wrap { max-width: 900px; margin-inline: auto; padding-inline: 24px; }
-:root:lang(ar) * { letter-spacing: 0 !important; }
-
-/* Header */
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; direction: ltr; }
-.logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 8px 16px -6px rgba(37, 99, 235, 0.55); }
-.nav-right { display: flex; align-items: center; gap: 8px; }
-.lang-pick { position: relative; display: inline-flex; align-items: center; }
-.lang-pick svg { position: absolute; top: 50%; translate: 0 -50%; pointer-events: none; }
-.lang-pick .globe { inset-inline-start: 12px; color: var(--accent); }
-.lang-pick .chev { inset-inline-end: 11px; color: var(--muted); }
-.lang-pick select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 0.85rem; font-weight: 700; line-height: 1.4; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding-block: 8px; padding-inline: 36px 32px; cursor: pointer; max-width: 100%; transition: border-color 0.15s; }
-.lang-pick select:hover { border-color: #B9CBEA; }
-.nav-back { font-size: 0.9rem; font-weight: 700; color: var(--accent-strong); text-decoration: none; padding: 8px 14px; border-radius: 999px; transition: background 0.15s; }
-.nav-back:hover { background: var(--accent-soft); }
-
-/* Main Content */
-.about-section { padding-block: 40px 80px; }
-.about-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px -10px rgba(15, 27, 51, 0.08); }
-h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.25; letter-spacing: -0.02em; margin: 0 0 24px; color: var(--ink); }
-h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin: 36px 0 16px; color: var(--ink); border-bottom: 2px solid var(--accent-soft); padding-bottom: 8px; }
-p { margin: 0 0 20px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
-ul { margin: 0 0 20px; padding-inline-start: 24px; color: var(--muted); }
-li { margin-bottom: 8px; line-height: 1.6; }
-
-/* Footer */
-.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
-
-@media (max-width: 480px) {
-  .about-card { padding: 24px; }
-}
+  body { font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Microsoft YaHei", "Malgun Gothic", "Segoe UI", sans-serif; margin: 0; background: #f7f9fc; color: #222; line-height: 1.9; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+  .topbar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+  .lang-pick { position: relative; display: inline-flex; align-items: center; }
+  .lang-pick svg { position: absolute; top: 50%; transform: translateY(-50%); pointer-events: none; }
+  .lang-pick .globe { inset-inline-start: 12px; color: #4a90d9; }
+  .lang-pick .chev { inset-inline-end: 11px; color: #666; }
+  .lang-pick select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 0.85rem; font-weight: 700; line-height: 1.4; color: #222; background: #fff; border: 1px solid #cfd9e8; border-radius: 999px; padding-block: 8px; padding-inline: 36px 32px; cursor: pointer; max-width: 100%; }
+  .lang-pick select:hover { border-color: #4a90d9; }
+  .lang-pick select:focus-visible { outline: 3px solid #4a90d9; outline-offset: 2px; }
+  h1 { font-size: 1.6rem; border-bottom: 3px solid #4a90d9; padding-bottom: 8px; }
+  h2 { font-size: 1.15rem; margin-top: 36px; color: #2c5f8a; }
+  p { margin: 10px 0; }
+  ul { margin: 10px 0; padding-inline-start: 1.4em; }
+  .note { background: #fff7e6; border: 1px solid #f0d48a; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+  a { color: #2c6fbb; }
+  a[href^="mailto"] { direction: ltr; unicode-bidi: isolate; }
+  .back { margin-top: 48px; }
+  footer { margin-top: 48px; font-size: 0.85rem; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
 </style>
 </head>
 <body>
-<header class="wrap nav">
-  <a class="brand" href="index.html" aria-label="get-quicknote">
-    <span class="logo" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
-    </span>
-    get-quicknote
-  </a>
-  <div class="nav-right">
-    <div class="lang-pick">
-      <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      <select id="lang" aria-label="Language / 言語">
-        <option value="ja" lang="ja">日本語</option>
-        <option value="en" lang="en">English</option>
-        <option value="es" lang="es">Español</option>
-        <option value="zh" lang="zh-Hans">简体中文</option>
-        <option value="fr" lang="fr">Français</option>
-        <option value="de" lang="de">Deutsch</option>
-        <option value="pt" lang="pt">Português</option>
-        <option value="ru" lang="ru">Русский</option>
-        <option value="it" lang="it">Italiano</option>
-        <option value="tr" lang="tr">Türkçe</option>
-        <option value="ar" lang="ar">العربية</option>
-        <option value="id" lang="id">Bahasa Indonesia</option>
-        <option value="ko" lang="ko">한국어</option>
-      </select>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-    </div>
-    <a class="nav-back" href="index.html" data-i18n="nav_back">トップに戻る</a>
-  </div>
-</header>
+<div class="wrap">
 
-<main class="wrap about-section">
-  <div class="about-card">
-    <h1 data-i18n="about_title">運営者情報</h1>
-    
-    <h2 data-i18n="about_h2_1">サイトについて</h2>
-    <p data-i18n="about_p_1">当サイト（get-quicknote）では、日々のパソコン作業や事務処理、ファイル整理を少しでも楽にするために、アプリ作成初心者が個人で開発した完全無料のデスクトップツールを公開・配布しています。</p>
-    
-    <h2 data-i18n="about_h2_2">開発者について</h2>
-    <p data-i18n="about_p_2">日々の業務や作業の中で感じる「ちょっとした面倒くささ」や「ミスしやすい作業」を解消するため、Pythonや各種開発ツールを用いて自分で使うためのデスクトップアプリをコツコツと作成しています。専門的な企業開発ではなく、個人の趣味および業務効率化の一環として制作したツールです。</p>
-    
-    <h2 data-i18n="about_h2_3">安全性の取り組み</h2>
-    <p data-i18n="about_p_3">公開しているすべてのアプリケーションは、第三者による安全性の確認を行うため、大手セキュリティプラットフォーム「VirusTotal」にて定期的なスキャンを実施しています。すべてのツールにおいて安全性が確認された状態でのみ配布を行っておりますので、安心してお使いいただけます。</p>
-    
-    <h2 data-i18n="about_h2_4">お問い合わせについて</h2>
-    <p data-i18n="about_p_4">アプリの不具合報告やご要望などがございましたら、GitHubの各リポジトリ、または配布ページよりお知らせいただけますと幸いです。</p>
+<div class="topbar">
+  <div class="lang-pick">
+    <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <select id="lang" aria-label="Language / 言語">
+      <option value="ja" lang="ja">日本語</option>
+      <option value="en" lang="en">English</option>
+      <option value="es" lang="es">Español</option>
+      <option value="zh" lang="zh-Hans">简体中文</option>
+      <option value="fr" lang="fr">Français</option>
+      <option value="de" lang="de">Deutsch</option>
+      <option value="pt" lang="pt">Português</option>
+      <option value="ru" lang="ru">Русский</option>
+      <option value="it" lang="it">Italiano</option>
+      <option value="tr" lang="tr">Türkçe</option>
+      <option value="ar" lang="ar">العربية</option>
+      <option value="id" lang="id">Bahasa Indonesia</option>
+      <option value="ko" lang="ko">한국어</option>
+    </select>
+    <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
   </div>
-</main>
+</div>
 
-<footer class="wrap foot">
-  <div>&copy; get-quicknote</div>
-  <div>Desktop Tools Collection</div>
+<h1 data-i18n="h1">運営者について</h1>
+
+<h2 data-i18n="who">作っている人</h2>
+<p data-i18n="p_who">日中は仕事をしながら、個人で開発をしています。活動の拠点は愛知県です。</p>
+
+<h2 data-i18n="what">何を作っているか</h2>
+<p data-i18n="p_what">日本を含む全世界で、Windows・Macを企業や個人で利用されている方々に向けたデスクトップアプリを作っています。毎日する作業の効率化や、手間のかかる作業の改善に役立つかもしれないツールを目指しています。</p>
+
+<h2 data-i18n="why">なぜ作っているか</h2>
+<p data-i18n="p_why">企業や個人の方々が日々の業務で「もっとこの作業の効率化を改善できたら」と感じる場面を少しでも良くできれば、世界中の皆さんのPC業務の負担を減らし、効率を改善できるのではないかと思いました。アプリ作成は初心者ながら、AIと共に作成してみました。</p>
+
+<h2 data-i18n="apps">このサイトのアプリについて</h2>
+<ul>
+  <li data-i18n="li1">すべて<strong>完全無料</strong>です。課金要素はありません。</li>
+  <li data-i18n="li2"><strong>Windows 10 / 11（64ビット）</strong>と<strong>macOS 11以降</strong>の両方に対応しています。</li>
+  <li data-i18n="li3">画面は<strong>13言語</strong>に対応しています。</li>
+  <li data-i18n="li4">アプリは<strong>オフラインで動作</strong>し、あなたのデータを集めることはありません。広告やアクセス解析も入れていません。</li>
+  <li data-i18n="li5">大事な操作（送信・登録・統合・削除など）の最終判断は、アプリではなく<strong>使う人</strong>が行う作りにしています。</li>
+</ul>
+
+<h2 data-i18n="honest">正直なおことわり</h2>
+<div class="note">
+  <p data-i18n="n1">・Mac版は、開発環境にMacがないため、実機での動作確認が取れていません。Mac版は「お使いのMacで組み立てるキット形式」で配布しています。</p>
+  <p data-i18n="n2">・個人開発のアプリのため、Windowsでは「SmartScreen」の警告、Macでは「開発元を確認できない」という警告が表示されることがあります。これは署名（デジタル証明書）がないためで、開き方の手順は各アプリの取扱説明書に記載しています。</p>
+  <p data-i18n="n3">・アプリは「現状のまま」の提供で、動作や結果を保証するものではありません。大事なデータは、必ず控え（バックアップ）を取ってからお使いください。</p>
+</div>
+
+<h2 data-i18n="contact">お問い合わせ・フィードバック</h2>
+<p data-i18n="c1">感想、不具合の報告、改善のリクエストは、メールでお気軽にどうぞ。</p>
+<p><span data-i18n="label">連絡先：</span><a href="mailto:syoutarou3230ficpo@gmail.com">syoutarou3230ficpo@gmail.com</a></p>
+<ul>
+  <li data-i18n="l1">お問い合わせはメールのみで受け付けています。</li>
+  <li data-i18n="l2">13言語でのお問い合わせに対応します。</li>
+  <li data-i18n="l3">返信は数日かかることがあります。</li>
+</ul>
+<p data-i18n="c2">いただいた声をもとに、アプリを少しずつ改善していきます。</p>
+
+<p class="back"><a href="index.html" data-i18n="back">← アプリ一覧に戻る</a></p>
+
+<footer>
+  <p>© 2026 フルタカ</p>
 </footer>
 
+</div>
+
 <script>
-// 多言語辞書データ (about.html用 - 13言語)
-const aboutTranslations = {
-  ja: {
-    nav_back: "トップに戻る",
-    about_title: "運営者情報",
-    about_h2_1: "サイトについて",
-    about_p_1: "当サイト（get-quicknote）では、日々のパソコン作業や事務処理、ファイル整理を少しでも楽にするために、アプリ作成初心者が個人で開発した完全無料のデスクトップツールを公開・配布しています。",
-    about_h2_2: "開発者について",
-    about_p_2: "日々の業務や作業の中で感じる「ちょっとした面倒くささ」や「ミスしやすい作業」を解消するため、Pythonや各種開発ツールを用いて自分で使うためのデスクトップアプリをコツコツと作成しています。専門的な企業開発ではなく、個人の趣味および業務効率化の一環として制作したツールです。",
-    about_h2_3: "安全性の取り組み",
-    about_p_3: "公開しているすべてのアプリケーションは、第三者による安全性の確認を行うため、大手セキュリティプラットフォーム「VirusTotal」にて定期的なスキャンを実施しています。すべてのツールにおいて安全性が確認された状態でのみ配布を行っておりますので、安心してお使いいただけます。",
-    about_h2_4: "お問い合わせについて",
-    about_p_4: "アプリの不具合報告やご要望などがございましたら、GitHubの各リポジトリ、または配布ページよりお知らせいただけますと幸いです。"
-  },
-  en: {
-    nav_back: "Back to Top",
-    about_title: "About Operator",
-    about_h2_1: "About This Site",
-    about_p_1: "get-quicknote offers 100% free desktop tools developed independently by a beginner app creator to streamline daily computer tasks, office work, and file organization.",
-    about_h2_2: "About the Developer",
-    about_p_2: "To eliminate everyday frustrations and error-prone tasks, I build desktop apps using Python and various development tools. These tools are created as a personal hobby and productivity project rather than professional corporate development.",
-    about_h2_3: "Security & Safety",
-    about_p_3: "All published applications undergo regular security scans on VirusTotal to ensure safety. They are distributed only after confirming safety, so you can use them with peace of mind.",
-    about_h2_4: "Contact",
-    about_p_4: "If you have any bug reports or feature requests, please reach out via the respective GitHub repositories or release pages."
-  },
-  es: {
-    nav_back: "Volver arriba",
-    about_title: "Información del operador",
-    about_h2_1: "Acerca del sitio",
-    about_p_1: "get-quicknote ofrece herramientas de escritorio 100% gratuitas desarrolladas por un creador principiante para facilitar las tareas diarias en la computadora.",
-    about_h2_2: "Acerca del desarrollador",
-    about_p_2: "Para eliminar molestias cotidianas, desarrollo aplicaciones de escritorio usando Python como un proyecto personal de pasatiempo y productividad.",
-    about_h2_3: "Compromiso de seguridad",
-    about_p_3: "Todas las aplicaciones publicadas se escanean regularmente en VirusTotal para garantizar su seguridad antes de distribuirlas.",
-    about_h2_4: "Contacto",
-    about_p_4: "Si tiene informes de errores o solicitudes, comuníquese a través de los repositorios de GitHub."
-  },
-  zh: {
-    nav_back: "返回顶部",
-    about_title: "运营者信息",
-    about_h2_1: "关于本站",
-    about_p_1: "get-quicknote 由应用开发新手个人开发，旨在让日常电脑办公、行政处理和文件整理变得更加轻松，提供完全免费的桌面工具。",
-    about_h2_2: "关于开发者",
-    about_p_2: "为了解决日常工作中的繁琐杂务和易错操作，我利用 Python 和各种开发工具亲手制作桌面应用程序。这不是企业级商业开发，而是个人爱好与提高效率的项目。",
-    about_h2_3: "安全举措",
-    about_p_3: "所有发布的应用均通过知名安全平台 VirusTotal 定期进行安全扫描，确认安全后方才发布，您可以放心使用。",
-    about_h2_4: "关于联系方式",
-    about_p_4: "如果您有任何错误报告或功能建议，欢迎通过 GitHub 各个代码库或发布页面与我联系。"
-  },
-  fr: {
-    nav_back: "Retour en haut",
-    about_title: "Informations sur l'opérateur",
-    about_h2_1: "À propos du site",
-    about_p_1: "get-quicknote propose des outils de bureau 100% gratuits développés par un créateur débutant pour simplifier les tâches informatiques quotidiennes.",
-    about_h2_2: "À propos du développeur",
-    about_p_2: "Pour éliminer les tracas quotidiens, je crée des applications de bureau à titre de projet personnel de loisir et de productivité.",
-    about_h2_3: "Sécurité",
-    about_p_3: "Toutes les applications publiées sont régulièrement analysées sur VirusTotal pour garantir une sécurité totale avant distribution.",
-    about_h2_4: "Contact",
-    about_p_4: "Pour tout rapport de bogue ou suggestion, veuillez nous contacter via les dépôts GitHub."
-  },
-  de: {
-    nav_back: "Nach oben",
-    about_title: "Betreiberinformationen",
-    about_h2_1: "Über diese Website",
-    about_p_1: "get-quicknote bietet 100% kostenlose Desktop-Tools, die von einem Anfänger entwickelt wurden, um alltägliche Computeraufgaben zu erleichtern.",
-    about_h2_2: "Über den Entwickler",
-    about_p_2: "Um alltägliche Frustrationen zu beseitigen, erstelle ich Desktop-Apps mit Python als privates Hobby- und Produktivitätsprojekt.",
-    about_h2_3: "Sicherheit",
-    about_p_3: "Alle veröffentlichten Anwendungen werden regelmäßig auf VirusTotal gescannt, um absolute Sicherheit bei der Nutzung zu gewährleisten.",
-    about_h2_4: "Kontakt",
-    about_p_4: "Bei Bugreports oder Funktionswünschen kontaktieren Sie uns bitte über die jeweiligen GitHub-Repositories."
-  },
-  pt: {
-    nav__back: "Voltar ao topo",
-    nav_back: "Voltar ao topo",
-    about_title: "Informações do Operador",
-    about_h2_1: "Sobre o Site",
-    about_p_1: "O get-quicknote oferece ferramentas de desktop 100% gratuitas desenvolvidas por um criador iniciante para facilitar tarefas diárias.",
-    about_h2_2: "Sobre o Desenvolvedor",
-    about_p_2: "Para eliminar tarefas maçantes do dia a dia, crio aplicativos de desktop usando Python como um projeto pessoal de hobby e produtividade.",
-    about_h2_3: "Compromisso com a Segurança",
-    about_p_3: "Todos os aplicativos publicados passam por exames regulares no VirusTotal para garantir total segurança antes da distribuição.",
-    about_h2_4: "Contato",
-    about_p_4: "Se você tiver relatórios de bugs ou solicitações, entre em contato pelos repositórios do GitHub."
-  },
-  ru: {
-    nav_back: "Наверх",
-    about_title: "Информация об операторе",
-    about_h2_1: "О сайте",
-    about_p_1: "get-quicknote предлагает 100% бесплатные настольные утилиты, разработанные начинающим автором для упрощения повседневных задач за компьютером.",
-    about_h2_2: "О разработчике",
-    about_p_2: "Чтобы избавиться от рутины и ошибок в работе, я создаю настольные приложения на Python в качестве личного хобби.",
-    about_h2_3: "Безопасность",
-    about_p_3: "Все опубликованные приложения регулярно проверяются на VirusTotal для обеспечения максимальной безопасности.",
-    about_h2_4: "Контакты",
-    about_p_4: "Если у вас есть сообщения об ошибках или пожелания, пожалуйста, свяжитесь через репозитории GitHub."
-  },
-  it: {
-    nav_back: "Torna su",
-    about_title: "Informazioni sull'operatore",
-    about_h2_1: "Informazioni sul sito",
-    about_p_1: "get-quicknote offre strumenti desktop 100% gratuiti sviluppati da un creatore principiante per semplificare le attività informatiche quotidiane.",
-    about_h2_2: "Informazioni sullo sviluppatore",
-    about_p_2: "Per eliminare le frustrazioni quotidiane, creo applicazioni desktop utilizzando Python come progetto personale di hobby.",
-    about_h2_3: "Sicurezza",
-    about_p_3: "Tutte le applicazioni pubblicate vengono regolarmente scansionate su VirusTotal per garantire la massima sicurezza.",
-    about_h2_4: "Contatti",
-    about_p_4: "Per segnalazioni di bug o richieste, vi preghiamo di contattarci tramite i repository GitHub."
-  },
-  tr: {
-    nav_back: "Başa Dön",
-    about_title: "İşletmeci Bilgileri",
-    about_h2_1: "Site Hakkında",
-    about_p_1: "get-quicknote, günlük bilgisayar işlerini ve dosya düzenlemeyi kolaylaştırmak amacıyla yeni başlayan bir geliştirici tarafından sunulan %100 ücretsiz masaüstü araçları barındırır.",
-    about_h2_2: "Geliştirici Hakkında",
-    about_p_2: "Günlük işlerde karşılaşılan zorlukları gidermek için Python kullanarak kişisel bir hobi projesi olarak masaüstü uygulamaları geliştiriyorum.",
-    about_h2_3: "Güvenlik Önlemleri",
-    about_p_3: "Yayınlanan tüm uygulamalar güvenlik teyidi için VirusTotal üzerinde düzenli olarak taranmakta ve güvenli olduğundan emin olunarak paylaşılmaktadır.",
-    about_h2_4: "İletişim",
-    about_p_4: "Hata bildirimleri veya istekleriniz için GitHub depoları üzerinden bizimle iletişime geçebilirsiniz."
-  },
-  ar: {
-    nav_back: "العودة للأعلى",
-    about_title: "معلومات المشغل",
-    about_h2_1: "حول الموقع",
-    about_p_1: "يقدم get-quicknote أدوات سطح مكتب مجانية 100% تم تطويرها بواسطة مطور مبتدئ لتسهيل مهام الكمبيوتر اليومية وتنظيم الملفات.",
-    about_h2_2: "حول المطور",
-    about_p_2: "للقضاء على الإحباطات اليومية والمهام المعرضة للأخطاء، قمت بإنشاء تطبيقات سطح المكتب باستخدام Python كprojet شخصي للهواية والإنتاجية.",
-    about_h2_3: "تدابير الأمان",
-    about_p_3: "تخضع جميع التطبيقات المنشورة لفحوصات أمنية منتظمة على VirusTotal لضمان الأمان التام قبل التوزيع.",
-    about_h2_4: "اتصل بنا",
-    about_p_4: "إذا كان لديك أي تقارير عن الأخطاء أو طلبات الميزات، يرجى التواصل عبر مستودعات GitHub."
-  },
-  id: {
-    nav_back: "Kembali ke Atas",
-    about_title: "Informasi Operator",
-    about_h2_1: "Tentang Situs Ini",
-    about_p_1: "get-quicknote menyediakan alat desktop 100% gratis yang dikembangkan oleh pengembang pemula untuk mempermudah tugas komputer sehari-hari.",
-    about_h2_2: "Tentang Pengembang",
-    about_p_2: "Untuk menghilangkan kerumitan tugas sehari-hari, saya membuat aplikasi desktop menggunakan Python sebagai hobi dan proyek produktivitas pribadi.",
-    about_h2_3: "Komitmen Keamanan",
-    about_p_3: "Semua aplikasi yang dipublikasikan menjalani pemindaian rutin di VirusTotal untuk memastikan keamanan sebelum didistribusikan.",
-    about_h2_4: "Kontak",
-    about_p_4: "Jika Anda memiliki laporan bug atau permintaan fitur, silakan hubungi melalui repositori GitHub."
-  },
-  ko: {
-    nav_back: "맨 위로",
-    about_title: "운영자 정보",
-    about_h2_1: "사이트 소개",
-    about_p_1: "get-quicknote는 일상적인 컴퓨터 작업과 파일 정리를 조금 더 수월하게 만들기 위해 앱 개발 초보자가 개인으로 개발한 완전 무료 데스크톱 도구를 제공합니다.",
-    about_h2_2: "개발자 소개",
-    about_p_2: "업무와 작업 중 느끼는 번거로움과 실수를 줄이기 위해 Python과 다양한 개발 도구를 사용하여 직접 사용하는 데스크톱 앱을 만들고 있습니다. 기업 개발이 아닌 개인 취미 및 생산성 향상 프로젝트입니다.",
-    about_h2_3: "보안 및 안전성",
-    about_p_3: "공개된 모든 애플리케이션은 제3자 보안 확인을 위해 VirusTotal에서 정기적으로 검사하고 있습니다. 안전성이 확인된 상태에서만 배포되므로 안심하고 사용하실 수 있습니다.",
-    about_h2_4: "문의 사항",
-    about_p_4: "앱 오류 신고나 건의사항이 있으신 경우 각 GitHub 리포지토리나 배포 페이지를 통해 알려주시면 감사하겠습니다."
-  }
-};
-
-// 言語切替処理（about.html用）
-document.getElementById('lang').addEventListener('change', (e) => {
-  const lang = e.target.value;
-  document.documentElement.lang = lang;
-  const t = aboutTranslations[lang] || aboutTranslations['ja'];
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-      if (el.tagName === 'TITLE') {
-        el.textContent = t[key];
-      } else {
-        el.innerHTML = t[key];
-      }
+(function () {
+  var T = {
+    ja: {
+      title: "運営者について - 自作アプリ一覧",
+      h1: "運営者について",
+      who: "作っている人",
+      p_who: "日中は仕事をしながら、個人で開発をしています。活動の拠点は愛知県です。",
+      what: "何を作っているか",
+      p_what: "日本を含む全世界で、Windows・Macを企業や個人で利用されている方々に向けたデスクトップアプリを作っています。毎日する作業の効率化や、手間のかかる作業の改善に役立つかもしれないツールを目指しています。",
+      why: "なぜ作っているか",
+      p_why: "企業や個人の方々が日々の業務で「もっとこの作業の効率化を改善できたら」と感じる場面を少しでも良くできれば、世界中の皆さんのPC業務の負担を減らし、効率を改善できるのではないかと思いました。アプリ作成は初心者ながら、AIと共に作成してみました。",
+      apps: "このサイトのアプリについて",
+      li1: "すべて<strong>完全無料</strong>です。課金要素はありません。",
+      li2: "<strong>Windows 10 / 11（64ビット）</strong>と<strong>macOS 11以降</strong>の両方に対応しています。",
+      li3: "画面は<strong>13言語</strong>に対応しています。",
+      li4: "アプリは<strong>オフラインで動作</strong>し、あなたのデータを集めることはありません。広告やアクセス解析も入れていません。",
+      li5: "大事な操作（送信・登録・統合・削除など）の最終判断は、アプリではなく<strong>使う人</strong>が行う作りにしています。",
+      honest: "正直なおことわり",
+      n1: "・Mac版は、開発環境にMacがないため、実機での動作確認が取れていません。Mac版は「お使いのMacで組み立てるキット形式」で配布しています。",
+      n2: "・個人開発のアプリのため、Windowsでは「SmartScreen」の警告、Macでは「開発元を確認できない」という警告が表示されることがあります。これは署名（デジタル証明書）がないためで、開き方の手順は各アプリの取扱説明書に記載しています。",
+      n3: "・アプリは「現状のまま」の提供で、動作や結果を保証するものではありません。大事なデータは、必ず控え（バックアップ）を取ってからお使いください。",
+      contact: "お問い合わせ・フィードバック",
+      c1: "感想、不具合の報告、改善のリクエストは、メールでお気軽にどうぞ。",
+      label: "連絡先：",
+      l1: "お問い合わせはメールのみで受け付けています。",
+      l2: "13言語でのお問い合わせに対応します。",
+      l3: "返信は数日かかることがあります。",
+      c2: "いただいた声をもとに、アプリを少しずつ改善していきます。",
+      back: "← アプリ一覧に戻る"
+    },
+    en: {
+      title: "About the Developer - Home-made Apps",
+      h1: "About the Developer",
+      who: "Who I Am",
+      p_who: "I develop apps on my own while working a day job. I’m based in Aichi Prefecture, Japan.",
+      what: "What I Make",
+      p_what: "I make desktop apps for people around the world, including Japan, who use Windows and Mac at companies or at home. I aim to build tools that may help make everyday tasks more efficient and improve time-consuming work.",
+      why: "Why I Make Them",
+      p_why: "I thought that if I could make even a little better those moments when companies and individuals feel “I wish this task could be more efficient,” I could lighten the PC workload of people around the world and improve their efficiency. I’m a beginner at making apps, but I built these together with AI.",
+      apps: "About the Apps on This Site",
+      li1: "Everything is <strong>completely free</strong>. There are no paid features.",
+      li2: "Supports both <strong>Windows 10 / 11 (64-bit)</strong> and <strong>macOS 11 or later</strong>.",
+      li3: "The interface is available in <strong>13 languages</strong>.",
+      li4: "The apps <strong>work offline</strong> and never collect your data. There are no ads or analytics either.",
+      li5: "For important actions (sending, registering, merging, deleting, etc.), the final decision is made by <strong>you, the user</strong>, not the app.",
+      honest: "A Few Honest Notes",
+      n1: "• I don’t have a Mac in my development environment, so I haven’t been able to test the Mac versions on real hardware. The Mac versions are distributed as a “kit you assemble on your own Mac.”",
+      n2: "• Because these are individually developed apps, Windows may show a “SmartScreen” warning, and macOS may say the developer cannot be verified. This is because the apps are not signed (no digital certificate). Steps for opening them are in each app’s user guide.",
+      n3: "• The apps are provided “as is,” with no guarantee of operation or results. Please always make a backup of important data before using them.",
+      contact: "Contact & Feedback",
+      c1: "Feel free to send your thoughts, bug reports, or improvement requests by email.",
+      label: "Contact: ",
+      l1: "Inquiries are accepted by email only.",
+      l2: "I can respond to inquiries in 13 languages.",
+      l3: "Replies may take a few days.",
+      c2: "I’ll keep improving the apps little by little based on your feedback.",
+      back: "← Back to the app list"
+    },
+    es: {
+      title: "Sobre el responsable - Lista de apps propias",
+      h1: "Sobre el responsable",
+      who: "Quién las crea",
+      p_who: "Desarrollo a título personal mientras trabajo durante el día. Mi base está en la prefectura de Aichi, Japón.",
+      what: "Qué creo",
+      p_what: "Creo aplicaciones de escritorio para personas de todo el mundo, incluido Japón, que usan Windows y Mac en empresas o a nivel personal. Mi objetivo son herramientas que puedan ayudar a hacer más eficientes las tareas diarias y a mejorar las tareas laboriosas.",
+      why: "Por qué las creo",
+      p_why: "Pensé que si lograba mejorar, aunque fuera un poco, esos momentos en que empresas y personas sienten “ojalá pudiera mejorar la eficiencia de esta tarea”, podría reducir la carga de trabajo en el PC de personas de todo el mundo y mejorar su eficiencia. Soy principiante en la creación de apps, pero las hice junto con la IA.",
+      apps: "Sobre las apps de este sitio",
+      li1: "Todas son <strong>totalmente gratuitas</strong>. No hay elementos de pago.",
+      li2: "Compatibles con <strong>Windows 10 / 11 (64 bits)</strong> y con <strong>macOS 11 o posterior</strong>.",
+      li3: "La interfaz está disponible en <strong>13 idiomas</strong>.",
+      li4: "Las apps <strong>funcionan sin conexión</strong> y no recopilan tus datos. Tampoco incluyen publicidad ni análisis de acceso.",
+      li5: "En las operaciones importantes (enviar, registrar, fusionar, eliminar, etc.), la decisión final la toma <strong>quien usa la app</strong>, no la app.",
+      honest: "Aclaraciones sinceras",
+      n1: "• Como no tengo un Mac en mi entorno de desarrollo, no he podido comprobar el funcionamiento de las versiones para Mac en un equipo real. Las versiones para Mac se distribuyen como un “kit que se monta en tu propio Mac”.",
+      n2: "• Al ser apps de desarrollo personal, en Windows puede aparecer una advertencia de “SmartScreen” y en Mac el aviso de que no se puede verificar al desarrollador. Se debe a que no tienen firma (certificado digital); los pasos para abrirlas están en el manual de cada app.",
+      n3: "• Las apps se ofrecen “tal cual”, sin garantía de funcionamiento ni de resultados. Haz siempre una copia de seguridad de tus datos importantes antes de usarlas.",
+      contact: "Contacto y comentarios",
+      c1: "Puedes enviarme tus impresiones, informes de errores o peticiones de mejora por correo electrónico.",
+      label: "Contacto: ",
+      l1: "Las consultas se atienden únicamente por correo electrónico.",
+      l2: "Atiendo consultas en 13 idiomas.",
+      l3: "La respuesta puede tardar unos días.",
+      c2: "Mejoraré las apps poco a poco a partir de vuestros comentarios.",
+      back: "← Volver a la lista de apps"
+    },
+    zh: {
+      title: "关于运营者 - 自制应用一览",
+      h1: "关于运营者",
+      who: "制作者",
+      p_who: "我白天上班，业余时间独立开发应用。活动据点在日本爱知县。",
+      what: "在做什么",
+      p_what: "我为包括日本在内的全世界在企业或个人场景中使用 Windows 和 Mac 的用户制作桌面应用，希望做出能帮助提升日常工作效率、改善繁琐工作的工具。",
+      why: "为什么要做",
+      p_why: "我想，如果能让企业和个人在日常工作中感到“要是这项工作的效率能再提高就好了”的场景稍微变得更好，也许就能减轻全世界用户的电脑工作负担、提高效率。虽然我是应用开发的初学者，但还是借助 AI 一起做了出来。",
+      apps: "关于本站的应用",
+      li1: "全部<strong>完全免费</strong>，没有任何付费项目。",
+      li2: "同时支持 <strong>Windows 10 / 11（64 位）</strong>和 <strong>macOS 11 及以上</strong>。",
+      li3: "界面支持 <strong>13 种语言</strong>。",
+      li4: "应用<strong>可离线运行</strong>，不会收集您的数据，也没有广告和访问统计。",
+      li5: "重要操作（发送、登记、合并、删除等）的最终决定由<strong>使用者</strong>而不是应用来做。",
+      honest: "坦率的说明",
+      n1: "・由于开发环境中没有 Mac，Mac 版未能在真机上进行运行验证。Mac 版以“在您自己的 Mac 上组装的套件形式”发布。",
+      n2: "・由于是个人开发的应用，Windows 上可能会出现“SmartScreen”警告，Mac 上可能会提示“无法验证开发者”。这是因为没有签名（数字证书），打开方法记载在各应用的使用说明书中。",
+      n3: "・应用按“现状”提供，不对运行或结果作任何保证。使用前请务必备份重要数据。",
+      contact: "咨询与反馈",
+      c1: "欢迎通过电子邮件发送您的感想、故障报告和改进建议。",
+      label: "联系方式：",
+      l1: "仅通过电子邮件受理咨询。",
+      l2: "支持使用 13 种语言咨询。",
+      l3: "回复可能需要几天时间。",
+      c2: "我会根据大家的反馈，一点一点地改进应用。",
+      back: "← 返回应用一览"
+    },
+    fr: {
+      title: "À propos de l’auteur - Mes applications",
+      h1: "À propos de l’auteur",
+      who: "Qui les crée",
+      p_who: "Je développe à titre personnel tout en travaillant la journée. Je suis basé dans la préfecture d’Aichi, au Japon.",
+      what: "Ce que je crée",
+      p_what: "Je crée des applications de bureau pour les personnes du monde entier, Japon compris, qui utilisent Windows et Mac en entreprise ou à titre personnel. Mon but est de proposer des outils susceptibles de rendre les tâches quotidiennes plus efficaces et d’améliorer les tâches fastidieuses.",
+      why: "Pourquoi je les crée",
+      p_why: "Je me suis dit que si je pouvais améliorer, même un peu, ces moments où entreprises et particuliers pensent « si seulement cette tâche pouvait être plus efficace », je pourrais alléger la charge de travail sur PC des gens du monde entier et améliorer leur efficacité. Je suis débutant en création d’applications, mais je les ai réalisées avec l’aide de l’IA.",
+      apps: "À propos des applications de ce site",
+      li1: "Tout est <strong>entièrement gratuit</strong>. Il n’y a aucun élément payant.",
+      li2: "Compatible avec <strong>Windows 10 / 11 (64 bits)</strong> et <strong>macOS 11 ou version ultérieure</strong>.",
+      li3: "L’interface est disponible en <strong>13 langues</strong>.",
+      li4: "Les applications <strong>fonctionnent hors ligne</strong> et ne collectent jamais vos données. Il n’y a ni publicité ni analyse d’audience.",
+      li5: "Pour les opérations importantes (envoi, enregistrement, fusion, suppression, etc.), la décision finale revient à <strong>l’utilisateur</strong>, et non à l’application.",
+      honest: "Précisions en toute franchise",
+      n1: "• Je n’ai pas de Mac dans mon environnement de développement : je n’ai donc pas pu vérifier le fonctionnement des versions Mac sur une machine réelle. Les versions Mac sont distribuées sous forme de « kit à assembler sur votre propre Mac ».",
+      n2: "• S’agissant d’applications développées à titre personnel, Windows peut afficher un avertissement « SmartScreen » et macOS un message indiquant que le développeur ne peut pas être vérifié. Cela vient de l’absence de signature (certificat numérique) ; la marche à suivre pour les ouvrir figure dans le mode d’emploi de chaque application.",
+      n3: "• Les applications sont fournies « en l’état », sans garantie de fonctionnement ni de résultats. Faites toujours une sauvegarde de vos données importantes avant de les utiliser.",
+      contact: "Contact et commentaires",
+      c1: "N’hésitez pas à m’envoyer vos impressions, signalements de bogues ou demandes d’amélioration par e-mail.",
+      label: "Contact : ",
+      l1: "Les demandes ne sont acceptées que par e-mail.",
+      l2: "Je réponds aux demandes en 13 langues.",
+      l3: "La réponse peut prendre quelques jours.",
+      c2: "J’améliorerai les applications petit à petit grâce à vos retours.",
+      back: "← Retour à la liste des applications"
+    },
+    de: {
+      title: "Über den Betreiber - Selbstgemachte Apps",
+      h1: "Über den Betreiber",
+      who: "Wer dahintersteckt",
+      p_who: "Ich entwickle privat neben meiner Arbeit am Tag. Mein Standort ist die Präfektur Aichi in Japan.",
+      what: "Was ich entwickle",
+      p_what: "Ich entwickle Desktop-Apps für Menschen weltweit, einschließlich Japan, die Windows und Mac in Unternehmen oder privat nutzen. Mein Ziel sind Tools, die helfen können, alltägliche Aufgaben effizienter zu machen und aufwendige Arbeiten zu verbessern.",
+      why: "Warum ich sie entwickle",
+      p_why: "Ich dachte, wenn ich die Momente, in denen Unternehmen und Privatpersonen im Arbeitsalltag denken „Wenn sich diese Aufgabe doch effizienter erledigen ließe“, auch nur ein wenig verbessern kann, könnte ich die PC-Arbeit von Menschen auf der ganzen Welt erleichtern und ihre Effizienz steigern. Ich bin Anfänger in der App-Entwicklung, habe sie aber gemeinsam mit KI erstellt.",
+      apps: "Zu den Apps auf dieser Seite",
+      li1: "Alles ist <strong>völlig kostenlos</strong>. Es gibt keine kostenpflichtigen Elemente.",
+      li2: "Unterstützt sowohl <strong>Windows 10 / 11 (64 Bit)</strong> als auch <strong>macOS 11 oder neuer</strong>.",
+      li3: "Die Oberfläche ist in <strong>13 Sprachen</strong> verfügbar.",
+      li4: "Die Apps <strong>funktionieren offline</strong> und sammeln keine Daten von Ihnen. Werbung oder Zugriffsanalyse gibt es ebenfalls nicht.",
+      li5: "Bei wichtigen Aktionen (Senden, Registrieren, Zusammenführen, Löschen usw.) trifft die endgültige Entscheidung <strong>der Nutzer</strong> und nicht die App.",
+      honest: "Ein ehrlicher Hinweis",
+      n1: "• Da ich in meiner Entwicklungsumgebung keinen Mac habe, konnte ich die Mac-Versionen nicht auf echter Hardware testen. Die Mac-Versionen werden als „Bausatz zum Zusammenbauen auf Ihrem eigenen Mac“ bereitgestellt.",
+      n2: "• Da es sich um privat entwickelte Apps handelt, kann unter Windows eine „SmartScreen“-Warnung und unter macOS die Meldung erscheinen, dass der Entwickler nicht überprüft werden kann. Das liegt daran, dass keine Signatur (digitales Zertifikat) vorhanden ist. Die Schritte zum Öffnen stehen in der Anleitung der jeweiligen App.",
+      n3: "• Die Apps werden „wie besehen“ bereitgestellt; für Funktion oder Ergebnisse wird keine Garantie übernommen. Bitte erstellen Sie vor der Nutzung immer eine Sicherung wichtiger Daten.",
+      contact: "Kontakt & Feedback",
+      c1: "Eindrücke, Fehlermeldungen und Verbesserungswünsche senden Sie mir gern per E-Mail.",
+      label: "Kontakt: ",
+      l1: "Anfragen werden nur per E-Mail entgegengenommen.",
+      l2: "Anfragen in 13 Sprachen werden beantwortet.",
+      l3: "Die Antwort kann einige Tage dauern.",
+      c2: "Auf Grundlage Ihres Feedbacks verbessere ich die Apps Schritt für Schritt.",
+      back: "← Zurück zur App-Liste"
+    },
+    pt: {
+      title: "Sobre o responsável - Lista de apps próprios",
+      h1: "Sobre o responsável",
+      who: "Quem cria",
+      p_who: "Desenvolvo por conta própria enquanto trabalho durante o dia. Minha base fica na província de Aichi, no Japão.",
+      what: "O que eu crio",
+      p_what: "Crio aplicativos de desktop para pessoas do mundo todo, incluindo o Japão, que usam Windows e Mac em empresas ou no uso pessoal. Meu objetivo são ferramentas que possam ajudar a tornar as tarefas diárias mais eficientes e a melhorar tarefas trabalhosas.",
+      why: "Por que eu crio",
+      p_why: "Pensei que, se eu conseguisse melhorar, mesmo que um pouco, aqueles momentos em que empresas e pessoas sentem “queria que esta tarefa fosse mais eficiente”, poderia reduzir a carga de trabalho no PC de pessoas do mundo inteiro e melhorar sua eficiência. Sou iniciante na criação de apps, mas os criei junto com a IA.",
+      apps: "Sobre os apps deste site",
+      li1: "Todos são <strong>totalmente gratuitos</strong>. Não há itens pagos.",
+      li2: "Compatíveis com <strong>Windows 10 / 11 (64 bits)</strong> e <strong>macOS 11 ou posterior</strong>.",
+      li3: "A interface está disponível em <strong>13 idiomas</strong>.",
+      li4: "Os apps <strong>funcionam offline</strong> e não coletam seus dados. Também não há anúncios nem análise de acessos.",
+      li5: "Nas operações importantes (enviar, registrar, mesclar, excluir etc.), a decisão final é de <strong>quem usa</strong>, não do app.",
+      honest: "Avisos sinceros",
+      n1: "• Como não tenho um Mac no meu ambiente de desenvolvimento, não consegui testar as versões para Mac em um aparelho real. As versões para Mac são distribuídas como um “kit para montar no seu próprio Mac”.",
+      n2: "• Por serem apps de desenvolvimento individual, o Windows pode exibir um aviso do “SmartScreen” e o Mac pode informar que não é possível verificar o desenvolvedor. Isso ocorre porque não há assinatura (certificado digital). Os passos para abri-los estão no manual de cada app.",
+      n3: "• Os apps são fornecidos “no estado em que se encontram”, sem garantia de funcionamento ou de resultados. Faça sempre um backup dos dados importantes antes de usá-los.",
+      contact: "Contato e feedback",
+      c1: "Fique à vontade para enviar impressões, relatos de problemas ou pedidos de melhoria por e-mail.",
+      label: "Contato: ",
+      l1: "As consultas são recebidas somente por e-mail.",
+      l2: "Atendo consultas em 13 idiomas.",
+      l3: "A resposta pode levar alguns dias.",
+      c2: "Vou melhorar os apps aos poucos com base no que vocês enviarem.",
+      back: "← Voltar à lista de apps"
+    },
+    ru: {
+      title: "Об авторе - Список собственных приложений",
+      h1: "Об авторе",
+      who: "Кто создаёт",
+      p_who: "Я занимаюсь разработкой самостоятельно, параллельно работая в течение дня. Живу и работаю в префектуре Айти (Япония).",
+      what: "Что я создаю",
+      p_what: "Я создаю настольные приложения для людей по всему миру, включая Японию, которые пользуются Windows и Mac в компаниях или дома. Моя цель — инструменты, которые могут помочь сделать повседневные задачи эффективнее и упростить трудоёмкую работу.",
+      why: "Зачем я это делаю",
+      p_why: "Я подумал: если хоть немного улучшить те ситуации, когда компании и люди в повседневной работе думают «вот бы повысить эффективность этой задачи», то можно облегчить работу с ПК для людей по всему миру и повысить её эффективность. Хотя я новичок в создании приложений, я сделал их вместе с ИИ.",
+      apps: "О приложениях на этом сайте",
+      li1: "Всё <strong>совершенно бесплатно</strong>. Платных функций нет.",
+      li2: "Поддерживаются <strong>Windows 10 / 11 (64-разрядная)</strong> и <strong>macOS 11 и новее</strong>.",
+      li3: "Интерфейс доступен на <strong>13 языках</strong>.",
+      li4: "Приложения <strong>работают офлайн</strong> и не собирают ваши данные. Рекламы и аналитики посещений тоже нет.",
+      li5: "Окончательное решение по важным действиям (отправка, регистрация, объединение, удаление и т. п.) принимает <strong>пользователь</strong>, а не приложение.",
+      honest: "Честные оговорки",
+      n1: "• В моей среде разработки нет Mac, поэтому работу версий для Mac на реальном устройстве проверить не удалось. Версии для Mac распространяются в виде «набора, который собирается на вашем Mac».",
+      n2: "• Поскольку это приложения частного разработчика, в Windows может появиться предупреждение «SmartScreen», а в macOS — сообщение о том, что разработчика невозможно проверить. Это связано с отсутствием подписи (цифрового сертификата). Порядок открытия описан в руководстве к каждому приложению.",
+      n3: "• Приложения предоставляются «как есть», работа и результаты не гарантируются. Перед использованием обязательно делайте резервные копии важных данных.",
+      contact: "Обратная связь",
+      c1: "Отзывы, сообщения об ошибках и пожелания по улучшению можно присылать по электронной почте.",
+      label: "Контакт: ",
+      l1: "Обращения принимаются только по электронной почте.",
+      l2: "Отвечаю на обращения на 13 языках.",
+      l3: "Ответ может занять несколько дней.",
+      c2: "На основе ваших отзывов я буду понемногу улучшать приложения.",
+      back: "← Вернуться к списку приложений"
+    },
+    it: {
+      title: "Informazioni sul gestore - Elenco di app personali",
+      h1: "Informazioni sul gestore",
+      who: "Chi le crea",
+      p_who: "Sviluppo a titolo personale mentre lavoro durante il giorno. La mia base è la prefettura di Aichi, in Giappone.",
+      what: "Cosa creo",
+      p_what: "Creo app desktop per persone di tutto il mondo, Giappone compreso, che usano Windows e Mac in azienda o a livello personale. Il mio obiettivo sono strumenti che possano aiutare a rendere più efficienti le attività quotidiane e a migliorare quelle più laboriose.",
+      why: "Perché le creo",
+      p_why: "Ho pensato che, se riuscissi a migliorare anche solo un po’ i momenti in cui aziende e persone pensano «magari potessi rendere più efficiente questa attività», potrei alleggerire il lavoro al PC di persone in tutto il mondo e migliorarne l’efficienza. Sono un principiante nella creazione di app, ma le ho realizzate insieme all’IA.",
+      apps: "Sulle app di questo sito",
+      li1: "Tutte sono <strong>completamente gratuite</strong>. Non ci sono elementi a pagamento.",
+      li2: "Compatibili sia con <strong>Windows 10 / 11 (64 bit)</strong> sia con <strong>macOS 11 o successivo</strong>.",
+      li3: "L’interfaccia è disponibile in <strong>13 lingue</strong>.",
+      li4: "Le app <strong>funzionano offline</strong> e non raccolgono i tuoi dati. Non ci sono nemmeno pubblicità o analisi degli accessi.",
+      li5: "Per le operazioni importanti (invio, registrazione, unione, eliminazione, ecc.) la decisione finale spetta a <strong>chi usa l’app</strong>, non all’app.",
+      honest: "Precisazioni sincere",
+      n1: "• Non avendo un Mac nel mio ambiente di sviluppo, non ho potuto verificare il funzionamento delle versioni per Mac su un dispositivo reale. Le versioni per Mac sono distribuite come «kit da assemblare sul proprio Mac».",
+      n2: "• Trattandosi di app sviluppate a titolo personale, su Windows può comparire un avviso di «SmartScreen» e su Mac un messaggio che indica che lo sviluppatore non può essere verificato. Il motivo è l’assenza di firma (certificato digitale); i passaggi per aprirle sono indicati nel manuale di ciascuna app.",
+      n3: "• Le app sono fornite «così come sono», senza garanzia di funzionamento o di risultati. Prima di usarle, esegui sempre un backup dei dati importanti.",
+      contact: "Contatti e feedback",
+      c1: "Puoi inviarmi impressioni, segnalazioni di problemi o richieste di miglioramento via e-mail.",
+      label: "Contatto: ",
+      l1: "Le richieste vengono accettate solo via e-mail.",
+      l2: "Rispondo alle richieste in 13 lingue.",
+      l3: "La risposta può richiedere alcuni giorni.",
+      c2: "Migliorerò le app a poco a poco in base ai vostri riscontri.",
+      back: "← Torna all’elenco delle app"
+    },
+    tr: {
+      title: "Geliştirici Hakkında - Kendi Yaptığım Uygulamalar",
+      h1: "Geliştirici Hakkında",
+      who: "Yapan Kişi",
+      p_who: "Gündüz çalışırken bireysel olarak geliştirme yapıyorum. Japonya’nın Aichi vilayetinde yaşıyorum.",
+      what: "Ne Yapıyorum",
+      p_what: "Japonya dâhil dünyanın dört bir yanında Windows ve Mac’i şirketlerde veya bireysel olarak kullanan insanlar için masaüstü uygulamaları yapıyorum. Günlük işlerin verimini artırmaya ve zahmetli işleri iyileştirmeye yardımcı olabilecek araçlar hedefliyorum.",
+      why: "Neden Yapıyorum",
+      p_why: "Şirketlerin ve bireylerin günlük işlerinde “keşke bu işin verimini artırabilsem” dediği anları biraz olsun iyileştirebilirsem, dünyanın dört bir yanındaki insanların bilgisayar işlerindeki yükünü azaltıp verimlerini artırabileceğimi düşündüm. Uygulama yapmada yeniyim ama bunları yapay zekâyla birlikte hazırladım.",
+      apps: "Bu Sitedeki Uygulamalar Hakkında",
+      li1: "Hepsi <strong>tamamen ücretsizdir</strong>. Ücretli bir öğe yoktur.",
+      li2: "Hem <strong>Windows 10 / 11 (64 bit)</strong> hem de <strong>macOS 11 ve üzeri</strong> desteklenir.",
+      li3: "Arayüz <strong>13 dilde</strong> kullanılabilir.",
+      li4: "Uygulamalar <strong>çevrimdışı çalışır</strong> ve verilerinizi toplamaz. Reklam veya erişim analizi de yoktur.",
+      li5: "Önemli işlemlerde (gönderme, kaydetme, birleştirme, silme vb.) son kararı uygulama değil, <strong>kullanan kişi</strong> verir.",
+      honest: "Dürüst Bir Not",
+      n1: "• Geliştirme ortamımda Mac bulunmadığı için Mac sürümlerini gerçek cihazda test edemedim. Mac sürümleri “kendi Mac’inizde kuracağınız bir set” biçiminde dağıtılır.",
+      n2: "• Bireysel olarak geliştirilen uygulamalar olduğundan, Windows’ta “SmartScreen” uyarısı, Mac’te ise geliştiricinin doğrulanamadığına dair bir uyarı görüntülenebilir. Bunun nedeni imzanın (dijital sertifika) bulunmamasıdır; açma adımları her uygulamanın kullanım kılavuzunda yer alır.",
+      n3: "• Uygulamalar “olduğu gibi” sunulur; çalışma veya sonuçlar garanti edilmez. Kullanmadan önce önemli verilerinizin mutlaka yedeğini alın.",
+      contact: "İletişim ve Geri Bildirim",
+      c1: "Görüşlerinizi, hata bildirimlerinizi ve iyileştirme isteklerinizi e-posta ile rahatça iletebilirsiniz.",
+      label: "İletişim: ",
+      l1: "Sorular yalnızca e-posta ile kabul edilir.",
+      l2: "13 dilde gelen sorulara yanıt veriyorum.",
+      l3: "Yanıt birkaç gün sürebilir.",
+      c2: "Aldığım geri bildirimlere göre uygulamaları adım adım geliştireceğim.",
+      back: "← Uygulama listesine dön"
+    },
+    ar: {
+      title: "عن المشغّل - قائمة التطبيقات الذاتية الصنع",
+      h1: "عن المشغّل",
+      who: "من يصنع التطبيقات",
+      p_who: "أعمل على التطوير بشكل فردي إلى جانب عملي نهارًا. ومقرّ نشاطي في محافظة آيتشي في اليابان.",
+      what: "ماذا أصنع",
+      p_what: "أصنع تطبيقات سطح المكتب لمستخدمي Windows وMac في الشركات أو على المستوى الشخصي في جميع أنحاء العالم، بما في ذلك اليابان. وأطمح إلى أدوات قد تساعد في رفع كفاءة المهام اليومية وتحسين الأعمال المُرهِقة.",
+      why: "لماذا أصنعها",
+      p_why: "فكّرت أنه إذا استطعت تحسين المواقف التي تشعر فيها الشركات والأفراد بأنهم يتمنون لو تتحسن كفاءة هذه المهمة، ولو قليلًا، فقد أخفّف عبء العمل على الحاسوب عن الناس في أنحاء العالم وأحسّن كفاءتهم. أنا مبتدئ في صناعة التطبيقات، لكنني صنعتها بالتعاون مع الذكاء الاصطناعي.",
+      apps: "عن التطبيقات في هذا الموقع",
+      li1: "جميعها <strong>مجانية تمامًا</strong>. لا توجد أي عناصر مدفوعة.",
+      li2: "تدعم كلًّا من <strong>Windows 10 / 11 (64 بت)</strong> و<strong>macOS 11 أو أحدث</strong>.",
+      li3: "الواجهة متوفرة بـ<strong>13 لغة</strong>.",
+      li4: "التطبيقات <strong>تعمل دون اتصال بالإنترنت</strong> ولا تجمع بياناتك. ولا توجد إعلانات أو تحليلات للزيارات.",
+      li5: "القرار النهائي في العمليات المهمة (الإرسال والتسجيل والدمج والحذف وغيرها) يتخذه <strong>المستخدم</strong> لا التطبيق.",
+      honest: "ملاحظات صريحة",
+      n1: "• لا يتوفر جهاز Mac في بيئة التطوير لديّ، لذلك لم أتمكن من اختبار نسخ Mac على جهاز حقيقي. وتُوزَّع نسخ Mac على شكل «حزمة تُجمَّع على جهاز Mac الخاص بك».",
+      n2: "• لأن التطبيقات من تطوير فردي، قد يعرض Windows تحذير «SmartScreen»، وقد يعرض macOS تنبيهًا بأنه لا يمكن التحقق من المطوّر. والسبب عدم وجود توقيع (شهادة رقمية). وخطوات الفتح مذكورة في دليل استخدام كل تطبيق.",
+      n3: "• تُقدَّم التطبيقات «كما هي» دون ضمان للأداء أو النتائج. يُرجى أخذ نسخة احتياطية من بياناتك المهمة دائمًا قبل الاستخدام.",
+      contact: "التواصل والملاحظات",
+      c1: "يمكنك إرسال انطباعاتك وبلاغات الأعطال وطلبات التحسين عبر البريد الإلكتروني بكل سهولة.",
+      label: "جهة الاتصال: ",
+      l1: "تُقبل الاستفسارات عبر البريد الإلكتروني فقط.",
+      l2: "أستقبل الاستفسارات بـ13 لغة.",
+      l3: "قد يستغرق الرد بضعة أيام.",
+      c2: "سأحسّن التطبيقات تدريجيًا بناءً على ملاحظاتكم.",
+      back: "→ العودة إلى قائمة التطبيقات"
+    },
+    id: {
+      title: "Tentang Pengelola - Daftar Aplikasi Buatan Sendiri",
+      h1: "Tentang Pengelola",
+      who: "Siapa yang Membuat",
+      p_who: "Saya mengembangkan aplikasi secara pribadi sambil bekerja di siang hari. Basis kegiatan saya ada di Prefektur Aichi, Jepang.",
+      what: "Apa yang Saya Buat",
+      p_what: "Saya membuat aplikasi desktop untuk orang-orang di seluruh dunia, termasuk Jepang, yang menggunakan Windows dan Mac di perusahaan maupun secara pribadi. Tujuan saya adalah alat yang mungkin berguna untuk membuat pekerjaan sehari-hari lebih efisien dan memperbaiki pekerjaan yang merepotkan.",
+      why: "Mengapa Saya Membuatnya",
+      p_why: "Saya berpikir, jika saya bisa memperbaiki sedikit saja momen ketika perusahaan dan individu merasa “andai saja efisiensi pekerjaan ini bisa ditingkatkan”, saya mungkin dapat mengurangi beban kerja PC orang-orang di seluruh dunia dan meningkatkan efisiensi mereka. Saya masih pemula dalam membuat aplikasi, tetapi saya membuatnya bersama AI.",
+      apps: "Tentang Aplikasi di Situs Ini",
+      li1: "Semuanya <strong>sepenuhnya gratis</strong>. Tidak ada fitur berbayar.",
+      li2: "Mendukung <strong>Windows 10 / 11 (64-bit)</strong> dan <strong>macOS 11 atau lebih baru</strong>.",
+      li3: "Tampilan tersedia dalam <strong>13 bahasa</strong>.",
+      li4: "Aplikasi <strong>berjalan secara offline</strong> dan tidak mengumpulkan data Anda. Tidak ada iklan maupun analisis akses.",
+      li5: "Untuk operasi penting (mengirim, mendaftar, menggabungkan, menghapus, dll.), keputusan akhir ada pada <strong>pengguna</strong>, bukan aplikasi.",
+      honest: "Catatan Jujur",
+      n1: "• Karena tidak ada Mac di lingkungan pengembangan saya, versi Mac belum dapat diuji pada perangkat sebenarnya. Versi Mac didistribusikan dalam bentuk “kit yang dirakit di Mac Anda sendiri”.",
+      n2: "• Karena merupakan aplikasi buatan pribadi, Windows dapat menampilkan peringatan “SmartScreen” dan Mac dapat menampilkan pesan bahwa pengembang tidak dapat diverifikasi. Hal ini karena tidak adanya tanda tangan (sertifikat digital). Langkah membukanya tercantum di panduan setiap aplikasi.",
+      n3: "• Aplikasi disediakan “apa adanya” tanpa jaminan terhadap cara kerja maupun hasilnya. Selalu buat cadangan (backup) data penting sebelum menggunakannya.",
+      contact: "Kontak & Masukan",
+      c1: "Silakan kirim kesan, laporan masalah, atau permintaan perbaikan melalui email.",
+      label: "Kontak: ",
+      l1: "Pertanyaan hanya diterima melalui email.",
+      l2: "Pertanyaan dalam 13 bahasa dapat dilayani.",
+      l3: "Balasan mungkin memerlukan beberapa hari.",
+      c2: "Saya akan memperbaiki aplikasi sedikit demi sedikit berdasarkan masukan yang diterima.",
+      back: "← Kembali ke daftar aplikasi"
+    },
+    ko: {
+      title: "운영자 소개 - 자작 앱 목록",
+      h1: "운영자 소개",
+      who: "만드는 사람",
+      p_who: "낮에는 직장에서 일하면서 개인으로 개발하고 있습니다. 활동 거점은 일본 아이치현입니다.",
+      what: "무엇을 만들고 있나요",
+      p_what: "일본을 포함한 전 세계에서 Windows와 Mac을 기업이나 개인으로 사용하시는 분들을 위한 데스크톱 앱을 만들고 있습니다. 매일 하는 작업의 효율화나 손이 많이 가는 작업의 개선에 도움이 될 수 있는 도구를 목표로 합니다.",
+      why: "왜 만들고 있나요",
+      p_why: "기업이나 개인이 일상 업무에서 “이 작업의 효율을 더 개선할 수 있다면”이라고 느끼는 순간을 조금이라도 낫게 만들 수 있다면, 전 세계 여러분의 PC 업무 부담을 줄이고 효율을 개선할 수 있지 않을까 생각했습니다. 앱 제작은 초보이지만 AI와 함께 만들어 보았습니다.",
+      apps: "이 사이트의 앱에 대해",
+      li1: "모두 <strong>완전 무료</strong>입니다. 유료 요소는 없습니다.",
+      li2: "<strong>Windows 10 / 11(64비트)</strong>와 <strong>macOS 11 이상</strong>을 모두 지원합니다.",
+      li3: "화면은 <strong>13개 언어</strong>를 지원합니다.",
+      li4: "앱은 <strong>오프라인으로 동작</strong>하며 사용자의 데이터를 수집하지 않습니다. 광고나 접속 분석도 넣지 않았습니다.",
+      li5: "중요한 작업(전송·등록·통합·삭제 등)의 최종 판단은 앱이 아니라 <strong>사용하는 사람</strong>이 하도록 만들었습니다.",
+      honest: "솔직한 안내",
+      n1: "・개발 환경에 Mac이 없어 Mac 버전은 실제 기기에서 동작 확인을 하지 못했습니다. Mac 버전은 “사용 중인 Mac에서 조립하는 키트 형식”으로 배포하고 있습니다.",
+      n2: "・개인 개발 앱이므로 Windows에서는 “SmartScreen” 경고가, Mac에서는 “개발자를 확인할 수 없음”이라는 경고가 표시될 수 있습니다. 서명(디지털 인증서)이 없기 때문이며, 여는 방법은 각 앱의 사용 설명서에 기재되어 있습니다.",
+      n3: "・앱은 “있는 그대로” 제공되며 동작이나 결과를 보증하지 않습니다. 중요한 데이터는 반드시 백업을 만든 후에 사용해 주세요.",
+      contact: "문의 및 피드백",
+      c1: "감상, 불편 사항 신고, 개선 요청은 이메일로 편하게 보내 주세요.",
+      label: "연락처: ",
+      l1: "문의는 이메일로만 접수합니다.",
+      l2: "13개 언어로 문의하실 수 있습니다.",
+      l3: "답변에 며칠이 걸릴 수 있습니다.",
+      c2: "보내 주신 의견을 바탕으로 앱을 조금씩 개선해 나가겠습니다.",
+      back: "← 앱 목록으로 돌아가기"
     }
-  });
-});
-</script>
+  };
 
+  var sel = document.getElementById('lang');
+  var htmlLang = { zh: 'zh-Hans' };
+
+  function apply(l) {
+    if (!T[l]) l = 'ja';
+    var t = T[l];
+    document.documentElement.lang = htmlLang[l] || l;
+    document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute('data-i18n');
+      if (t[k] !== undefined) els[i].innerHTML = t[k];
+    }
+    document.title = t.title;
+    sel.value = l;
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+
+  var saved = 'ja';
+  try { saved = localStorage.getItem('lang') || 'ja'; } catch (e) {}
+  sel.addEventListener('change', function () { apply(sel.value); });
+  apply(saved);
+})();
+</script>
 </body>
 </html>
