@@ -1,68 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>運営者について - 自作アプリ一覧</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="get-quicknote の運営者情報。開発者プロフィールやお問い合わせについて。">
+<title>運営者情報 - get-quicknote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-  body { font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif; margin: 0; background: #f7f9fc; color: #222; line-height: 1.9; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
-  h1 { font-size: 1.6rem; border-bottom: 3px solid #4a90d9; padding-bottom: 8px; }
-  h2 { font-size: 1.15rem; margin-top: 36px; color: #2c5f8a; }
-  p { margin: 10px 0; }
-  ul { margin: 10px 0; padding-left: 1.4em; }
-  .note { background: #fff7e6; border: 1px solid #f0d48a; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
-  a { color: #2c6fbb; }
-  .back { margin-top: 48px; }
-  footer { margin-top: 48px; font-size: 0.85rem; color: #666; border-top: 1px solid #ddd; padding-top: 16px; }
+:root {
+  --bg: #F5F8FD;
+  --surface: #FFFFFF;
+  --ink: #0F1B33;
+  --muted: #4F5E78;
+  --line: #DFE7F3;
+  --accent: #2563EB;
+  --accent-strong: #1D4ED8;
+  --accent-soft: #E7EFFD;
+  --glow: #C4D9FF;
+  --glow-2: #D3F4EE;
+  --cjk: "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", "Noto Sans Arabic";
+  --font-display: "Plus Jakarta Sans", "Inter", var(--cjk), system-ui, sans-serif;
+  --font-body: "Inter", var(--cjk), system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Microsoft YaHei", "Malgun Gothic", Meiryo, sans-serif;
+  color-scheme: light;
+}
+:root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
+:root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
+:root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle 620px at 88% 0%, var(--glow), transparent 70%),
+    radial-gradient(circle 520px at 0% 22%, var(--glow-2), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  line-break: strict;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: clip;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 900px; margin-inline: auto; padding-inline: 24px; }
+:root:lang(ar) * { letter-spacing: 0 !important; }
+
+/* Header */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; direction: ltr; }
+.logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 8px 16px -6px rgba(37, 99, 235, 0.55); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-pick { position: relative; display: inline-flex; align-items: center; }
+.lang-pick svg { position: absolute; top: 50%; translate: 0 -50%; pointer-events: none; }
+.lang-pick .globe { inset-inline-start: 12px; color: var(--accent); }
+.lang-pick .chev { inset-inline-end: 11px; color: var(--muted); }
+.lang-pick select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 0.85rem; font-weight: 700; line-height: 1.4; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding-block: 8px; padding-inline: 36px 32px; cursor: pointer; max-width: 100%; transition: border-color 0.15s; }
+.lang-pick select:hover { border-color: #B9CBEA; }
+.nav-back { font-size: 0.9rem; font-weight: 700; color: var(--accent-strong); text-decoration: none; padding: 8px 14px; border-radius: 999px; transition: background 0.15s; }
+.nav-back:hover { background: var(--accent-soft); }
+
+/* Main Content */
+.about-section { padding-block: 40px 80px; }
+.about-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px -10px rgba(15, 27, 51, 0.08); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.25; letter-spacing: -0.02em; margin: 0 0 24px; color: var(--ink); }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin: 36px 0 16px; color: var(--ink); border-bottom: 2px solid var(--accent-soft); padding-bottom: 8px; }
+p { margin: 0 0 20px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+ul { margin: 0 0 20px; padding-inline-start: 24px; color: var(--muted); }
+li { margin-bottom: 8px; line-height: 1.6; }
+
+/* Footer */
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .about-card { padding: 24px; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header class="wrap nav">
+  <a class="brand" href="index.html" aria-label="get-quicknote">
+    <span class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+    </span>
+    get-quicknote
+  </a>
+  <div class="nav-right">
+    <div class="lang-pick">
+      <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <select id="lang" aria-label="Language / 言語">
+        <option value="ja" lang="ja">日本語</option>
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="zh" lang="zh-Hans">简体中文</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="ko" lang="ko">한국어</option>
+      </select>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <a class="nav-back" href="index.html" data-i18n="nav_back">トップに戻る</a>
+  </div>
+</header>
 
-<h1>運営者について</h1>
+<main class="wrap about-section">
+  <div class="about-card">
+    <h1 data-i18n="about_title">運営者情報</h1>
+    
+    <h2 data-i18n="about_h2_1">サイトについて</h2>
+    <p data-i18n="about_p_1">当サイト（get-quicknote）では、日々のパソコン作業や事務処理、ファイル整理を少しでも楽にするために、アプリ作成初心者が個人で開発した完全無料のデスクトップツールを公開・配布しています。</p>
+    
+    <h2 data-i18n="about_h2_2">開発者について</h2>
+    <p data-i18n="about_p_2">日々の業務や作業の中で感じる「ちょっとした面倒くささ」や「ミスしやすい作業」を解消するため、Pythonや各種開発ツールを用いて自分で使うためのデスクトップアプリをコツコツと作成しています。専門的な企業開発ではなく、個人の趣味および業務効率化の一環として制作したツールです。</p>
+    
+    <h2 data-i18n="about_h2_3">安全性の取り組み</h2>
+    <p data-i18n="about_p_3">公開しているすべてのアプリケーションは、第三者による安全性の確認を行うため、大手セキュリティプラットフォーム「VirusTotal」にて定期的なスキャンを実施しています。すべてのツールにおいて安全性が確認された状態でのみ配布を行っておりますので、安心してお使いいただけます。</p>
+    
+    <h2 data-i18n="about_h2_4">お問い合わせについて</h2>
+    <p data-i18n="about_p_4">アプリの不具合報告やご要望などがございましたら、GitHubの各リポジトリ、または配布ページよりお知らせいただけますと幸いです。</p>
+  </div>
+</main>
 
-<h2>作っている人</h2>
-<p>日中は仕事をしながら、個人で開発をしています。活動の拠点は愛知県です。</p>
-
-<h2>何を作っているか</h2>
-<p>日本を含む全世界で、Windows・Macを企業や個人で利用されている方々に向けたデスクトップアプリを作っています。毎日する作業の効率化や、手間のかかる作業の改善に役立つかもしれないツールを目指しています。</p>
-
-<h2>なぜ作っているか</h2>
-<p>企業や個人の方々が日々の業務で「もっとこの作業の効率化を改善できたら」と感じる場面を少しでも良くできれば、世界中の皆さんのPC業務の負担を減らし、効率を改善できるのではないかと思いました。アプリ作成は初心者ながら、AIと共に作成してみました。</p>
-
-<h2>このサイトのアプリについて</h2>
-<ul>
-  <li>すべて<strong>完全無料</strong>です。課金要素はありません。</li>
-  <li><strong>Windows 10 / 11（64ビット）</strong>と<strong>macOS 11以降</strong>の両方に対応しています。</li>
-  <li>画面は<strong>13言語</strong>に対応しています。</li>
-  <li>アプリは<strong>オフラインで動作</strong>し、あなたのデータを集めることはありません。広告やアクセス解析も入れていません。</li>
-  <li>大事な操作（送信・登録・統合・削除など）の最終判断は、アプリではなく<strong>使う人</strong>が行う作りにしています。</li>
-</ul>
-
-<h2>正直なおことわり</h2>
-<div class="note">
-  <p>・Mac版は、開発環境にMacがないため、実機での動作確認が取れていません。Mac版は「お使いのMacで組み立てるキット形式」で配布しています。</p>
-  <p>・個人開発のアプリのため、Windowsでは「SmartScreen」の警告、Macでは「開発元を確認できない」という警告が表示されることがあります。これは署名（デジタル証明書）がないためで、開き方の手順は各アプリの取扱説明書に記載しています。</p>
-  <p>・アプリは「現状のまま」の提供で、動作や結果を保証するものではありません。大事なデータは、必ず控え（バックアップ）を取ってからお使いください。</p>
-</div>
-
-<h2>お問い合わせ・フィードバック</h2>
-<p>感想、不具合の報告、改善のリクエストは、メールでお気軽にどうぞ。</p>
-<p>連絡先：<a href="mailto:syoutarou3230ficpo@gmail.com">syoutarou3230ficpo@gmail.com</a></p>
-<ul>
-  <li>お問い合わせはメールのみで受け付けています。</li>
-  <li>13言語でのお問い合わせに対応します。</li>
-  <li>返信は数日かかることがあります。</li>
-</ul>
-<p>いただいた声をもとに、アプリを少しずつ改善していきます。</p>
-
-<p class="back"><a href="index.html">← アプリ一覧に戻る</a></p>
-
-<footer>
-  <p>© 2026 フルタカ</p>
+<footer class="wrap foot">
+  <div>&copy; get-quicknote</div>
+  <div>Desktop Tools Collection</div>
 </footer>
 
-</div>
+<script>
+// 多言語辞書データ (about.html用 - 13言語)
+const aboutTranslations = {
+  ja: {
+    nav_back: "トップに戻る",
+    about_title: "運営者情報",
+    about_h2_1: "サイトについて",
+    about_p_1: "当サイト（get-quicknote）では、日々のパソコン作業や事務処理、ファイル整理を少しでも楽にするために、アプリ作成初心者が個人で開発した完全無料のデスクトップツールを公開・配布しています。",
+    about_h2_2: "開発者について",
+    about_p_2: "日々の業務や作業の中で感じる「ちょっとした面倒くささ」や「ミスしやすい作業」を解消するため、Pythonや各種開発ツールを用いて自分で使うためのデスクトップアプリをコツコツと作成しています。専門的な企業開発ではなく、個人の趣味および業務効率化の一環として制作したツールです。",
+    about_h2_3: "安全性の取り組み",
+    about_p_3: "公開しているすべてのアプリケーションは、第三者による安全性の確認を行うため、大手セキュリティプラットフォーム「VirusTotal」にて定期的なスキャンを実施しています。すべてのツールにおいて安全性が確認された状態でのみ配布を行っておりますので、安心してお使いいただけます。",
+    about_h2_4: "お問い合わせについて",
+    about_p_4: "アプリの不具合報告やご要望などがございましたら、GitHubの各リポジトリ、または配布ページよりお知らせいただけますと幸いです。"
+  },
+  en: {
+    nav_back: "Back to Top",
+    about_title: "About Operator",
+    about_h2_1: "About This Site",
+    about_p_1: "get-quicknote offers 100% free desktop tools developed independently by a beginner app creator to streamline daily computer tasks, office work, and file organization.",
+    about_h2_2: "About the Developer",
+    about_p_2: "To eliminate everyday frustrations and error-prone tasks, I build desktop apps using Python and various development tools. These tools are created as a personal hobby and productivity project rather than professional corporate development.",
+    about_h2_3: "Security & Safety",
+    about_p_3: "All published applications undergo regular security scans on VirusTotal to ensure safety. They are distributed only after confirming safety, so you can use them with peace of mind.",
+    about_h2_4: "Contact",
+    about_p_4: "If you have any bug reports or feature requests, please reach out via the respective GitHub repositories or release pages."
+  },
+  es: {
+    nav_back: "Volver arriba",
+    about_title: "Información del operador",
+    about_h2_1: "Acerca del sitio",
+    about_p_1: "get-quicknote ofrece herramientas de escritorio 100% gratuitas desarrolladas por un creador principiante para facilitar las tareas diarias en la computadora.",
+    about_h2_2: "Acerca del desarrollador",
+    about_p_2: "Para eliminar molestias cotidianas, desarrollo aplicaciones de escritorio usando Python como un proyecto personal de pasatiempo y productividad.",
+    about_h2_3: "Compromiso de seguridad",
+    about_p_3: "Todas las aplicaciones publicadas se escanean regularmente en VirusTotal para garantizar su seguridad antes de distribuirlas.",
+    about_h2_4: "Contacto",
+    about_p_4: "Si tiene informes de errores o solicitudes, comuníquese a través de los repositorios de GitHub."
+  },
+  zh: {
+    nav_back: "返回顶部",
+    about_title: "运营者信息",
+    about_h2_1: "关于本站",
+    about_p_1: "get-quicknote 由应用开发新手个人开发，旨在让日常电脑办公、行政处理和文件整理变得更加轻松，提供完全免费的桌面工具。",
+    about_h2_2: "关于开发者",
+    about_p_2: "为了解决日常工作中的繁琐杂务和易错操作，我利用 Python 和各种开发工具亲手制作桌面应用程序。这不是企业级商业开发，而是个人爱好与提高效率的项目。",
+    about_h2_3: "安全举措",
+    about_p_3: "所有发布的应用均通过知名安全平台 VirusTotal 定期进行安全扫描，确认安全后方才发布，您可以放心使用。",
+    about_h2_4: "关于联系方式",
+    about_p_4: "如果您有任何错误报告或功能建议，欢迎通过 GitHub 各个代码库或发布页面与我联系。"
+  },
+  fr: {
+    nav_back: "Retour en haut",
+    about_title: "Informations sur l'opérateur",
+    about_h2_1: "À propos du site",
+    about_p_1: "get-quicknote propose des outils de bureau 100% gratuits développés par un créateur débutant pour simplifier les tâches informatiques quotidiennes.",
+    about_h2_2: "À propos du développeur",
+    about_p_2: "Pour éliminer les tracas quotidiens, je crée des applications de bureau à titre de projet personnel de loisir et de productivité.",
+    about_h2_3: "Sécurité",
+    about_p_3: "Toutes les applications publiées sont régulièrement analysées sur VirusTotal pour garantir une sécurité totale avant distribution.",
+    about_h2_4: "Contact",
+    about_p_4: "Pour tout rapport de bogue ou suggestion, veuillez nous contacter via les dépôts GitHub."
+  },
+  de: {
+    nav_back: "Nach oben",
+    about_title: "Betreiberinformationen",
+    about_h2_1: "Über diese Website",
+    about_p_1: "get-quicknote bietet 100% kostenlose Desktop-Tools, die von einem Anfänger entwickelt wurden, um alltägliche Computeraufgaben zu erleichtern.",
+    about_h2_2: "Über den Entwickler",
+    about_p_2: "Um alltägliche Frustrationen zu beseitigen, erstelle ich Desktop-Apps mit Python als privates Hobby- und Produktivitätsprojekt.",
+    about_h2_3: "Sicherheit",
+    about_p_3: "Alle veröffentlichten Anwendungen werden regelmäßig auf VirusTotal gescannt, um absolute Sicherheit bei der Nutzung zu gewährleisten.",
+    about_h2_4: "Kontakt",
+    about_p_4: "Bei Bugreports oder Funktionswünschen kontaktieren Sie uns bitte über die jeweiligen GitHub-Repositories."
+  },
+  pt: {
+    nav__back: "Voltar ao topo",
+    nav_back: "Voltar ao topo",
+    about_title: "Informações do Operador",
+    about_h2_1: "Sobre o Site",
+    about_p_1: "O get-quicknote oferece ferramentas de desktop 100% gratuitas desenvolvidas por um criador iniciante para facilitar tarefas diárias.",
+    about_h2_2: "Sobre o Desenvolvedor",
+    about_p_2: "Para eliminar tarefas maçantes do dia a dia, crio aplicativos de desktop usando Python como um projeto pessoal de hobby e produtividade.",
+    about_h2_3: "Compromisso com a Segurança",
+    about_p_3: "Todos os aplicativos publicados passam por exames regulares no VirusTotal para garantir total segurança antes da distribuição.",
+    about_h2_4: "Contato",
+    about_p_4: "Se você tiver relatórios de bugs ou solicitações, entre em contato pelos repositórios do GitHub."
+  },
+  ru: {
+    nav_back: "Наверх",
+    about_title: "Информация об операторе",
+    about_h2_1: "О сайте",
+    about_p_1: "get-quicknote предлагает 100% бесплатные настольные утилиты, разработанные начинающим автором для упрощения повседневных задач за компьютером.",
+    about_h2_2: "О разработчике",
+    about_p_2: "Чтобы избавиться от рутины и ошибок в работе, я создаю настольные приложения на Python в качестве личного хобби.",
+    about_h2_3: "Безопасность",
+    about_p_3: "Все опубликованные приложения регулярно проверяются на VirusTotal для обеспечения максимальной безопасности.",
+    about_h2_4: "Контакты",
+    about_p_4: "Если у вас есть сообщения об ошибках или пожелания, пожалуйста, свяжитесь через репозитории GitHub."
+  },
+  it: {
+    nav_back: "Torna su",
+    about_title: "Informazioni sull'operatore",
+    about_h2_1: "Informazioni sul sito",
+    about_p_1: "get-quicknote offre strumenti desktop 100% gratuiti sviluppati da un creatore principiante per semplificare le attività informatiche quotidiane.",
+    about_h2_2: "Informazioni sullo sviluppatore",
+    about_p_2: "Per eliminare le frustrazioni quotidiane, creo applicazioni desktop utilizzando Python come progetto personale di hobby.",
+    about_h2_3: "Sicurezza",
+    about_p_3: "Tutte le applicazioni pubblicate vengono regolarmente scansionate su VirusTotal per garantire la massima sicurezza.",
+    about_h2_4: "Contatti",
+    about_p_4: "Per segnalazioni di bug o richieste, vi preghiamo di contattarci tramite i repository GitHub."
+  },
+  tr: {
+    nav_back: "Başa Dön",
+    about_title: "İşletmeci Bilgileri",
+    about_h2_1: "Site Hakkında",
+    about_p_1: "get-quicknote, günlük bilgisayar işlerini ve dosya düzenlemeyi kolaylaştırmak amacıyla yeni başlayan bir geliştirici tarafından sunulan %100 ücretsiz masaüstü araçları barındırır.",
+    about_h2_2: "Geliştirici Hakkında",
+    about_p_2: "Günlük işlerde karşılaşılan zorlukları gidermek için Python kullanarak kişisel bir hobi projesi olarak masaüstü uygulamaları geliştiriyorum.",
+    about_h2_3: "Güvenlik Önlemleri",
+    about_p_3: "Yayınlanan tüm uygulamalar güvenlik teyidi için VirusTotal üzerinde düzenli olarak taranmakta ve güvenli olduğundan emin olunarak paylaşılmaktadır.",
+    about_h2_4: "İletişim",
+    about_p_4: "Hata bildirimleri veya istekleriniz için GitHub depoları üzerinden bizimle iletişime geçebilirsiniz."
+  },
+  ar: {
+    nav_back: "العودة للأعلى",
+    about_title: "معلومات المشغل",
+    about_h2_1: "حول الموقع",
+    about_p_1: "يقدم get-quicknote أدوات سطح مكتب مجانية 100% تم تطويرها بواسطة مطور مبتدئ لتسهيل مهام الكمبيوتر اليومية وتنظيم الملفات.",
+    about_h2_2: "حول المطور",
+    about_p_2: "للقضاء على الإحباطات اليومية والمهام المعرضة للأخطاء، قمت بإنشاء تطبيقات سطح المكتب باستخدام Python كprojet شخصي للهواية والإنتاجية.",
+    about_h2_3: "تدابير الأمان",
+    about_p_3: "تخضع جميع التطبيقات المنشورة لفحوصات أمنية منتظمة على VirusTotal لضمان الأمان التام قبل التوزيع.",
+    about_h2_4: "اتصل بنا",
+    about_p_4: "إذا كان لديك أي تقارير عن الأخطاء أو طلبات الميزات، يرجى التواصل عبر مستودعات GitHub."
+  },
+  id: {
+    nav_back: "Kembali ke Atas",
+    about_title: "Informasi Operator",
+    about_h2_1: "Tentang Situs Ini",
+    about_p_1: "get-quicknote menyediakan alat desktop 100% gratis yang dikembangkan oleh pengembang pemula untuk mempermudah tugas komputer sehari-hari.",
+    about_h2_2: "Tentang Pengembang",
+    about_p_2: "Untuk menghilangkan kerumitan tugas sehari-hari, saya membuat aplikasi desktop menggunakan Python sebagai hobi dan proyek produktivitas pribadi.",
+    about_h2_3: "Komitmen Keamanan",
+    about_p_3: "Semua aplikasi yang dipublikasikan menjalani pemindaian rutin di VirusTotal untuk memastikan keamanan sebelum didistribusikan.",
+    about_h2_4: "Kontak",
+    about_p_4: "Jika Anda memiliki laporan bug atau permintaan fitur, silakan hubungi melalui repositori GitHub."
+  },
+  ko: {
+    nav_back: "맨 위로",
+    about_title: "운영자 정보",
+    about_h2_1: "사이트 소개",
+    about_p_1: "get-quicknote는 일상적인 컴퓨터 작업과 파일 정리를 조금 더 수월하게 만들기 위해 앱 개발 초보자가 개인으로 개발한 완전 무료 데스크톱 도구를 제공합니다.",
+    about_h2_2: "개발자 소개",
+    about_p_2: "업무와 작업 중 느끼는 번거로움과 실수를 줄이기 위해 Python과 다양한 개발 도구를 사용하여 직접 사용하는 데스크톱 앱을 만들고 있습니다. 기업 개발이 아닌 개인 취미 및 생산성 향상 프로젝트입니다.",
+    about_h2_3: "보안 및 안전성",
+    about_p_3: "공개된 모든 애플리케이션은 제3자 보안 확인을 위해 VirusTotal에서 정기적으로 검사하고 있습니다. 안전성이 확인된 상태에서만 배포되므로 안심하고 사용하실 수 있습니다.",
+    about_h2_4: "문의 사항",
+    about_p_4: "앱 오류 신고나 건의사항이 있으신 경우 각 GitHub 리포지토리나 배포 페이지를 통해 알려주시면 감사하겠습니다."
+  }
+};
+
+// 言語切替処理（about.html用）
+document.getElementById('lang').addEventListener('change', (e) => {
+  const lang = e.target.value;
+  document.documentElement.lang = lang;
+  const t = aboutTranslations[lang] || aboutTranslations['ja'];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      if (el.tagName === 'TITLE') {
+        el.textContent = t[key];
+      } else {
+        el.innerHTML = t[key];
+      }
+    }
+  });
+});
+</script>
+
 </body>
 </html>
