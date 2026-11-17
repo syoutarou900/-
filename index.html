@@ -52,7 +52,7 @@ body {
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
-/* 画面いっぱいに広げるため、max-widthを拡大し、左右のパディングを調整 */
+/* 画面いっぱいに広げるレイアウト設定 */
 .wrap { max-width: 1680px; margin-inline: auto; padding-inline: 32px; }
 :root:lang(ar) * { letter-spacing: 0 !important; }
 
@@ -79,7 +79,6 @@ h1 em { font-style: normal; color: var(--accent); }
 
 /* Apps List Section */
 .apps-section { padding-bottom: 80px; }
-/* グリッドのカード最小幅を調整し、大きな画面でも横に余裕をもってカードが並ぶように変更 */
 .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 32px; }
 .app-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px -10px rgba(15, 27, 51, 0.08); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
 .app-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -12px rgba(37, 99, 235, 0.18); }
@@ -176,7 +175,7 @@ h1 em { font-style: normal; color: var(--accent); }
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher.png" alt="DropLauncher プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-droplauncher" src="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-01-Japanese.png" alt="DropLauncher プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -205,7 +204,6 @@ h1 em { font-style: normal; color: var(--accent); }
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <!-- ID付与により言語ごとに画像が切り替わります -->
             <img id="img-versiondetective" src="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png" alt="VersionDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
@@ -235,7 +233,7 @@ h1 em { font-style: normal; color: var(--accent); }
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/UniList/UniList.png" alt="UniList プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-unilist" src="https://github.com/syoutarou900/-/releases/download/UniList/UniList-01-Japanese.png" alt="UniList プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -264,7 +262,7 @@ h1 em { font-style: normal; color: var(--accent); }
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard.png" alt="TranscribeGuard プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-transcribeguard" src="https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-01-Japanese.png" alt="TranscribeGuard プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -293,7 +291,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail.png" alt="TashikaMail プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-tashikamail" src="https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-01-Japanese.png" alt="TashikaMail プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -322,7 +320,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce.png" alt="StepOnce プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-steponce" src="https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-01-Japanese.png" alt="StepOnce プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -351,7 +349,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot.png" alt="RedactShot プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-redactshot" src="https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-01-Japanese.png" alt="RedactShot プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -380,7 +378,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste.png" alt="PurePaste プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-purepaste" src="https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-01-Japanese.png" alt="PurePaste プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -409,7 +407,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective.png" alt="MatchDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-matchdetective" src="https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-01-Japanese.png" alt="MatchDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -438,7 +436,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport.png" alt="FormatPassport プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-formatpassport" src="https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-01-Japanese.png" alt="FormatPassport プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -467,7 +465,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct.png" alt="ContextStruct プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-contextstruct" src="https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-01-Japanese.png" alt="ContextStruct プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -496,7 +494,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
       <div class="app-card">
         <div>
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <img src="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours.png" alt="GlobalHours プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <img id="img-globalhours" src="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-01-Japanese.png" alt="GlobalHours プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
           <div class="app-info">
@@ -544,21 +542,188 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
 </div>
 
 <script>
-// バージョン探偵の13言語分スクショファイルパス定義
-const versionDetectiveImages = {
-  ja: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png",
-  en: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-02-English.png",
-  es: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-03-Spanish.png",
-  zh: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-04-Chinese.png",
-  fr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-05-French.png",
-  de: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-06-German.png",
-  pt: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-07-Portuguese.png",
-  ru: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-08-Russian.png",
-  it: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-09-Italian.png",
-  tr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-10-Turkish.png",
-  ar: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-11-Arabic.png",
-  id: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-12-Indonesian.png",
-  ko: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-13-Korean.png"
+// 全12アプリ×13言語分のスクリーンショットURL定義
+const appImages = {
+  droplauncher: {
+    ja: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-13-Korean.png"
+  },
+  versiondetective: {
+    ja: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-13-Korean.png"
+  },
+  unilist: {
+    ja: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/UniList/UniList-13-Korean.png"
+  },
+  transcribeguard: {
+    ja: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-13-Korean.png"
+  },
+  tashikamail: {
+    ja: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-13-Korean.png"
+  },
+  steponce: {
+    ja: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-13-Korean.png"
+  },
+  redactshot: {
+    ja: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-13-Korean.png"
+  },
+  purepaste: {
+    ja: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-13-Korean.png"
+  },
+  matchdetective: {
+    ja: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-13-Korean.png"
+  },
+  formatpassport: {
+    ja: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-13-Korean.png"
+  },
+  contextstruct: {
+    ja: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-13-Korean.png"
+  },
+  globalhours: {
+    ja: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-01-Japanese.png",
+    en: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-02-English.png",
+    es: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-03-Spanish.png",
+    zh: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-04-Chinese.png",
+    fr: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-05-French.png",
+    de: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-06-German.png",
+    pt: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-07-Portuguese.png",
+    ru: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-08-Russian.png",
+    it: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-09-Italian.png",
+    tr: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-10-Turkish.png",
+    ar: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-11-Arabic.png",
+    id: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-12-Indonesian.png",
+    ko: "https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-13-Korean.png"
+  }
 };
 
 // モーダル制御
@@ -1072,7 +1237,7 @@ const translations = {
   }
 };
 
-// 言語切替処理（テキスト更新と同時にVersionDetectiveのプレビュー画像も切り替え）
+// 言語切替処理（テキスト更新と全12アプリのプレビュー画像切り替え）
 document.getElementById('lang').addEventListener('change', (e) => {
   const lang = e.target.value;
   document.documentElement.lang = lang;
@@ -1090,11 +1255,19 @@ document.getElementById('lang').addEventListener('change', (e) => {
     }
   });
 
-  // VersionDetectiveの画像を言語に合わせて切り替える
-  const vdImg = document.getElementById('img-versiondetective');
-  if (vdImg && versionDetectiveImages[lang]) {
-    vdImg.src = versionDetectiveImages[lang];
-  }
+  // 全12アプリの画像を言語に合わせて切り替える
+  const appKeys = [
+    'droplauncher', 'versiondetective', 'unilist', 'transcribeguard',
+    'tashikamail', 'steponce', 'redactshot', 'purepaste',
+    'matchdetective', 'formatpassport', 'contextstruct', 'globalhours'
+  ];
+
+  appKeys.forEach(appName => {
+    const imgEl = document.getElementById(`img-${appName}`);
+    if (imgEl && appImages[appName] && appImages[appName][lang]) {
+      imgEl.src = appImages[appName][lang];
+    }
+  });
 });
 </script>
 
