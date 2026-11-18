@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ソースコード一覧 | get-quicknote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1220; --surface:#111C33; --surface2:#182747; --codebg:#0A0F1E;
+  --ink:#E8EEF8; --muted:#93A5C4; --faint:#5B6E92; --line:#22314F;
+  --accent:#3B82F6; --accent-strong:#60A5FA; --accent-soft:rgba(59,130,246,.16);
+  --font-body:"Inter","Noto Sans JP",system-ui,-apple-system,"Segoe UI","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);
+  background-image:radial-gradient(circle 620px at 88% 0%,rgba(59,130,246,.20),transparent 70%),
+                   radial-gradient(circle 520px at 0% 22%,rgba(45,212,191,.10),transparent 70%);
+  background-repeat:no-repeat;color:var(--ink);font-family:var(--font-body);
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-strong)}
+.wrap{max-width:1440px;margin-inline:auto;padding:20px clamp(14px,3vw,36px) 56px}
+.topnav{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding-block:6px 18px}
+.topnav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:.92rem}
+.topnav a:hover{color:var(--ink)}
+h1{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:800;margin:6px 0 4px;letter-spacing:-.01em}
+h1 .ja{display:block;font-size:.55em;color:var(--muted);font-weight:700;margin-top:2px}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;
+  display:flex;flex-direction:column;gap:6px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -12px rgba(59,130,246,.35)}
+.card h2{margin:0;font-size:1.25rem;font-weight:800}
+.card .ja{color:var(--muted);font-size:.95rem;font-weight:700}
+.card .info{color:var(--faint);font-size:.85rem;margin-top:2px}
+.card a.open{margin-top:12px;display:inline-flex;justify-content:center;align-items:center;
+  background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
+  padding:11px 18px;border-radius:999px;font-size:.95rem}
+.card a.open:hover{background:#2563EB}
+.layout{display:grid;grid-template-columns:308px minmax(0,1fr);gap:18px;align-items:start}
+.filelist{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-y:auto;max-height:calc(100vh - 190px)}
+.filelist .fl-head{padding:10px 14px;font-weight:800;font-size:.85rem;color:var(--muted);
+  border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface)}
+.file-btn{display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;
+  background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);
+  padding:9px 14px;font-family:var(--font-mono);font-size:.78rem;text-align:left;cursor:pointer;word-break:break-all}
+.file-btn:hover{background:var(--surface2)}
+.file-btn.active{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent);color:#fff}
+.file-btn .sz{color:var(--faint);font-size:.7rem;flex:none}
+.file-bin{padding:9px 14px;border-bottom:1px solid var(--line);font-family:var(--font-mono);
+  font-size:.78rem;color:var(--faint);word-break:break-all}
+.file-bin .sz{color:var(--faint);font-size:.7rem;margin-left:8px}
+.bin-note{display:block;font-family:var(--font-body);font-size:.72rem;color:#64748B;margin-top:1px}
+.codehead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;
+  background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;
+  padding:10px 16px;font-family:var(--font-mono);font-size:.85rem}
+.codehead .lines{color:var(--muted);font-family:var(--font-body);font-size:.82rem}
+.codewrap{display:flex;overflow:auto;background:var(--codebg);border:1px solid var(--line);
+  border-radius:0 0 14px 14px;max-height:calc(100vh - 250px);min-height:300px}
+.codewrap pre{margin:0;font-family:var(--font-mono);font-size:.82rem;line-height:1.65;padding:14px 0}
+pre.gutter{padding-left:14px;padding-right:12px;text-align:right;color:#4A5D85;user-select:none;
+  border-right:1px solid var(--line);position:sticky;left:0;background:var(--codebg);flex:none}
+pre.code{padding-left:16px;padding-right:24px;flex:1;color:#DCE6F5}
+.foot{margin-top:26px;color:var(--faint);font-size:.85rem}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  .filelist{max-height:42vh}
+  .codewrap{max-height:62vh}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav"><a href="../index.html">← サイトトップへ戻る</a></nav>
+<h1>ソースコード一覧</h1>
+<p class="meta">自作アプリ全13本のソースコードを、このサイトの中でそのまま読めます。ダウンロードは不要です。<br>
+全アプリのソースコードは MITライセンス で公開しています。</p>
+<div class="cards">
+<div class="card"><h2>ClipStock</h2><div class="ja">コピペ履歴・スマートウォッチャー</div>
+<div class="info">バージョン 1.0.0 ／ 29 ファイル</div>
+<a class="open" href="ClipStock.html">ソースを見る</a></div><div class="card"><h2>ContextStruct</h2><div class="ja">文脈特化型・即時構造化アシスタント</div>
+<div class="info">バージョン 1.0.0 ／ 27 ファイル</div>
+<a class="open" href="ContextStruct.html">ソースを見る</a></div><div class="card"><h2>DropLauncher</h2><div class="ja">超特化型ドロップランチャー</div>
+<div class="info">バージョン 1.0.0 ／ 27 ファイル</div>
+<a class="open" href="DropLauncher.html">ソースを見る</a></div><div class="card"><h2>FormatPassport</h2><div class="ja">フォーマットパスポート</div>
+<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="FormatPassport.html">ソースを見る</a></div><div class="card"><h2>GlobalHours</h2><div class="ja">タイムゾーン・営業時間チェッカー</div>
+<div class="info">バージョン 1.0.0 ／ 47 ファイル</div>
+<a class="open" href="GlobalHours.html">ソースを見る</a></div><div class="card"><h2>MatchDetective</h2><div class="ja">マッチング探偵</div>
+<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="MatchDetective.html">ソースを見る</a></div><div class="card"><h2>PurePaste</h2><div class="ja">　</div>
+<div class="info">バージョン 1.0.0 ／ 17 ファイル</div>
+<a class="open" href="PurePaste.html">ソースを見る</a></div><div class="card"><h2>RedactShot</h2><div class="ja">スクショ安心フィルター</div>
+<div class="info">バージョン 1.0.0 ／ 38 ファイル</div>
+<a class="open" href="RedactShot.html">ソースを見る</a></div><div class="card"><h2>StepOnce</h2><div class="ja">一回やれば手順書</div>
+<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="StepOnce.html">ソースを見る</a></div><div class="card"><h2>TashikaMail</h2><div class="ja">たしかめーる</div>
+<div class="info">バージョン 1.1.0 ／ 17 ファイル</div>
+<a class="open" href="TashikaMail.html">ソースを見る</a></div><div class="card"><h2>TranscribeGuard</h2><div class="ja">転記見守り君</div>
+<div class="info">バージョン 1.0.0 ／ 20 ファイル</div>
+<a class="open" href="TranscribeGuard.html">ソースを見る</a></div><div class="card"><h2>UniList</h2><div class="ja">ユニリスト</div>
+<div class="info">バージョン 1.0.0 ／ 15 ファイル</div>
+<a class="open" href="UniList.html">ソースを見る</a></div><div class="card"><h2>VersionDetective</h2><div class="ja">バージョン探偵</div>
+<div class="info">バージョン 1.0.0 ／ 43 ファイル</div>
+<a class="open" href="VersionDetective.html">ソースを見る</a></div>
+</div>
+<p class="foot">各アプリのページで、ファイル名をクリックすると内容が表示されます（フォント・画像などのバイナリファイルは表示対象外です）。</p>
+</div>
+</body>
+</html>
