@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="アプリ作成初心者が作成した無料デスクトップツール一覧。軽快な動作で、完全無料。">
+<script>(function(){try{var t=localStorage.getItem('gq-theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
 <title>自作アプリ一覧 - get-quicknote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,7 @@
   --bg: #F5F8FD;
   --surface: #FFFFFF;
   --ink: #0F1B33;
-  --muted: #4F5E78;
+  --muted: #3B4A66;
   --line: #DFE7F3;
   --accent: #2563EB;
   --accent-strong: #1D4ED8;
@@ -28,6 +29,30 @@
 :root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
 :root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
 :root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
+:root[data-theme="dark"] {
+  --bg: #0B1220;
+  --surface: #111C33;
+  --ink: #E8EEF8;
+  --muted: #93A5C4;
+  --line: #22314F;
+  --accent: #3B82F6;
+  --accent-strong: #60A5FA;
+  --accent-soft: rgba(59, 130, 246, 0.16);
+  --glow: #16294D;
+  --glow-2: #0C2B25;
+  color-scheme: dark;
+}
+:root[data-theme="dark"] .btn:hover { background: #2563EB; }
+:root[data-theme="dark"] .btn-vt:hover { background: #2563EB; }
+:root[data-theme="dark"] .btn-mac, :root[data-theme="dark"] .btn-src { background: #26354F; }
+:root[data-theme="dark"] .btn-mac:hover, :root[data-theme="dark"] .btn-src:hover { background: #31456A; }
+:root[data-theme="dark"] .app-card { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45); }
+.theme-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; flex: none; transition: border-color 0.15s; }
+.theme-btn:hover { border-color: #B9CBEA; }
+.theme-btn svg { display: block; }
+.theme-btn .ic-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .ic-sun { display: block; }
+:root[data-theme="dark"] .theme-btn .ic-moon { display: none; }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
@@ -77,7 +102,7 @@ a { color: inherit; }
 h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 4.2rem); line-height: 1.25; letter-spacing: -0.02em; margin: 24px 0 0; width: 100%; }
 h1 em { font-style: normal; color: var(--accent); }
 
-/* Apps List Section (1カラムでカードを縦に並べる構成) */
+/* Apps List Section */
 .apps-section { padding-bottom: 80px; }
 .apps-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
 
@@ -94,24 +119,25 @@ h1 em { font-style: normal; color: var(--accent); }
 
 /* 右側：アプリ情報・操作エリア */
 .app-content-area { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-.app-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin: 0 0 12px; color: var(--ink); }
-.app-info p { margin: 0 0 24px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; white-space: pre-line; }
+.app-info h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin: 0 0 14px; color: var(--ink); }
+.app-info p { margin: 0 0 24px; color: var(--muted); font-size: 1.02rem; line-height: 1.8; white-space: pre-line; font-weight: 400; }
 
-.app-actions { display: flex; flex-direction: column; gap: 4px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; font-size: 0.95rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 12px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5); transition: transform 0.15s, background 0.15s; width: 100%; text-align: center; }
+/* 操作エリアのボタン：長すぎず適度な幅を持たせ、視認性を高める */
+.app-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; font-size: 0.98rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 14px 28px; border-radius: 999px; text-decoration: none; box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5); transition: transform 0.15s, background 0.15s; width: 100%; max-width: 480px; text-align: center; }
 .btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
 .btn svg { flex: none; }
-.btn-mac { margin-top: 10px; background: var(--ink); box-shadow: 0 8px 20px -6px rgba(15, 27, 51, 0.35); }
+.btn-mac { margin-top: 6px; background: var(--ink); box-shadow: 0 8px 20px -6px rgba(15, 27, 51, 0.35); }
 .btn-mac:hover { background: #1F2F50; }
-.req { display: block; margin-top: 6px; font-size: 0.82rem; color: var(--muted); text-align: center; }
+.req { display: block; margin-top: 4px; margin-bottom: 6px; font-size: 0.88rem; font-weight: 500; color: var(--muted); text-align: left; width: 100%; max-width: 480px; }
 
 /* VirusTotal Button */
-.btn-vt { margin-top: 10px; color: var(--accent-strong); background: var(--accent-soft); box-shadow: none; }
-.btn-vt:hover { background: #d4e3fc; color: var(--accent-strong); }
+.btn-vt { margin-top: 6px; color: #fff; background: var(--accent); box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5); }
+.btn-vt:hover { background: var(--accent-strong); color: #fff; }
 
 /* Source Code Button */
-.btn-src { margin-top: 10px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); box-shadow: none; }
-.btn-src:hover { background: var(--bg); border-color: #B9CBEA; color: var(--ink); }
+.btn-src { margin-top: 6px; color: #fff; background: var(--ink); border: 1px solid transparent; box-shadow: 0 8px 20px -6px rgba(15, 27, 51, 0.35); }
+.btn-src:hover { background: #1F2F50; color: #fff; }
 
 /* Operator Section */
 .operator-section { text-align: center; padding-bottom: 60px; }
@@ -129,6 +155,7 @@ h1 em { font-style: normal; color: var(--accent); }
 /* レスポンシブ対応：画面幅が狭い場合は1カラムに戻す */
 @media (max-width: 1024px) {
   .app-card { grid-template-columns: 1fr; gap: 24px; }
+  .btn, .req { max-width: 100%; }
 }
 
 @media (max-width: 480px) {
@@ -153,6 +180,10 @@ h1 em { font-style: normal; color: var(--accent); }
     get-quicknote
   </a>
   <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="テーマ切替 / Theme" title="テーマ切替 / Theme">
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
     <div class="lang-pick">
       <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       <select id="lang" aria-label="Language / 言語">
@@ -1421,6 +1452,33 @@ document.getElementById('lang').addEventListener('change', (e) => {
     }
   });
 });
+</script>
+
+<script>
+// テーマ切替（全ページ共通キー gq-theme）と、言語選択の保存・復元（共通キー gq-lang）
+(function () {
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('gq-theme', next); } catch (e) {}
+    });
+  }
+  var sel = document.getElementById('lang');
+  if (sel) {
+    sel.addEventListener('change', function () {
+      try { localStorage.setItem('gq-lang', sel.value); } catch (e) {}
+    });
+    try {
+      var saved = localStorage.getItem('gq-lang');
+      if (saved && saved !== sel.value) {
+        sel.value = saved;
+        sel.dispatchEvent(new Event('change'));
+      }
+    } catch (e) {}
+  }
+})();
 </script>
 
 </body>
