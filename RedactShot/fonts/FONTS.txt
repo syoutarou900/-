@@ -1,0 +1,22 @@
+Bundled fonts — attribution and licenses
+=========================================
+
+This application bundles the following open fonts.  Both are licensed
+under the SIL Open Font License, Version 1.1 (OFL-1.1); the full
+license text for each font is included in this folder.
+
+1. Inter (Regular / Medium / SemiBold / Bold)
+   Copyright (c) 2016 The Inter Project Authors
+   (https://github.com/rsms/inter)
+   Source: official Inter release v4.1 (rsms/inter on GitHub)
+   License file: OFL-Inter.txt
+
+2. Noto Sans JP (Regular / Medium / Bold)
+   Copyright 2014-2021 Adobe (http://www.adobe.com/), with Reserved
+   Font Name 'Source'.  Source is a trademark of Adobe in the United
+   States and/or other countries.
+   Source: official Noto CJK repository (notofonts/noto-cjk on
+   GitHub), Sans/SubsetOTF/JP
+   License file: OFL-NotoSansJP.txt
+
+No modifications were made to the font files.
