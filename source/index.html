@@ -3,112 +3,161 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('gq-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
 <title>ソースコード一覧 | get-quicknote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0B1220; --surface:#111C33; --surface2:#182747; --codebg:#0A0F1E;
+  --bg:#0B1220; --surface:#111C33; --surface2:#182747; --codebg:#0D1117;
   --ink:#E8EEF8; --muted:#93A5C4; --faint:#5B6E92; --line:#22314F;
   --accent:#3B82F6; --accent-strong:#60A5FA; --accent-soft:rgba(59,130,246,.16);
   --font-body:"Inter","Noto Sans JP",system-ui,-apple-system,"Segoe UI","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
-  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,monospace;
   color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F8FD; --surface:#FFFFFF; --surface2:#E7EFFD; --codebg:#FFFFFF;
+  --ink:#0F1B33; --muted:#3B4A66; --faint:#64748B; --line:#DFE7F3;
+  --accent:#2563EB; --accent-strong:#1D4ED8; --accent-soft:#E7EFFD;
+  color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background-color:var(--bg);
   background-image:radial-gradient(circle 620px at 88% 0%,rgba(59,130,246,.20),transparent 70%),
                    radial-gradient(circle 520px at 0% 22%,rgba(45,212,191,.10),transparent 70%);
   background-repeat:no-repeat;color:var(--ink);font-family:var(--font-body);
-  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  font-size:17.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
 a{color:var(--accent-strong)}
-.wrap{max-width:1440px;margin-inline:auto;padding:20px clamp(14px,3vw,36px) 56px}
-.topnav{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding-block:6px 18px}
-.topnav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:.92rem}
+.wrap{max-width:1560px;margin-inline:auto;padding:30px clamp(18px,3.5vw,48px) 72px}
+.headrow{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;padding-block:6px 22px}
+.topnav{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.topnav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:1rem}
 .topnav a:hover{color:var(--ink)}
-h1{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:800;margin:6px 0 4px;letter-spacing:-.01em}
-h1 .ja{display:block;font-size:.55em;color:var(--muted);font-weight:700;margin-top:2px}
-.meta{color:var(--muted);font-size:.9rem;margin:0 0 18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:22px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;
-  display:flex;flex-direction:column;gap:6px;transition:transform .15s,box-shadow .15s}
+.controls{margin-left:auto;display:flex;align-items:center;gap:10px}
+[dir="rtl"] .controls{margin-left:0;margin-right:auto}
+.themebtn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;
+  border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  cursor:pointer;flex:none}
+.themebtn:hover{border-color:var(--accent)}
+.themebtn .ic-moon{display:none}
+:root[data-theme="light"] .themebtn .ic-moon{display:block}
+:root[data-theme="light"] .themebtn .ic-sun{display:none}
+.langpick select{appearance:none;-webkit-appearance:none;font:inherit;font-size:.85rem;font-weight:700;
+  line-height:1.4;color:var(--ink);background:var(--surface);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;cursor:pointer;max-width:190px}
+.langpick select:hover{border-color:var(--accent)}
+h1{font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:800;margin:6px 0 8px;letter-spacing:-.01em}
+.meta{color:var(--muted);font-size:1.02rem;margin:0 0 10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;margin-top:30px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 26px 22px;
+  display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s}
 .card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -12px rgba(59,130,246,.35)}
-.card h2{margin:0;font-size:1.25rem;font-weight:800}
-.card .ja{color:var(--muted);font-size:.95rem;font-weight:700}
-.card .info{color:var(--faint);font-size:.85rem;margin-top:2px}
-.card a.open{margin-top:12px;display:inline-flex;justify-content:center;align-items:center;
+.card h2{margin:0;font-size:1.45rem;font-weight:800}
+.card .ja{color:var(--muted);font-size:1.05rem;font-weight:700}
+.card .info{color:var(--faint);font-size:.95rem;margin-top:2px}
+.card a.open{margin-top:16px;display:inline-flex;justify-content:center;align-items:center;
   background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
-  padding:11px 18px;border-radius:999px;font-size:.95rem}
-.card a.open:hover{background:#2563EB}
-.layout{display:grid;grid-template-columns:308px minmax(0,1fr);gap:18px;align-items:start}
-.filelist{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-y:auto;max-height:calc(100vh - 190px)}
-.filelist .fl-head{padding:10px 14px;font-weight:800;font-size:.85rem;color:var(--muted);
-  border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface)}
-.file-btn{display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;
-  background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);
-  padding:9px 14px;font-family:var(--font-mono);font-size:.78rem;text-align:left;cursor:pointer;word-break:break-all}
-.file-btn:hover{background:var(--surface2)}
-.file-btn.active{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent);color:#fff}
-.file-btn .sz{color:var(--faint);font-size:.7rem;flex:none}
-.file-bin{padding:9px 14px;border-bottom:1px solid var(--line);font-family:var(--font-mono);
-  font-size:.78rem;color:var(--faint);word-break:break-all}
-.file-bin .sz{color:var(--faint);font-size:.7rem;margin-left:8px}
-.bin-note{display:block;font-family:var(--font-body);font-size:.72rem;color:#64748B;margin-top:1px}
-.codehead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;
-  background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;
-  padding:10px 16px;font-family:var(--font-mono);font-size:.85rem}
-.codehead .lines{color:var(--muted);font-family:var(--font-body);font-size:.82rem}
-.codewrap{display:flex;overflow:auto;background:var(--codebg);border:1px solid var(--line);
-  border-radius:0 0 14px 14px;max-height:calc(100vh - 250px);min-height:300px}
-.codewrap pre{margin:0;font-family:var(--font-mono);font-size:.82rem;line-height:1.65;padding:14px 0}
-pre.gutter{padding-left:14px;padding-right:12px;text-align:right;color:#4A5D85;user-select:none;
-  border-right:1px solid var(--line);position:sticky;left:0;background:var(--codebg);flex:none}
-pre.code{padding-left:16px;padding-right:24px;flex:1;color:#DCE6F5}
-.foot{margin-top:26px;color:var(--faint);font-size:.85rem}
-@media (max-width:860px){
-  .layout{grid-template-columns:1fr}
-  .filelist{max-height:42vh}
-  .codewrap{max-height:62vh}
-}
+  padding:13px 20px;border-radius:999px;font-size:1.05rem}
+.card a.open:hover{filter:brightness(1.12)}
+.foot{margin-top:34px;color:var(--faint);font-size:.95rem}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav class="topnav"><a href="../index.html">← サイトトップへ戻る</a></nav>
-<h1>ソースコード一覧</h1>
-<p class="meta">自作アプリ全13本のソースコードを、このサイトの中でそのまま読めます。ダウンロードは不要です。<br>
-全アプリのソースコードは MITライセンス で公開しています。</p>
+<div class="headrow">
+<nav class="topnav"><a href="../index.html" data-i18n="s_back">← サイトトップへ戻る</a></nav>
+<div class="controls">
+    <button class="themebtn" id="themeBtn" type="button" aria-label="Theme / テーマ切替" title="Theme / テーマ切替"><svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+    <div class="langpick"><select id="langSel" aria-label="Language / 言語">
+<option value="ja" lang="ja">日本語</option>
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="zh" lang="zh-Hans">简体中文</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="ko" lang="ko">한국어</option>
+    </select></div>
+</div>
+</div>
+<h1 data-i18n="s_title">ソースコード一覧</h1>
+<p class="meta"><span data-i18n="s_lead1">自作アプリ全13本のソースコードを、このサイトの中でそのまま読めます。ダウンロードは不要です。</span><br>
+<span data-i18n="s_lead2">全アプリのソースコードは MITライセンス で公開しています。</span></p>
 <div class="cards">
 <div class="card"><h2>ClipStock</h2><div class="ja">コピペ履歴・スマートウォッチャー</div>
-<div class="info">バージョン 1.0.0 ／ 29 ファイル</div>
-<a class="open" href="ClipStock.html">ソースを見る</a></div><div class="card"><h2>ContextStruct</h2><div class="ja">文脈特化型・即時構造化アシスタント</div>
-<div class="info">バージョン 1.0.0 ／ 27 ファイル</div>
-<a class="open" href="ContextStruct.html">ソースを見る</a></div><div class="card"><h2>DropLauncher</h2><div class="ja">超特化型ドロップランチャー</div>
-<div class="info">バージョン 1.0.0 ／ 27 ファイル</div>
-<a class="open" href="DropLauncher.html">ソースを見る</a></div><div class="card"><h2>FormatPassport</h2><div class="ja">フォーマットパスポート</div>
-<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
-<a class="open" href="FormatPassport.html">ソースを見る</a></div><div class="card"><h2>GlobalHours</h2><div class="ja">タイムゾーン・営業時間チェッカー</div>
-<div class="info">バージョン 1.0.0 ／ 47 ファイル</div>
-<a class="open" href="GlobalHours.html">ソースを見る</a></div><div class="card"><h2>MatchDetective</h2><div class="ja">マッチング探偵</div>
-<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
-<a class="open" href="MatchDetective.html">ソースを見る</a></div><div class="card"><h2>PurePaste</h2><div class="ja">　</div>
-<div class="info">バージョン 1.0.0 ／ 17 ファイル</div>
-<a class="open" href="PurePaste.html">ソースを見る</a></div><div class="card"><h2>RedactShot</h2><div class="ja">スクショ安心フィルター</div>
-<div class="info">バージョン 1.0.0 ／ 38 ファイル</div>
-<a class="open" href="RedactShot.html">ソースを見る</a></div><div class="card"><h2>StepOnce</h2><div class="ja">一回やれば手順書</div>
-<div class="info">バージョン 1.0.0 ／ 18 ファイル</div>
-<a class="open" href="StepOnce.html">ソースを見る</a></div><div class="card"><h2>TashikaMail</h2><div class="ja">たしかめーる</div>
-<div class="info">バージョン 1.1.0 ／ 17 ファイル</div>
-<a class="open" href="TashikaMail.html">ソースを見る</a></div><div class="card"><h2>TranscribeGuard</h2><div class="ja">転記見守り君</div>
-<div class="info">バージョン 1.0.0 ／ 20 ファイル</div>
-<a class="open" href="TranscribeGuard.html">ソースを見る</a></div><div class="card"><h2>UniList</h2><div class="ja">ユニリスト</div>
-<div class="info">バージョン 1.0.0 ／ 15 ファイル</div>
-<a class="open" href="UniList.html">ソースを見る</a></div><div class="card"><h2>VersionDetective</h2><div class="ja">バージョン探偵</div>
-<div class="info">バージョン 1.0.0 ／ 43 ファイル</div>
-<a class="open" href="VersionDetective.html">ソースを見る</a></div>
+<div class="info" data-ver="1.0.0" data-n="29">バージョン 1.0.0 ／ 29 ファイル</div>
+<a class="open" href="ClipStock.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>ContextStruct</h2><div class="ja">文脈特化型・即時構造化アシスタント</div>
+<div class="info" data-ver="1.0.0" data-n="27">バージョン 1.0.0 ／ 27 ファイル</div>
+<a class="open" href="ContextStruct.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>DropLauncher</h2><div class="ja">超特化型ドロップランチャー</div>
+<div class="info" data-ver="1.0.0" data-n="27">バージョン 1.0.0 ／ 27 ファイル</div>
+<a class="open" href="DropLauncher.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>FormatPassport</h2><div class="ja">フォーマットパスポート</div>
+<div class="info" data-ver="1.0.0" data-n="18">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="FormatPassport.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>GlobalHours</h2><div class="ja">タイムゾーン・営業時間チェッカー</div>
+<div class="info" data-ver="1.0.0" data-n="47">バージョン 1.0.0 ／ 47 ファイル</div>
+<a class="open" href="GlobalHours.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>MatchDetective</h2><div class="ja">マッチング探偵</div>
+<div class="info" data-ver="1.0.0" data-n="18">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="MatchDetective.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>PurePaste</h2><div class="ja">　</div>
+<div class="info" data-ver="1.0.0" data-n="17">バージョン 1.0.0 ／ 17 ファイル</div>
+<a class="open" href="PurePaste.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>RedactShot</h2><div class="ja">スクショ安心フィルター</div>
+<div class="info" data-ver="1.0.0" data-n="38">バージョン 1.0.0 ／ 38 ファイル</div>
+<a class="open" href="RedactShot.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>StepOnce</h2><div class="ja">一回やれば手順書</div>
+<div class="info" data-ver="1.0.0" data-n="18">バージョン 1.0.0 ／ 18 ファイル</div>
+<a class="open" href="StepOnce.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>TashikaMail</h2><div class="ja">たしかめーる</div>
+<div class="info" data-ver="1.1.0" data-n="17">バージョン 1.1.0 ／ 17 ファイル</div>
+<a class="open" href="TashikaMail.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>TranscribeGuard</h2><div class="ja">転記見守り君</div>
+<div class="info" data-ver="1.0.0" data-n="20">バージョン 1.0.0 ／ 20 ファイル</div>
+<a class="open" href="TranscribeGuard.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>UniList</h2><div class="ja">ユニリスト</div>
+<div class="info" data-ver="1.0.0" data-n="15">バージョン 1.0.0 ／ 15 ファイル</div>
+<a class="open" href="UniList.html" data-i18n="s_open">ソースを見る</a></div><div class="card"><h2>VersionDetective</h2><div class="ja">バージョン探偵</div>
+<div class="info" data-ver="1.0.0" data-n="43">バージョン 1.0.0 ／ 43 ファイル</div>
+<a class="open" href="VersionDetective.html" data-i18n="s_open">ソースを見る</a></div>
 </div>
-<p class="foot">各アプリのページで、ファイル名をクリックすると内容が表示されます（フォント・画像などのバイナリファイルは表示対象外です）。</p>
+<p class="foot" data-i18n="s_foot">各アプリのページで、ファイル名をクリックすると内容が表示されます（フォント・画像などのバイナリファイルは表示対象外です）。</p>
 </div>
+<script type="application/json" id="i18ndata">{"ja": {"s_title": "ソースコード一覧", "s_back": "← サイトトップへ戻る", "s_lead1": "自作アプリ全13本のソースコードを、このサイトの中でそのまま読めます。ダウンロードは不要です。", "s_lead2": "全アプリのソースコードは MITライセンス で公開しています。", "s_open": "ソースを見る", "s_foot": "各アプリのページで、ファイル名をクリックすると内容が表示されます（フォント・画像などのバイナリファイルは表示対象外です）。"}, "en": {"s_title": "Source Code", "s_back": "← Back to the top page", "s_lead1": "Read the source code of all 13 self-made apps right here on this site. No download required.", "s_lead2": "All source code is published under the MIT License.", "s_open": "View source", "s_foot": "On each app's page, click a file name to view its contents (binary files such as fonts and images are not displayed)."}, "es": {"s_title": "Código fuente", "s_back": "← Volver a la página principal", "s_lead1": "Lee el código fuente de las 13 aplicaciones directamente en este sitio. No necesitas descargarlo.", "s_lead2": "Todo el código fuente se publica bajo la licencia MIT.", "s_open": "Ver código", "s_foot": "En la página de cada aplicación, haz clic en un nombre de archivo para ver su contenido (los archivos binarios, como fuentes e imágenes, no se muestran)."}, "zh": {"s_title": "源代码列表", "s_back": "← 返回网站首页", "s_lead1": "可以直接在本网站内阅读全部13款自制应用的源代码，无需下载。", "s_lead2": "全部源代码均以 MIT 许可证公开发布。", "s_open": "查看源代码", "s_foot": "在每个应用的页面中，点击文件名即可查看内容（字体、图片等二进制文件不显示）。"}, "fr": {"s_title": "Code source", "s_back": "← Retour à la page d'accueil", "s_lead1": "Lisez le code source des 13 applications directement sur ce site. Aucun téléchargement nécessaire.", "s_lead2": "L'ensemble du code source est publié sous licence MIT.", "s_open": "Voir le code", "s_foot": "Sur la page de chaque application, cliquez sur un nom de fichier pour afficher son contenu (les fichiers binaires tels que les polices et les images ne sont pas affichés)."}, "de": {"s_title": "Quellcode", "s_back": "← Zurück zur Startseite", "s_lead1": "Lesen Sie den Quellcode aller 13 Apps direkt hier auf dieser Website. Kein Download nötig.", "s_lead2": "Der gesamte Quellcode wird unter der MIT-Lizenz veröffentlicht.", "s_open": "Quellcode ansehen", "s_foot": "Klicken Sie auf der Seite jeder App auf einen Dateinamen, um den Inhalt anzuzeigen (Binärdateien wie Schriftarten und Bilder werden nicht angezeigt)."}, "pt": {"s_title": "Código-fonte", "s_back": "← Voltar à página inicial", "s_lead1": "Leia o código-fonte de todos os 13 aplicativos aqui mesmo neste site. Não é preciso baixar nada.", "s_lead2": "Todo o código-fonte é publicado sob a licença MIT.", "s_open": "Ver código-fonte", "s_foot": "Na página de cada aplicativo, clique no nome de um arquivo para ver o conteúdo (arquivos binários, como fontes e imagens, não são exibidos)."}, "ru": {"s_title": "Исходный код", "s_back": "← Назад на главную", "s_lead1": "Читайте исходный код всех 13 приложений прямо на этом сайте. Скачивание не требуется.", "s_lead2": "Весь исходный код опубликован под лицензией MIT.", "s_open": "Смотреть код", "s_foot": "На странице каждого приложения нажмите на имя файла, чтобы просмотреть его содержимое (бинарные файлы, такие как шрифты и изображения, не отображаются)."}, "it": {"s_title": "Codice sorgente", "s_back": "← Torna alla pagina principale", "s_lead1": "Leggi il codice sorgente di tutte le 13 app direttamente su questo sito. Non serve scaricare nulla.", "s_lead2": "Tutto il codice sorgente è pubblicato con licenza MIT.", "s_open": "Visualizza codice", "s_foot": "Nella pagina di ogni app, fai clic sul nome di un file per visualizzarne il contenuto (i file binari come font e immagini non vengono visualizzati)."}, "tr": {"s_title": "Kaynak Kodu", "s_back": "← Ana sayfaya dön", "s_lead1": "13 uygulamanın tamamının kaynak kodunu doğrudan bu sitede okuyabilirsiniz. İndirme gerekmez.", "s_lead2": "Tüm kaynak kodu MIT Lisansı ile yayımlanmaktadır.", "s_open": "Kodu görüntüle", "s_foot": "Her uygulamanın sayfasında, içeriğini görmek için bir dosya adına tıklayın (yazı tipleri ve resimler gibi ikili dosyalar görüntülenmez)."}, "ar": {"s_title": "الشيفرة المصدرية", "s_back": "← العودة إلى الصفحة الرئيسية", "s_lead1": "يمكنك قراءة الشيفرة المصدرية لجميع التطبيقات الـ13 مباشرة على هذا الموقع، دون الحاجة إلى التنزيل.", "s_lead2": "جميع الشيفرات المصدرية منشورة بموجب رخصة MIT.", "s_open": "عرض الشيفرة", "s_foot": "في صفحة كل تطبيق، انقر على اسم ملف لعرض محتواه (الملفات الثنائية مثل الخطوط والصور لا تُعرض)."}, "id": {"s_title": "Kode Sumber", "s_back": "← Kembali ke halaman utama", "s_lead1": "Baca kode sumber ke-13 aplikasi langsung di situs ini. Tidak perlu mengunduh.", "s_lead2": "Seluruh kode sumber diterbitkan di bawah Lisensi MIT.", "s_open": "Lihat kode sumber", "s_foot": "Di halaman setiap aplikasi, klik nama file untuk melihat isinya (file biner seperti font dan gambar tidak ditampilkan)."}, "ko": {"s_title": "소스 코드 목록", "s_back": "← 홈으로 돌아가기", "s_lead1": "자작 앱 13개 전부의 소스 코드를 이 사이트 안에서 그대로 읽을 수 있습니다. 다운로드가 필요 없습니다.", "s_lead2": "모든 소스 코드는 MIT 라이선스로 공개되어 있습니다.", "s_open": "소스 보기", "s_foot": "각 앱 페이지에서 파일명을 클릭하면 내용이 표시됩니다(글꼴·이미지 등의 바이너리 파일은 표시되지 않습니다)."}}</script>
+<script type="application/json" id="veri18ndata">{"ja": {"version": "バージョン", "files_unit": "ファイル"}, "en": {"version": "Version", "files_unit": "files"}, "es": {"version": "Versión", "files_unit": "archivos"}, "zh": {"version": "版本", "files_unit": "个文件"}, "fr": {"version": "Version", "files_unit": "fichiers"}, "de": {"version": "Version", "files_unit": "Dateien"}, "pt": {"version": "Versão", "files_unit": "arquivos"}, "ru": {"version": "Версия", "files_unit": "файлов"}, "it": {"version": "Versione", "files_unit": "file"}, "tr": {"version": "Sürüm", "files_unit": "dosya"}, "ar": {"version": "الإصدار", "files_unit": "ملفات"}, "id": {"version": "Versi", "files_unit": "file"}, "ko": {"version": "버전", "files_unit": "파일"}}</script>
+<script>
+const I18N = JSON.parse(document.getElementById('i18ndata').textContent);
+const VER_I18N = JSON.parse(document.getElementById('veri18ndata').textContent);
+let lang = 'ja';
+try {
+  const saved = localStorage.getItem('gq-lang');
+  if (saved && I18N[saved]) lang = saved;
+} catch(e) {}
+function applyLang(code){
+  if (!I18N[code]) code = 'ja';
+  lang = code;
+  const T = I18N[code], V = VER_I18N[code] || VER_I18N.ja;
+  document.documentElement.lang = (code === 'zh') ? 'zh-Hans' : code;
+  document.documentElement.dir = (code === 'ar') ? 'rtl' : 'ltr';
+  document.title = T.s_title + ' | get-quicknote';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (T[k]) el.textContent = T[k];
+  });
+  document.querySelectorAll('.card .info').forEach(el => {
+    el.textContent = V.version + ' ' + el.dataset.ver + ' ／ ' + el.dataset.n + ' ' + V.files_unit;
+  });
+}
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem('gq-theme', next); } catch(e) {}
+});
+const langSel = document.getElementById('langSel');
+langSel.value = lang;
+langSel.addEventListener('change', () => {
+  try { localStorage.setItem('gq-lang', langSel.value); } catch(e) {}
+  applyLang(langSel.value);
+});
+applyLang(lang);
+</script>
 </body>
 </html>
