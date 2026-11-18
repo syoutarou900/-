@@ -92,16 +92,20 @@ h1 em { font-style: normal; color: var(--accent); }
 .app-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin: 0 0 12px; color: var(--ink); }
 .app-info p { margin: 0 0 24px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; white-space: pre-line; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 14px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 22px -8px rgba(37, 99, 235, 0.6); transition: transform 0.15s, background 0.15s; width: 100%; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.4; color: #fff; background: var(--accent); padding: 14px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 22px -8px rgba(37, 99, 235, 0.6); transition: transform 0.15s, background 0.15s; width: 100%; text-align: center; }
 .btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
 .btn svg { flex: none; }
 .btn-mac { margin-top: 14px; background: var(--ink); box-shadow: 0 10px 22px -8px rgba(15, 27, 51, 0.45); }
 .btn-mac:hover { background: #1F2F50; }
 .req { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--muted); text-align: center; }
 
-/* VirusTotal Button */
-.btn-vt { display: block; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 10px 16px; border-radius: 999px; text-decoration: none; margin-top: 10px; transition: background 0.15s; }
-.btn-vt:hover { background: #d4e3fc; }
+/* VirusTotal Button (他のボタンと同じ大きさに統一) */
+.btn-vt { margin-top: 14px; color: var(--accent-strong); background: var(--accent-soft); box-shadow: none; }
+.btn-vt:hover { background: #d4e3fc; color: var(--accent-strong); }
+
+/* Source Code Button (他のボタンと同じ大きさ) */
+.btn-src { margin-top: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); box-shadow: none; }
+.btn-src:hover { background: var(--bg); border-color: #B9CBEA; color: var(--ink); }
 
 /* Operator Section */
 .operator-section { text-align: center; padding-bottom: 60px; }
@@ -122,8 +126,8 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .nav-dl, .lang-pick select, .app-card, .btn-vt { transition: none; }
-  .btn:hover, .app-card:hover, .btn-vt:hover { transform: none; }
+  .btn, .nav-dl, .lang-pick select, .app-card { transition: none; }
+  .btn:hover, .app-card:hover { transform: none; }
 }
 </style>
 </head>
@@ -195,8 +199,9 @@ h1 em { font-style: normal; color: var(--accent); }
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/a85244f2ecbc8d930a5085f301afa038ff2a9dfcb57b9d33947725d5aeafd161" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/a85244f2ecbc8d930a5085f301afa038ff2a9dfcb57b9d33947725d5aeafd161" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -224,8 +229,9 @@ h1 em { font-style: normal; color: var(--accent); }
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/d9b39b2e588004f0be348b9a3a813a4d9ed8180a03d6d2d7d02af710d4b85ea3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/d9b39b2e588004f0be348b9a3a813a4d9ed8180a03d6d2d7d02af710d4b85ea3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -253,8 +259,9 @@ h1 em { font-style: normal; color: var(--accent); }
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/08fd59643868e8286154df170435889db6583ac3485ec995649231608048e23d" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/08fd59643868e8286154df170435889db6583ac3485ec995649231608048e23d" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -282,8 +289,9 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/bf38959dd3a873f0b22142027efe98ba09b7a34b3cefd4a166412bc204082cd8" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/bf38959dd3a873f0b22142027efe98ba09b7a34b3cefd4a166412bc204082cd8" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -311,8 +319,9 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/0c8fe5acf1272611614199d78bb3a6db9d86a828144c70883f177d873ade7ca3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/0c8fe5acf1272611614199d78bb3a6db9d86a828144c70883f177d873ade7ca3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -340,8 +349,9 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/f9c96384d25dba9255e2625d40ecd5a0722a5767a0f8c77248b8112ec4574724" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/f9c96384d25dba9255e2625d40ecd5a0722a5767a0f8c77248b8112ec4574724" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -369,8 +379,9 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/e3f13bc3df47d97401d63b55980d44a3fb55af2075157d9a603dd14c6f6801da" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/e3f13bc3df47d97401d63b55980d44a3fb55af2075157d9a603dd14c6f6801da" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -398,8 +409,9 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/54a0aa271ba1c46e2771707c8c6cfc0559777f63120347d7a2e5cbc2c83ee1a1" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/54a0aa271ba1c46e2771707c8c6cfc0559777f63120347d7a2e5cbc2c83ee1a1" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -427,8 +439,9 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/248de6c4f2cec3b874845c91d982336da55e63a97c19c5a49eb485eca71fb743" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/248de6c4f2cec3b874845c91d982336da55e63a97c19c5a49eb485eca71fb743" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -456,8 +469,9 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/b02463ae63de76a5d2b3e82f6c1fdf37a275449275e3d6673a60f19c67c03675" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/b02463ae63de76a5d2b3e82f6c1fdf37a275449275e3d6673a60f19c67c03675" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -485,8 +499,9 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/506d21acf018239020ccf47c1d3dff5e5c83d68214c0fc73df0946bf5b2e9b70" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/506d21acf018239020ccf47c1d3dff5e5c83d68214c0fc73df0946bf5b2e9b70" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -514,8 +529,9 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             <span data-i18n="btn_text_mac">アプリをダウンロード (Mac用)</span>
           </a>
           <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
-          <a class="btn-vt" href="https://www.virustotal.com/gui/file/b40fce7e099b6eaabc471ec0d1ac9e26c116f7213f6da069903156c875a57efc" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+          <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/b40fce7e099b6eaabc471ec0d1ac9e26c116f7213f6da069903156c875a57efc" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
           <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+          <a class="btn btn-src" href="#" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
         </div>
       </div>
 
@@ -752,6 +768,7 @@ const translations = {
     req_mac: "macOS 11以降。Intel製とApple Siliconの両チップ対応です。",
     vt_btn: "VirusTotal アプリ検査ソフトの結果リンク",
     vt_note: "71社全て検出なし・2026年11月16日検査",
+    src_btn: "ソースコードを見る",
     about_btn: "運営者情報",
     modal_close: "✕ 閉じる",
     app1_title: "DropLauncher（ドロップランチャー）",
@@ -790,6 +807,7 @@ const translations = {
     req_mac: "macOS 11 or later. Supports both Intel and Apple Silicon chips.",
     vt_btn: "VirusTotal App Inspection Result Link",
     vt_note: "71 vendors detected nothing · Inspected on Nov 16, 2026",
+    src_btn: "View Source Code",
     about_btn: "About Operator",
     modal_close: "✕ Close",
     app1_title: "DropLauncher",
@@ -828,6 +846,7 @@ const translations = {
     req_mac: "macOS 11 o posterior. Compatible con chips Intel y Apple Silicon.",
     vt_btn: "Enlace de resultados de inspección de VirusTotal",
     vt_note: "71 proveedores no detectaron amenazas · Inspeccionado el 16 de nov. de 2026",
+    src_btn: "Ver código fuente",
     about_btn: "Información del operador",
     modal_close: "✕ Cerrar",
     app1_title: "DropLauncher",
@@ -866,6 +885,7 @@ const translations = {
     req_mac: "macOS 11 或更高版本。同时支持 Intel 和 Apple Silicon 芯片。",
     vt_btn: "VirusTotal 应用检测结果链接",
     vt_note: "71家全部未检测出威胁 · 检测日期：2026年11月16日",
+    src_btn: "查看源代码",
     about_btn: "运营者信息",
     modal_close: "✕ 关闭",
     app1_title: "DropLauncher",
@@ -904,6 +924,7 @@ const translations = {
     req_mac: "macOS 11 ou version ultérieure. Compatible puces Intel et Apple Silicon.",
     vt_btn: "Lien du résultat d'inspection VirusTotal",
     vt_note: "71 fournisseurs n'ont rien détecté · Inspecté le 16 nov. 2026",
+    src_btn: "Voir le code source",
     about_btn: "Informations sur l'opérateur",
     modal_close: "✕ Fermer",
     app1_title: "DropLauncher",
@@ -942,6 +963,7 @@ const translations = {
     req_mac: "macOS 11 oder neuer. Unterstützt Intel- und Apple Silicon-Chips.",
     vt_btn: "VirusTotal App-Prüfungsergebnis-Link",
     vt_note: "71 Anbieter haben nichts erkannt · Geprüft am 16. Nov. 2026",
+    src_btn: "Quellcode ansehen",
     about_btn: "Betreiberinformationen",
     modal_close: "✕ Schließen",
     app1_title: "DropLauncher",
@@ -980,6 +1002,7 @@ const translations = {
     req_mac: "macOS 11 ou superior. Compatível com chips Intel e Apple Silicon.",
     vt_btn: "Link de resultado da inspeção do VirusTotal",
     vt_note: "71 fornecedores não detectaram ameaças · Inspecionado em 16 de nov. de 2026",
+    src_btn: "Ver código-fonte",
     about_btn: "Informações do operador",
     modal_close: "✕ Fechar",
     app1_title: "DropLauncher",
@@ -1018,6 +1041,7 @@ const translations = {
     req_mac: "macOS 11 и новее. Поддерживает чипы Intel и Apple Silicon.",
     vt_btn: "Ссылка на результаты проверки VirusTotal",
     vt_note: "71 антивирус ничего не обнаружил · Проверено 16 ноября 2026 г.",
+    src_btn: "Посмотреть исходный код",
     about_btn: "Информация об операторе",
     modal_close: "✕ Закрыть",
     app1_title: "DropLauncher",
@@ -1056,6 +1080,7 @@ const translations = {
     req_mac: "macOS 11 o superiore. Supporta chip Intel e Apple Silicon.",
     vt_btn: "Link risultati controllo VirusTotal",
     vt_note: "71 fornitori non hanno rilevato minacce · Ispezionato il 16 nov 2026",
+    src_btn: "Visualizza codice sorgente",
     about_btn: "Informazioni sull'operatore",
     modal_close: "✕ Chiudi",
     app1_title: "DropLauncher",
@@ -1094,6 +1119,7 @@ const translations = {
     req_mac: "macOS 11 ve üzeri. Intel ve Apple Silicon çiplerin her ikisini de destekler.",
     vt_btn: "VirusTotal Uygulama Tarama Sonucu Bağlantısı",
     vt_note: "71 şirket hiçbiri tehdit algılamadı · 16 Kasım 2026 tarihinde tarandı",
+    src_btn: "Kaynak Kodunu Görüntüle",
     about_btn: "İşletmeci Bilgileri",
     modal_close: "✕ Kapat",
     app1_title: "DropLauncher",
@@ -1132,6 +1158,7 @@ const translations = {
     req_mac: "macOS 11 أو الأحدث. متوافق مع شرائح Intel و Apple Silicon.",
     vt_btn: "رابط نتيجة فحص تطبيق VirusTotal",
     vt_note: "71 شركة لم تكتشف أي تهديد · تم الفحص في 16 نوفمبر 2026",
+    src_btn: "عرض الكود المصدري",
     about_btn: "معلومات المشغل",
     modal_close: "✕ إغلاق",
     app1_title: "DropLauncher",
@@ -1170,6 +1197,7 @@ const translations = {
     req_mac: "macOS 11 atau lebih baru. Mendukung chip Intel dan Apple Silicon.",
     vt_btn: "Tautan Hasil Pemeriksaan VirusTotal",
     vt_note: "71 vendor tidak mendeteksi ancaman · Diperiksa pada 16 Nov 2026",
+    src_btn: "Lihat Kode Sumber",
     about_btn: "Informasi Operator",
     modal_close: "✕ Tutup",
     app1_title: "DropLauncher",
@@ -1207,7 +1235,8 @@ const translations = {
     req_os: "지원 OS: Windows 11 / 10 (64bit)",
     req_mac: "macOS 11 이상. Intel 및 Apple Silicon 칩 모두 지원.",
     vt_btn: "VirusTotal 앱 검사 소프트웨어 결과 링크",
-    vt_note: "71개사 모두 탐지 없음 · 2026년 11月 16일 검사",
+    vt_note: "71개사 모두 탐지 없음 · 2026년 11월 16일 검사",
+    src_btn: "소스 코드 보기",
     about_btn: "운영자 정보",
     modal_close: "✕ 닫기",
     app1_title: "DropLauncher (드롭런처)",
