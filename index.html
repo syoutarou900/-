@@ -240,6 +240,16 @@ h1 em { font-style: normal; color: var(--accent); }
   .card-head { grid-template-columns: minmax(0, 1fr); }
   .btn-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ===== 見出し「個人の方向け／企業の方向け」 ===== */
+.col-heads { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: -8px; }
+.col-head { margin: 0; padding-left: 14px; border-left: 5px solid var(--accent); font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1.3; color: var(--ink); }
+.col-head-biz { display: none; }
+@media (min-width: 1400px) {
+  .col-heads { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  .col-head-biz { display: block; }
+}
+.app-slot { background: var(--surface); }
 </style>
 </head>
 <body>
@@ -294,6 +304,12 @@ h1 em { font-style: normal; color: var(--accent); }
   <section class="apps-section" id="apps">
     <div class="apps-grid">
       
+      <!-- 見出し行：左=個人の方向け / 右=企業の方向け -->
+      <div class="col-heads">
+        <h2 class="col-head" data-i18n="heading_personal">個人の方向け</h2>
+        <h2 class="col-head col-head-biz" data-i18n="heading_business">企業の方向け</h2>
+      </div>
+
       <!-- 1. DropLauncher -->
       <div class="app-row">
 <div class="app-card">
@@ -347,7 +363,7 @@ h1 em { font-style: normal; color: var(--accent); }
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 2. VersionDetective -->
@@ -403,7 +419,7 @@ h1 em { font-style: normal; color: var(--accent); }
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 3. UniList -->
@@ -459,7 +475,7 @@ h1 em { font-style: normal; color: var(--accent); }
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 4. TranscribeGuard -->
@@ -515,7 +531,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 5. TashikaMail -->
@@ -571,7 +587,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 6. StepOnce -->
@@ -627,7 +643,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 7. RedactShot -->
@@ -683,7 +699,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 8. PurePaste -->
@@ -739,7 +755,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 9. MatchDetective -->
@@ -795,7 +811,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 10. FormatPassport -->
@@ -851,7 +867,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 11. ContextStruct -->
@@ -907,7 +923,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 12. GlobalHours -->
@@ -963,7 +979,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
       <!-- 13. ClipStock -->
@@ -1019,7 +1035,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
   </div>
 </div>
 <!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true">企業用アプリ枠（準備中）</div>
+<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
 </div>
 
     </div>
@@ -1312,6 +1328,9 @@ function closeModal() {
 const translations = {
   ja: {
     nav_dl: "アプリ一覧",
+    heading_personal: "個人の方向け",
+    heading_business: "企業の方向け",
+    slot_text: "企業向けアプリ（準備中）",
     eyebrow: "Windows・Mac対応・完全無料",
     h1: "アプリ作成初心者が作成した<em>無料デスクトップツール</em>",
     preview_text: "アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)",
@@ -1421,6 +1440,9 @@ const translations = {
   },
   en: {
     nav_dl: "Apps",
+    heading_personal: "For Individuals",
+    heading_business: "For Businesses",
+    slot_text: "Business apps (coming soon)",
     eyebrow: "Windows & Mac Compatible · 100% Free",
     h1: "Free Desktop Tools Created by a Beginner Developer",
     preview_text: "App Preview Image<br>(Screenshot will appear here)",
@@ -1530,6 +1552,8 @@ const translations = {
   },
   es: {
     nav_dl: "Aplicaciones",
+    heading_personal: "Para particulares",
+    heading_business: "Para empresas",
     eyebrow: "Compatible con Windows y Mac · 100% Gratuito",
     h1: "Herramientas de escritorio gratuitas creadas por un desarrollador principiante",
     preview_text: "Vista previa de la aplicación<br>(La captura aparecerá aquí)",
@@ -1572,6 +1596,8 @@ const translations = {
   },
   zh: {
     nav_dl: "应用程序",
+    heading_personal: "面向个人",
+    heading_business: "面向企业",
     eyebrow: "兼容 Windows 和 Mac · 完全免费",
     h1: "由应用开发新手制作的<em>免费桌面工具</em>",
     preview_text: "应用图片预览<br>(截图将在此处显示)",
@@ -1614,6 +1640,8 @@ const translations = {
   },
   fr: {
     nav_dl: "Applications",
+    heading_personal: "Pour les particuliers",
+    heading_business: "Pour les entreprises",
     eyebrow: "Compatible Windows et Mac · 100% Gratuit",
     h1: "Outils de bureau gratuits créés par un développeur débutant",
     preview_text: "Aperçu de l'application<br>(La capture d'écran apparaîtra ici)",
@@ -1656,6 +1684,8 @@ const translations = {
   },
   de: {
     nav_dl: "Apps",
+    heading_personal: "Für Privatpersonen",
+    heading_business: "Für Unternehmen",
     eyebrow: "Windows- & Mac-kompatibel · 100% kostenlos",
     h1: "Kostenlose Desktop-Tools, entwickelt von einem Anfänger",
     preview_text: "App-Vorschau<br>(Screenshot wird hier angezeigt)",
@@ -1698,6 +1728,8 @@ const translations = {
   },
   pt: {
     nav_dl: "Aplicativos",
+    heading_personal: "Para pessoas",
+    heading_business: "Para empresas",
     eyebrow: "Compatível com Windows e Mac · 100% Gratuito",
     h1: "Ferramentas de desktop gratuitas criadas por um desenvolvedor iniciante",
     preview_text: "Pré-visualização do app<br>(A captura aparecerá aqui)",
@@ -1740,6 +1772,8 @@ const translations = {
   },
   ru: {
     nav_dl: "Приложения",
+    heading_personal: "Для частных лиц",
+    heading_business: "Для компаний",
     eyebrow: "Для Windows и Mac · 100% Бесплатно",
     h1: "Бесплатные настольные утилиты, созданные начинающим разработчиком",
     preview_text: "Предпросмотр приложения<br>(Здесь появится скриншот)",
@@ -1782,6 +1816,8 @@ const translations = {
   },
   it: {
     nav_dl: "Applicazioni",
+    heading_personal: "Per privati",
+    heading_business: "Per aziende",
     eyebrow: "Compatibile Windows e Mac · 100% Gratuito",
     h1: "Strumenti desktop gratuiti creati da uno sviluppatore principiante",
     preview_text: "Anteprima app<br>(Lo screenshot apparirà qui)",
@@ -1824,6 +1860,8 @@ const translations = {
   },
   tr: {
     nav_dl: "Uygulamalar",
+    heading_personal: "Bireyler İçin",
+    heading_business: "Şirketler İçin",
     eyebrow: "Windows ve Mac Uyumlu · %100 Ücretsiz",
     h1: "Yeni Başlayan Bir Geliştirici Tarafından Hazırlanan <em>Ücretsiz Masaüstü Araçları</em>",
     preview_text: "Uygulama Görseli Önizlemesi<br>(Ekran görüntüsü burada görünecektir)",
@@ -1866,6 +1904,8 @@ const translations = {
   },
   ar: {
     nav_dl: "التطبيقات",
+    heading_personal: "للأفراد",
+    heading_business: "للشركات",
     eyebrow: "متوافق مع Windows و Mac · مجاني 100%",
     h1: "أدوات سطح مكتب مجانية تم تطويرها بواسطة مطور مبتدئ",
     preview_text: "معاينة صورة التطبيق<br>(ستظهر لقطة الشاشة هنا)",
@@ -1908,6 +1948,8 @@ const translations = {
   },
   id: {
     nav_dl: "Daftar Aplikasi",
+    heading_personal: "Untuk Individu",
+    heading_business: "Untuk Perusahaan",
     eyebrow: "Kompatibel dengan Windows & Mac · 100% Gratis",
     h1: "Alat Desktop Gratis yang Dibuat oleh Pengembang Pemula",
     preview_text: "Pratinjau Gambar Aplikasi<br>(Tangkapan layar akan muncul di sini)",
@@ -1950,6 +1992,8 @@ const translations = {
   },
   ko: {
     nav_dl: "앱 목록",
+    heading_personal: "개인용",
+    heading_business: "기업용",
     eyebrow: "Windows 및 Mac 호환 · 완전 무료",
     h1: "앱 개발 초보자가 만든 <em>무료 데스크톱 도구</em>",
     preview_text: "앱 이미지 미리보기<br>(여기에 스크린샷이 표시됩니다)",
