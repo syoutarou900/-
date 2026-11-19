@@ -376,55 +376,57 @@ h1 em { font-style: normal; color: var(--accent); }
             </div>
   </div>
 </div>
-<!-- 企業向けアプリのカード（個人向けと同じ構成。中身を差し替えてください） -->
+<!-- 企業向け欄（左の個人向けと同内容） -->
 <div class="app-card app-biz">
   <div class="card-main">
     <div class="card-head">
         <div class="app-image-container">
           <div class="app-image" onclick="openModal(this.querySelector('img'))">
-            <div class="app-image-placeholder" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+            <img id="img-droplauncher-biz" src="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-01-Japanese.png" alt="DropLauncher プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
           </div>
         </div>
           <div class="app-info">
-            <h3>企業向けアプリ名（準備中）</h3>
-            <p>ここに企業向けアプリの説明が入ります。（準備中）</p>
+            <h3 data-i18n="app1_title">DropLauncher（ドロップランチャー）</h3>
+            <p data-i18n="app1_desc">小さなパネルにファイルをドラッグ＆ドロップするだけで、ファイルの仕分けや名前の変更、画像・PDF・動画・Excelの変換、ZIPの圧縮・解凍などを自動で処理します。面倒な設定は不要で、やりたい作業の枠にファイルを入れるだけ。
+毎日のパソコン作業の「ちょっとした手間」をまとめて引き受けます。</p>
           </div>
     </div>
     <div class="btn-grid">
       <div class="btn-cell">
-            <a class="btn" href="#">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-Windows.zip">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
               <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
             </a>
             <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
       </div>
       <div class="btn-cell">
-            <a class="btn btn-vt" href="#" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
-            <span class="req">検査結果：準備中</span>
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/a85244f2ecbc8d930a5085f301afa038ff2a9dfcb57b9d33947725d5aeafd161" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
       </div>
       <div class="btn-cell">
-            <a class="btn btn-mac" href="#">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/DropLauncher-Mac.zip">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
               <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
             </a>
             <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
       </div>
       <div class="btn-cell">
-            <a class="btn btn-src" href="#" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-src" href="source/DropLauncher.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
       </div>
     </div>
   </div>
   <div class="card-side">
-            <span class="req app-meta">バージョン：準備中 ／ 最終更新：準備中 ／ 対応：準備中 ／ 画面：準備中</span>
-            <span class="req app-meta">ファイル容量：準備中</span>
-            <span class="req app-meta">・企業向けアプリの詳細は準備中です。</span>
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app1">Windows版 約153 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
             <div class="safety-box">
-              <p>✓ ウイルスチェック結果：準備中</p>
-              <p>✓ データの取り扱い：準備中</p>
-              <p>⚠ 初回起動時にWindows／Macの警告が出ることがあります。<a href='#howto'>開き方はこちら</a></p>
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
             </div>
-          </div>
-        </div>
+  </div>
+</div>
 </div>
 
       <!-- 2. VersionDetective -->
@@ -479,8 +481,57 @@ h1 em { font-style: normal; color: var(--accent); }
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-versiondetective-biz" src="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-01-Japanese.png" alt="VersionDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app2_title">バージョン探偵（VersionDetective）</h3>
+            <p data-i18n="app2_desc">「どれが本当の最新版？」を、ファイルの中身で見分けるアプリ。
+フォルダを入れると、内容がまったく同じファイルと、同じ文書の別バージョンらしいファイルをグループにまとめます。最新候補は時系列の系図で表示され、本文の更新日時など根拠も一緒に示します。文章や表の差分も確認可能。古い版を勝手に消すことはなく、承認したファイルだけを保管用フォルダへ移動します（取り消しもできます）。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/d9b39b2e588004f0be348b9a3a813a4d9ed8180a03d6d2d7d02af710d4b85ea3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/VersionDetective/VersionDetective-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/VersionDetective.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app2">Windows版 約47 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.1 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 3. UniList -->
@@ -535,8 +586,57 @@ h1 em { font-style: normal; color: var(--accent); }
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-unilist-biz" src="https://github.com/syoutarou900/-/releases/download/UniList/UniList-01-Japanese.png" alt="UniList プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app3_title">UniList（ユニリスト）</h3>
+            <p data-i18n="app3_desc">顧客・取引先リストの重複を、安全に1件にまとめるアプリ。
+名前・電話・メール・住所などの表記をそろえたうえで、完全に一致する重複候補だけを提示します。候補は左右に並べて見比べ、残す項目を選んで、人が承認したものだけを統合。元のファイルは書き換えず、統合の取り消しもできます。あいまいな判定で別の会社を候補に挙げることはありません。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/UniList/UniList-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/08fd59643868e8286154df170435889db6583ac3485ec995649231608048e23d" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/UniList/UniList-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/UniList.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app3">Windows版 約41 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.3 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 4. TranscribeGuard -->
@@ -591,8 +691,57 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-transcribeguard-biz" src="https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-01-Japanese.png" alt="TranscribeGuard プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app4_title">転記見守り君（TranscribeGuard）</h3>
+            <p data-i18n="app4_desc">資料からシステムへの転記ミスを、入力しながら防ぐアプリ。
+PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入力欄とその場で照合します。転記できた項目は薄く消え、桁数や合計が合わない箇所は赤く警告。最後に「未入力が○件」と表示されるので、写し残しに気づけます。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/bf38959dd3a873f0b22142027efe98ba09b7a34b3cefd4a166412bc204082cd8" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/TranscribeGuard/TranscribeGuard-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/TranscribeGuard.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app4">Windows版 約102 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.6 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 5. TashikaMail -->
@@ -647,8 +796,57 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-tashikamail-biz" src="https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-01-Japanese.png" alt="TashikaMail プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app5_title">たしかめーる／TashikaMail</h3>
+            <p data-i18n="app5_desc">見積書・請求書メールを送る前の、最終チェックアプリ。
+本文と添付ファイルの金額・日付・会社名・文書番号を読み比べて、食い違いがあれば理由と根拠つきで信号機のように表示します。宛先のドメインと会社名の不一致、古い版の添付、文字化けの恐れもチェック。画像添付やスキャンPDFは文字読み取り（OCR）で確認します。送信機能はなく、最後に送る判断は人が行います。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/0c8fe5acf1272611614199d78bb3a6db9d86a828144c70883f177d873ade7ca3" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/TashikaMail/TashikaMail-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/TashikaMail.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_110">バージョン 1.1.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app5">Windows版 約151 MB ／ Mac版 約47 MB ／ 取扱説明書（PDF・13言語）約2.1 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 6. StepOnce -->
@@ -703,8 +901,57 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-steponce-biz" src="https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-01-Japanese.png" alt="StepOnce プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app6_title">一回やれば手順書／StepOnce</h3>
+            <p data-i18n="app6_desc">ふだんの操作を記録するだけで、手順書の下書きができるアプリ。
+記録を始めて、いつも通り操作すると、クリックごとに画面の写真を撮り、押したボタンの名前から説明文の下書きを作ります。パスワード入力欄はモザイクの候補として示されます（自動ではかけません）。仕上げた手順書は、PDFとWordで13言語に書き出せます。キーボードで打った内容は記録しません。※Macでは、ボタンを押して記録する手動方式です。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/f9c96384d25dba9255e2625d40ecd5a0722a5767a0f8c77248b8112ec4574724" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/StepOnce/StepOnce-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/StepOnce.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app6">Windows版 約56 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
+            <span class="req app-meta" data-i18n="note_steponce">・StepOnce：Mac版は、ボタンを押して記録する手動方式です（Windows版はクリックを自動記録します）。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 7. RedactShot -->
@@ -759,8 +1006,57 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-redactshot-biz" src="https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-01-Japanese.png" alt="RedactShot プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app7_title">スクショ安心フィルター／RedactShot</h3>
+            <p data-i18n="app7_desc">スクリーンショットを共有する前に、見せたくない情報を消すアプリ。
+メールアドレス、電話番号、カード番号らしい並び、金額、パスワード欄の候補などを自動で検出し、モザイク・ぼかし・黒塗りで隠します。項目ごとにオン・オフでき、自分で範囲を指定して隠すことも可能。消す強さは「絶対に読めない」レベルに固定されています。元の画像は変更せず、書き出し前に最終確認の画面が出ます。ネットにつながなくても使えます。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/e3f13bc3df47d97401d63b55980d44a3fb55af2075157d9a603dd14c6f6801da" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/RedactShot/RedactShot-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/RedactShot.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app7">Windows版 約100 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.5 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 8. PurePaste -->
@@ -815,8 +1111,57 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-purepaste-biz" src="https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-01-Japanese.png" alt="PurePaste プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app8_title">PurePaste（ピュアパステル）</h3>
+            <p data-i18n="app8_desc">コピーした文章を、その場できれいに整える常駐アプリ。
+WebやPDFからコピーしたときに入る変な改行、余分な空白、全角と半角の混在などをコピーした瞬間に自動で整形します。ルールごとにオン・オフでき、一時停止や「元の文に戻す」も可能。トレイに常駐して、ふだんの作業を邪魔しません。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/54a0aa271ba1c46e2771707c8c6cfc0559777f63120347d7a2e5cbc2c83ee1a1" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/PurePaste/PurePaste-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/PurePaste.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app8">Windows版 約34 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 9. MatchDetective -->
@@ -871,8 +1216,57 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-matchdetective-biz" src="https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-01-Japanese.png" alt="MatchDetective プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app9_title">マッチング探偵／MatchDetective</h3>
+            <p data-i18n="app9_desc">2つの表のズレを、理由つきで見つける突き合わせアプリ。
+自社の表と相手の表を読み込むと、会社名の法人格（株式会社・Inc.など）や表記のゆれをそろえて照合し、結果を「片方にだけある」「金額・数が違う」「表記違いだが同じ相手らしい」の3種類に分けて、理由と確からしと一緒に提示します。あいまいな推測では候補に挙げないので、別の会社を取り違える心配がありません。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/248de6c4f2cec3b874845c91d982336da55e63a97c19c5a49eb485eca71fb743" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/MatchDetective/MatchDetective-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/MatchDetective.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app9">Windows版 約41 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.4 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 10. FormatPassport -->
@@ -927,8 +1321,57 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-formatpassport-biz" src="https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-01-Japanese.png" alt="FormatPassport プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app10_title">フォーマットパスポート／FormatPassport</h3>
+            <p data-i18n="app10_desc">国ごとに違う「書き方の形式」を、相手の国の形式に変換するアプリ。
+日付の並び順、小数点と桁区切り、CSVの区切り文字、文字コード、全角・半角、和暦と西暦などを、送り手と受け手の国に合わせて変換し、変換前と後を並べて確認できます。「03/04」のような曖昧な表記は自動で変えず、要確認リストに残します。金額の通貨換算も、中央銀行などの公式レートで行えます。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/b02463ae63de76a5d2b3e82f6c1fdf37a275449275e3d6673a60f19c67c03675" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/FormatPassport/FormatPassport-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/FormatPassport.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app10">Windows版 約41 MB ／ Mac版 約0.3 MB ／ 取扱説明書（PDF・13言語）約1.8 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 11. ContextStruct -->
@@ -983,8 +1426,57 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-contextstruct-biz" src="https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-01-Japanese.png" alt="ContextStruct プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app11_title">ContextStruct（コンテキスト・ストラクト）</h3>
+            <p data-i18n="app11_desc">バラバラな資料を、表の形に整理するアプリ。
+FAXのPDF、スキャンした納品書、取引先のWebカタログなど、形式の決まっていない資料を読み取り、品名・数量・単価・金額などを項目として抜き出して表にします。読み取りの確からしさは色で表示され、その場で直すことも可能。Excel・CSV・JSONで書き出せます。読み取りAIはパソコンの中で動くため、ネットにつながなくても使えます。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/506d21acf018239020ccf47c1d3dff5e5c83d68214c0fc73df0946bf5b2e9b70" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/ContextStruct/ContextStruct-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/ContextStruct.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app11">Windows版 約154 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.7 MB</span>
+            <span class="req app-meta" data-i18n="note_contextstruct">・ContextStruct：初回起動時に、読み取り用AIモデル（約2.8GB）を自動でダウンロードします。ダウンロード後は完全オフラインで動作します。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 12. GlobalHours -->
@@ -1039,8 +1531,57 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-globalhours-biz" src="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-01-Japanese.png" alt="GlobalHours プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app12_title">GlobalHours（グローバルアワーズ）</h3>
+            <p data-i18n="app12_desc">世界中の取引先の「今の営業時間」が、ひと目で分かるアプリ。
+取引先の国と都市を登録しておくと、自分の日時に対して相手が何時で、営業時間内か、週末か、祝日かが、24時間の帯の並びで一目で分かります。双方の営業時間に収まる候補も提示し、相手の言語でそのまま使える提案文も作れます。送信は自分で行う形で、送信機能はありません。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/b40fce7e099b6eaabc471ec0d1ac9e26c116f7213f6da069903156c875a57efc" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note">71社全て検出なし・2026年11月16日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/GlobalHours/GlobalHours-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/GlobalHours.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app12">Windows版 約63 MB ／ Mac版 約13 MB ／ 取扱説明書（PDF・13言語）約1.5 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月16日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
       <!-- 13. ClipStock -->
@@ -1095,8 +1636,57 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             </div>
   </div>
 </div>
-<!-- 企業用アプリ枠（ここに企業向けアプリのカードを追加。不要なら削除可） -->
-<div class="app-slot" aria-hidden="true" data-i18n="slot_text">企業向けアプリ（準備中）</div>
+<!-- 企業向け欄（左の個人向けと同内容） -->
+<div class="app-card app-biz">
+  <div class="card-main">
+    <div class="card-head">
+        <div class="app-image-container">
+          <div class="app-image" onclick="openModal(this.querySelector('img'))">
+            <img id="img-clipstock-biz" src="https://github.com/syoutarou900/-/releases/download/ClipStock/2026-11-18.095904.png" alt="ClipStock プレビュー画像" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="app-image-placeholder" style="display:none;" data-i18n="preview_text">アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)</div>
+          </div>
+        </div>
+          <div class="app-info">
+            <h3 data-i18n="app13_title">ClipStock（クリップストック）</h3>
+            <p data-i18n="app13_desc">コピーしたクリップボードの履歴を安全にストック・管理するアプリ。
+テキストや画像を自動で記憶し、必要なときにワンクリックで呼び出せます。履歴の検索や整理も簡単に行え、日々のコピー＆ペースト作業を効率化します。ローカル完結型なのでプライバシーも安心です。</p>
+          </div>
+    </div>
+    <div class="btn-grid">
+      <div class="btn-cell">
+            <a class="btn" href="https://github.com/syoutarou900/-/releases/download/ClipStock/ClipStock-Windows.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>
+              <span data-i18n="btn_text">アプリをダウンロード（Windows）</span>
+            </a>
+            <span class="req" data-i18n="req_os">対応OS: Windows 11 / 10 (64bit)</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-vt" href="https://www.virustotal.com/gui/file/74d87e2db6d0a8767f6a72f62b7763ddac73261e1c340bd031793f4db270cd51" target="_blank" rel="noopener noreferrer" data-i18n="vt_btn">VirusTotal アプリ検査ソフトの結果リンク</a>
+            <span class="req" data-i18n="vt_note_clipstock">71社全て検出なし・2026年11月17日検査</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-mac" href="https://github.com/syoutarou900/-/releases/download/ClipStock/ClipStock-Mac.zip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span data-i18n="btn_text_mac">アプリをダウンロード（Mac）</span>
+            </a>
+            <span class="req" data-i18n="req_mac">macOS 11以降。Intel製とApple Siliconの両チップ対応です。</span>
+      </div>
+      <div class="btn-cell">
+            <a class="btn btn-src" href="source/ClipStock.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-side">
+            <span class="req app-meta" data-i18n="meta_ver_clip">バージョン 1.0.0 ／ 最終更新：2026年11月17日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
+            <span class="req app-meta" data-i18n="size_app13">Windows版 約35 MB ／ Mac版 約1.9 MB ／ 取扱説明書（PDF・13言語）約1 MB</span>
+            <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
+            <div class="safety-box">
+              <p data-i18n="safe_1_clip">✓ ウイルスチェック済み：VirusTotalで71社すべて検出なし（2026年11月17日検査）。結果は上のリンクから誰でも確認できます。</p>
+              <p data-i18n="safe_2">✓ アプリがあなたのデータを収集することはありません。処理はパソコンの中で完結します（一部の機能を使うときだけ、為替レートなどの公開情報を取得します）。</p>
+              <p data-i18n="safe_3">⚠ 初回起動時にWindows／Macの警告が出ることがあります。個人開発で署名がないためです。<a href='#howto'>開き方はこちら</a></p>
+            </div>
+  </div>
+</div>
 </div>
 
     </div>
@@ -2125,10 +2715,12 @@ document.getElementById('lang').addEventListener('change', (e) => {
   ];
 
   appKeys.forEach(appName => {
-    const imgEl = document.getElementById(`img-${appName}`);
-    if (imgEl && appImages[appName] && appImages[appName][lang]) {
-      imgEl.src = appImages[appName][lang];
-    }
+    [`img-${appName}`, `img-${appName}-biz`].forEach(id => {
+      const imgEl = document.getElementById(id);
+      if (imgEl && appImages[appName] && appImages[appName][lang]) {
+        imgEl.src = appImages[appName][lang];
+      }
+    });
   });
 });
 </script>
