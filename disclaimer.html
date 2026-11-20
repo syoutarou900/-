@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('gq-theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
+<title>免責事項 - 自作アプリ一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F8FD; --surface: #FFFFFF; --ink: #0F1B33; --muted: #3B4A66; --line: #DFE7F3;
+  --accent: #2563EB; --accent-strong: #1D4ED8; --accent-soft: #E7EFFD; --glow: #C4D9FF; --glow-2: #D3F4EE;
+  --good: #0E7A4F; --good-soft: #E2F4EC; --warn: #9A6206; --warn-soft: #FBF0DA;
+  --cjk: "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", "Noto Sans Arabic";
+  --font-display: "Plus Jakarta Sans", "Inter", var(--cjk), system-ui, sans-serif;
+  --font-body: "Inter", var(--cjk), system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Microsoft YaHei", "Malgun Gothic", Meiryo, sans-serif;
+  color-scheme: light;
+}
+:root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
+:root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
+:root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
+:root[data-theme="dark"] {
+  --bg: #0B1220; --surface: #111C33; --ink: #E8EEF8; --muted: #A7B8D4; --line: #22314F;
+  --accent: #3B82F6; --accent-strong: #60A5FA; --accent-soft: rgba(59, 130, 246, 0.16); --glow: #16294D; --glow-2: #0C2B25;
+  --good: #4ADE80; --good-soft: rgba(34, 197, 94, 0.14); --warn: #FBBF24; --warn-soft: rgba(245, 158, 11, 0.14);
+  color-scheme: dark;
+}
+.theme-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; flex: none; }
+.theme-btn:hover { border-color: #B9CBEA; }
+.theme-btn svg { display: block; }
+.theme-btn .ic-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .ic-sun { display: block; }
+:root[data-theme="dark"] .theme-btn .ic-moon { display: none; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background-color: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.85; line-break: strict; overflow-wrap: break-word; -webkit-font-smoothing: antialiased; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); overflow-x: clip; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1680px; margin-inline: auto; padding-inline: 32px; }
+:root:lang(ar) * { letter-spacing: 0 !important; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; direction: ltr; }
+.logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 8px 16px -6px rgba(37, 99, 235, 0.55); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-pick { position: relative; display: inline-flex; align-items: center; }
+.lang-pick svg { position: absolute; top: 50%; translate: 0 -50%; pointer-events: none; }
+.lang-pick .globe { inset-inline-start: 12px; color: var(--accent); }
+.lang-pick .chev { inset-inline-end: 11px; color: var(--muted); }
+.lang-pick select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 0.85rem; font-weight: 700; line-height: 1.4; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding-block: 8px; padding-inline: 36px 32px; cursor: pointer; max-width: 100%; }
+.lang-pick select:hover { border-color: #B9CBEA; }
+.nav-dl { font-size: 0.9rem; font-weight: 700; color: var(--accent-strong); text-decoration: none; padding: 8px 14px; border-radius: 999px; }
+.nav-dl:hover { background: var(--accent-soft); }
+.doc { max-width: 920px; padding-bottom: 72px; }
+.hero { margin-top: 8px; border: 1px solid var(--line); border-radius: 22px; padding: 30px 30px 26px; background: linear-gradient(135deg, var(--glow) 0%, var(--surface) 55%, var(--glow-2) 130%); }
+.hero .badge-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 10px 20px -8px rgba(37, 99, 235, 0.6); margin-bottom: 14px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.35rem); font-weight: 800; line-height: 1.35; margin: 0 0 6px; }
+.hero .updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 10px; }
+.hero .lead { font-size: 1.06rem; font-weight: 600; color: var(--ink); margin: 0; line-height: 1.75; }
+.keypoints { margin-top: 20px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 18px; padding: 20px 24px 14px; }
+.keypoints .kp-title { font-family: var(--font-display); font-weight: 800; font-size: 0.98rem; margin: 0 0 8px; color: var(--accent-strong); }
+.keypoints ul { list-style: none; margin: 0; padding: 0; }
+.keypoints li { position: relative; padding-inline-start: 30px; margin: 0 0 9px; font-weight: 600; color: var(--ink); line-height: 1.7; }
+.keypoints li::before { content: ""; position: absolute; inset-inline-start: 0; top: 3px; width: 20px; height: 20px; border-radius: 999px; background: var(--good); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.sec { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 26px 12px; margin-top: 18px; box-shadow: 0 10px 24px -18px rgba(15, 27, 51, 0.25); }
+.sec h2 { display: flex; align-items: center; gap: 11px; font-size: 1.18rem; font-weight: 800; margin: 2px 0 10px; color: var(--ink); line-height: 1.5; }
+.sec h2 .num { flex: none; width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: var(--accent); color: #fff; font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; }
+.sec p, .sec li { color: var(--muted); }
+.sec p { margin: 0 0 12px; }
+.sec ul, .sec ol { margin: 0 0 12px; padding-inline-start: 1.35em; }
+.sec li { margin-bottom: 5px; }
+.sec a { color: var(--accent-strong); font-weight: 600; }
+.sec strong { color: var(--ink); }
+.callout { border-radius: 14px; padding: 14px 18px 6px; margin: 4px 0 14px; border: 1px solid var(--line); }
+.callout p { margin: 0 0 9px; }
+.callout.good { background: var(--good-soft); }
+.callout.good p { color: var(--ink); }
+.callout.warn { background: var(--warn-soft); }
+.callout.warn p { color: var(--ink); }
+.callout .co-title { font-weight: 800; }
+.doc table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 6px 0 16px; background: var(--surface); }
+.doc th, .doc td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+.doc th { background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+.doc td { color: var(--muted); }
+.doc td.app { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.doc td.hash { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; word-break: break-all; color: var(--ink); }
+.big-stat { display: flex; flex-wrap: wrap; gap: 14px; margin: 4px 0 16px; }
+.stat-card { flex: 1 1 200px; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 10px; background: linear-gradient(150deg, var(--accent-soft), var(--surface) 70%); }
+.stat-card .stat-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--accent-strong); line-height: 1.2; }
+.stat-card .stat-label { color: var(--muted); font-size: 0.9rem; margin: 2px 0 8px; }
+code.cmd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; background: var(--accent-soft); color: var(--ink); padding: 2px 7px; border-radius: 7px; word-break: break-all; }
+.pagenav { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 26px; }
+.pagenav a { display: block; text-decoration: none; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 14px 16px; font-weight: 700; color: var(--ink); }
+.pagenav a:hover { border-color: var(--accent); }
+.pagenav a .pn-sub { display: block; font-weight: 500; font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+.pagenav a.current { border-color: var(--accent); background: var(--accent-soft); }
+.back { margin-top: 30px; }
+.back a { color: var(--accent-strong); font-weight: 700; text-decoration: none; }
+.back a:hover { text-decoration: underline; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.foot-links a { color: var(--muted); text-decoration: none; }
+.foot-links a:hover { color: var(--accent-strong); text-decoration: underline; }
+@media (max-width: 480px) { .nav-dl { display: none; } .wrap { padding-inline: 16px; } .hero { padding: 22px 20px 18px; } .sec { padding: 18px 18px 8px; } }
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="index.html" aria-label="get-quicknote">
+    <span class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+    </span>
+    get-quicknote
+  </a>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="テーマ切替 / Theme" title="テーマ切替 / Theme">
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <div class="lang-pick">
+      <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <select id="lang" aria-label="Language / 言語">
+        <option value="ja" lang="ja">日本語</option>
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="zh" lang="zh-Hans">简体中文</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="ko" lang="ko">한국어</option>
+      </select>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <a class="nav-dl" href="index.html" data-i18n="back_apps">アプリ一覧</a>
+  </div>
+</header>
+<main class="wrap doc">
+<div class="content-ja"><div class="hero"><div class="badge-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><h1>免責事項</h1><p class="updated">最終更新日：2026年11月18日</p><p class="lead">個人が開発・公開しているフリーソフトです。ご利用の前に、正直な前提をお伝えします。</p></div><div class="keypoints"><p class="kp-title">このページの要点</p><ul><li>アプリは「現状のまま」の提供で、動作や結果を保証するものではありません</li><li>大事なデータは、必ず控え（バックアップ）を取ってからお使いください</li><li>利用によって生じた損害について、運営者は責任を負いかねます</li></ul></div><section class="sec"><h2><span class="num">1</span>「現状のまま」の提供です</h2><p>本アプリは、個人がオープンソース的な精神で開発・公開しているフリーソフトです。<strong>動作や結果を保証するものではありません</strong>ので、あらかじめご了承のうえ、ご自身の判断でご利用ください。</p><p>大事なデータを扱うときは、作業の前に必ず控え（バックアップ）を取ってください。</p></section><section class="sec"><h2><span class="num">2</span>サポートについて</h2><p>個人での開発のため、<strong>専任のサポート体制はありません</strong>。ただ、動作確認には努めており、いただいた不具合報告には誠実に対応しています。</p><p>困ったときは、まず各アプリの取扱説明書の「トラブル対処」の章をご覧ください。それでも解決しない場合は、メール（<a href='mailto:syoutarou3230ficpo@gmail.com'>syoutarou3230ficpo@gmail.com</a>）でご連絡ください。返信は数日かかることがあります。</p></section><section class="sec"><h2><span class="num">3</span>損害についての免責</h2><div class='callout warn'><p>本アプリの利用によって生じた損害について、運営者は責任を負いかねます。ご自身の判断と責任のもとでご利用ください。</p></div><p>とくに、送信・登録・統合・削除など取り返しのつかない操作は、アプリの表示を確認したうえで、必ずご自身の最終判断で行ってください。</p></section><section class="sec"><h2><span class="num">4</span>動作環境と確認状況</h2><p>対応環境は、Windows 10/11（64bit）と macOS 11以降です。</p><p>なお、開発環境にMacがないため、<strong>Mac実機での動作確認は取れていません</strong>。Mac版は、お使いのMacで組み立てるキット形式で提供しています。</p></section><nav class="pagenav"><a href="privacy.html">プライバシーポリシー<span class="pn-sub">データの取り扱いについて</span></a><a href="terms.html">利用条件<span class="pn-sub">無料で使うための条件</span></a><a href="disclaimer.html" class="current">免責事項<span class="pn-sub">ご利用の前に知ってほしいこと</span></a><a href="safety.html">安全への取り組み<span class="pn-sub">検査と確認の仕組み</span></a></nav></div><div class="content-en" hidden><div class="hero"><div class="badge-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><h1>Disclaimer</h1><p class="updated">Last updated: November 18, 2026</p><p class="lead">These are free apps developed and published by an individual. Please read these honest premises before use.</p></div><div class="keypoints"><p class="kp-title">Key points</p><ul><li>The apps are provided "as is", with no guarantee of operation or results</li><li>Please always back up important data before use</li><li>The operator cannot be held responsible for damage arising from use</li></ul></div><section class="sec"><h2><span class="num">1</span>Provided "as is"</h2><p>These apps are free software developed and published by an individual in an open-source spirit. <strong>They come with no guarantee of operation or results</strong>; please use them at your own discretion.</p><p>When working with important data, always make a backup first.</p></section><section class="sec"><h2><span class="num">2</span>About support</h2><p>As an individual developer, there is <strong>no dedicated support team</strong>. Even so, the apps are tested with care, and bug reports are handled in good faith.</p><p>If something does not work, please first check the troubleshooting chapter of the manual. If the problem remains, contact us by email (<a href='mailto:syoutarou3230ficpo@gmail.com'>syoutarou3230ficpo@gmail.com</a>). Replies may take a few days.</p></section><section class="sec"><h2><span class="num">3</span>Disclaimer of liability</h2><div class='callout warn'><p>The operator cannot be held responsible for any damage arising from the use of the apps. Please use them under your own judgment and responsibility.</p></div><p>In particular, for actions that cannot be undone — sending, registering, merging, deleting — please review what the app shows and make the final decision yourself.</p></section><section class="sec"><h2><span class="num">4</span>System requirements and testing status</h2><p>Supported systems are Windows 10/11 (64-bit) and macOS 11 or later.</p><p>Please note that the apps have <strong>not been tested on a real Mac</strong>, as no Mac is available in the development environment. The Mac versions are provided as kits that you assemble on your own Mac.</p></section><nav class="pagenav"><a href="privacy.html">Privacy Policy<span class="pn-sub">How your data is handled</span></a><a href="terms.html">Terms of Use<span class="pn-sub">Conditions for free use</span></a><a href="disclaimer.html" class="current">Disclaimer<span class="pn-sub">Please read before use</span></a><a href="safety.html">Safety<span class="pn-sub">Scanning and verification</span></a></nav></div>
+  <p class="back"><a href="index.html" data-i18n="back_apps2">← アプリ一覧に戻る</a></p>
+</main>
+<footer class="wrap foot">
+  <nav class="foot-links">
+    <a href="about.html" data-i18n="foot_about">運営者について</a>
+    <a href="privacy.html" data-i18n="foot_privacy">プライバシーポリシー</a>
+    <a href="terms.html" data-i18n="foot_terms">利用条件</a>
+    <a href="disclaimer.html" data-i18n="foot_disclaimer">免責事項</a>
+    <a href="safety.html" data-i18n="foot_safety">安全への取り組み</a>
+    <a href="index.html#faq" data-i18n="foot_faq">よくある質問</a>
+    <a href="mailto:syoutarou3230ficpo@gmail.com" data-i18n="foot_contact">お問い合わせ：syoutarou3230ficpo@gmail.com</a>
+  </nav>
+  <div data-i18n="foot_copy">© 2026 フルタカ</div>
+</footer>
+<script>
+var CHROME = {
+  "ja": {"back_apps": "アプリ一覧", "back_apps2": "← アプリ一覧に戻る", "foot_about": "運営者について", "foot_privacy": "プライバシーポリシー", "foot_terms": "利用条件", "foot_disclaimer": "免責事項", "foot_safety": "安全への取り組み", "foot_faq": "よくある質問", "foot_contact": "お問い合わせ：syoutarou3230ficpo@gmail.com", "foot_copy": "© 2026 フルタカ"},
+  "en": {"back_apps": "Apps", "back_apps2": "← Back to the app list", "foot_about": "About the operator", "foot_privacy": "Privacy Policy", "foot_terms": "Terms of Use", "foot_disclaimer": "Disclaimer", "foot_safety": "Safety", "foot_faq": "FAQ", "foot_contact": "Contact: syoutarou3230ficpo@gmail.com", "foot_copy": "© 2026 Furutaka"}
+};
+var TITLES = {"ja": "免責事項 - 自作アプリ一覧", "en": "Disclaimer - get-quicknote"};
+function applyLang(lang) {
+  var isJa = (lang === 'ja');
+  document.documentElement.lang = isJa ? 'ja' : lang;
+  document.title = isJa ? TITLES.ja : TITLES.en;
+  document.querySelectorAll('.content-ja').forEach(function (el) { el.hidden = !isJa; });
+  document.querySelectorAll('.content-en').forEach(function (el) { el.hidden = isJa; });
+  var t = CHROME[isJa ? 'ja' : 'en'];
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var v = t[el.getAttribute('data-i18n')];
+    if (v) { el.innerHTML = v; }
+  });
+}
+(function () {
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('gq-theme', next); } catch (e) {}
+    });
+  }
+  var sel = document.getElementById('lang');
+  if (sel) {
+    var saved = null;
+    try { saved = localStorage.getItem('gq-lang'); } catch (e) {}
+    if (saved) {
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === saved) { sel.value = saved; break; }
+      }
+    }
+    applyLang(sel.value);
+    sel.addEventListener('change', function () {
+      try { localStorage.setItem('gq-lang', sel.value); } catch (e) {}
+      applyLang(sel.value);
+    });
+  }
+})();
+</script>
+</body>
+</html>

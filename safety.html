@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('gq-theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
+<title>安全への取り組み - 自作アプリ一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F8FD; --surface: #FFFFFF; --ink: #0F1B33; --muted: #3B4A66; --line: #DFE7F3;
+  --accent: #2563EB; --accent-strong: #1D4ED8; --accent-soft: #E7EFFD; --glow: #C4D9FF; --glow-2: #D3F4EE;
+  --good: #0E7A4F; --good-soft: #E2F4EC; --warn: #9A6206; --warn-soft: #FBF0DA;
+  --cjk: "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", "Noto Sans Arabic";
+  --font-display: "Plus Jakarta Sans", "Inter", var(--cjk), system-ui, sans-serif;
+  --font-body: "Inter", var(--cjk), system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Microsoft YaHei", "Malgun Gothic", Meiryo, sans-serif;
+  color-scheme: light;
+}
+:root:lang(zh) { --cjk: "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Arabic"; }
+:root:lang(ko) { --cjk: "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic"; }
+:root:lang(ar) { --cjk: "Noto Sans Arabic", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR"; }
+:root[data-theme="dark"] {
+  --bg: #0B1220; --surface: #111C33; --ink: #E8EEF8; --muted: #A7B8D4; --line: #22314F;
+  --accent: #3B82F6; --accent-strong: #60A5FA; --accent-soft: rgba(59, 130, 246, 0.16); --glow: #16294D; --glow-2: #0C2B25;
+  --good: #4ADE80; --good-soft: rgba(34, 197, 94, 0.14); --warn: #FBBF24; --warn-soft: rgba(245, 158, 11, 0.14);
+  color-scheme: dark;
+}
+.theme-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; flex: none; }
+.theme-btn:hover { border-color: #B9CBEA; }
+.theme-btn svg { display: block; }
+.theme-btn .ic-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .ic-sun { display: block; }
+:root[data-theme="dark"] .theme-btn .ic-moon { display: none; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background-color: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.85; line-break: strict; overflow-wrap: break-word; -webkit-font-smoothing: antialiased; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); overflow-x: clip; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1680px; margin-inline: auto; padding-inline: 32px; }
+:root:lang(ar) * { letter-spacing: 0 !important; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; direction: ltr; }
+.logo { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 8px 16px -6px rgba(37, 99, 235, 0.55); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang-pick { position: relative; display: inline-flex; align-items: center; }
+.lang-pick svg { position: absolute; top: 50%; translate: 0 -50%; pointer-events: none; }
+.lang-pick .globe { inset-inline-start: 12px; color: var(--accent); }
+.lang-pick .chev { inset-inline-end: 11px; color: var(--muted); }
+.lang-pick select { appearance: none; -webkit-appearance: none; font: inherit; font-size: 0.85rem; font-weight: 700; line-height: 1.4; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding-block: 8px; padding-inline: 36px 32px; cursor: pointer; max-width: 100%; }
+.lang-pick select:hover { border-color: #B9CBEA; }
+.nav-dl { font-size: 0.9rem; font-weight: 700; color: var(--accent-strong); text-decoration: none; padding: 8px 14px; border-radius: 999px; }
+.nav-dl:hover { background: var(--accent-soft); }
+.doc { max-width: 920px; padding-bottom: 72px; }
+.hero { margin-top: 8px; border: 1px solid var(--line); border-radius: 22px; padding: 30px 30px 26px; background: linear-gradient(135deg, var(--glow) 0%, var(--surface) 55%, var(--glow-2) 130%); }
+.hero .badge-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: linear-gradient(145deg, #3B82F6, #1D4ED8); box-shadow: 0 10px 20px -8px rgba(37, 99, 235, 0.6); margin-bottom: 14px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.35rem); font-weight: 800; line-height: 1.35; margin: 0 0 6px; }
+.hero .updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 10px; }
+.hero .lead { font-size: 1.06rem; font-weight: 600; color: var(--ink); margin: 0; line-height: 1.75; }
+.keypoints { margin-top: 20px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 18px; padding: 20px 24px 14px; }
+.keypoints .kp-title { font-family: var(--font-display); font-weight: 800; font-size: 0.98rem; margin: 0 0 8px; color: var(--accent-strong); }
+.keypoints ul { list-style: none; margin: 0; padding: 0; }
+.keypoints li { position: relative; padding-inline-start: 30px; margin: 0 0 9px; font-weight: 600; color: var(--ink); line-height: 1.7; }
+.keypoints li::before { content: ""; position: absolute; inset-inline-start: 0; top: 3px; width: 20px; height: 20px; border-radius: 999px; background: var(--good); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.sec { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 26px 12px; margin-top: 18px; box-shadow: 0 10px 24px -18px rgba(15, 27, 51, 0.25); }
+.sec h2 { display: flex; align-items: center; gap: 11px; font-size: 1.18rem; font-weight: 800; margin: 2px 0 10px; color: var(--ink); line-height: 1.5; }
+.sec h2 .num { flex: none; width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: var(--accent); color: #fff; font-family: var(--font-display); font-size: 0.95rem; font-weight: 800; }
+.sec p, .sec li { color: var(--muted); }
+.sec p { margin: 0 0 12px; }
+.sec ul, .sec ol { margin: 0 0 12px; padding-inline-start: 1.35em; }
+.sec li { margin-bottom: 5px; }
+.sec a { color: var(--accent-strong); font-weight: 600; }
+.sec strong { color: var(--ink); }
+.callout { border-radius: 14px; padding: 14px 18px 6px; margin: 4px 0 14px; border: 1px solid var(--line); }
+.callout p { margin: 0 0 9px; }
+.callout.good { background: var(--good-soft); }
+.callout.good p { color: var(--ink); }
+.callout.warn { background: var(--warn-soft); }
+.callout.warn p { color: var(--ink); }
+.callout .co-title { font-weight: 800; }
+.doc table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 6px 0 16px; background: var(--surface); }
+.doc th, .doc td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+.doc th { background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+.doc td { color: var(--muted); }
+.doc td.app { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.doc td.hash { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; word-break: break-all; color: var(--ink); }
+.big-stat { display: flex; flex-wrap: wrap; gap: 14px; margin: 4px 0 16px; }
+.stat-card { flex: 1 1 200px; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 10px; background: linear-gradient(150deg, var(--accent-soft), var(--surface) 70%); }
+.stat-card .stat-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--accent-strong); line-height: 1.2; }
+.stat-card .stat-label { color: var(--muted); font-size: 0.9rem; margin: 2px 0 8px; }
+code.cmd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; background: var(--accent-soft); color: var(--ink); padding: 2px 7px; border-radius: 7px; word-break: break-all; }
+.pagenav { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 26px; }
+.pagenav a { display: block; text-decoration: none; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 14px 16px; font-weight: 700; color: var(--ink); }
+.pagenav a:hover { border-color: var(--accent); }
+.pagenav a .pn-sub { display: block; font-weight: 500; font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+.pagenav a.current { border-color: var(--accent); background: var(--accent-soft); }
+.back { margin-top: 30px; }
+.back a { color: var(--accent-strong); font-weight: 700; text-decoration: none; }
+.back a:hover { text-decoration: underline; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.foot-links a { color: var(--muted); text-decoration: none; }
+.foot-links a:hover { color: var(--accent-strong); text-decoration: underline; }
+@media (max-width: 480px) { .nav-dl { display: none; } .wrap { padding-inline: 16px; } .hero { padding: 22px 20px 18px; } .sec { padding: 18px 18px 8px; } }
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="index.html" aria-label="get-quicknote">
+    <span class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+    </span>
+    get-quicknote
+  </a>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="テーマ切替 / Theme" title="テーマ切替 / Theme">
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <div class="lang-pick">
+      <svg class="globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <select id="lang" aria-label="Language / 言語">
+        <option value="ja" lang="ja">日本語</option>
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="zh" lang="zh-Hans">简体中文</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="ar" lang="ar">العربية</option>
+        <option value="id" lang="id">Bahasa Indonesia</option>
+        <option value="ko" lang="ko">한국어</option>
+      </select>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <a class="nav-dl" href="index.html" data-i18n="back_apps">アプリ一覧</a>
+  </div>
+</header>
+<main class="wrap doc">
+<div class="content-ja"><div class="hero"><div class="badge-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h1>安全への取り組み</h1><p class="updated">最終更新日：2026年11月18日</p><p class="lead">「安全です」と言うだけではなく、あなた自身が確かめられる形にしています。</p></div><div class="keypoints"><p class="kp-title">このページの要点</p><ul><li>全アプリをVirusTotalで検査済みです（71社すべて検出なし）</li><li>ソースコードをGitHubで公開中です（中身を自分で確認できます）</li><li>SHA-256で、ダウンロードしたファイルが本物か照合できます</li></ul></div><section class="sec"><h2><span class="num">1</span>公開前のウイルス検査</h2><p>すべてのアプリは、公開前に <strong>VirusTotal</strong>（世界中のセキュリティ製品で一括検査できるサービス）で検査しています。</p><div class='big-stat'><div class='stat-card'><div class='stat-num'>0 / 71</div><p class='stat-label'>2026年11月16日の検査：配布中の全ファイルで、71社すべて「検出なし」</p></div><div class='stat-card'><div class='stat-num'>0 / 71</div><p class='stat-label'>ClipStockは2026年11月17日に検査：同じく71社すべて「検出なし」</p></div></div><p>検査結果は、各アプリの紹介欄からリンクしています。ダウンロード前に、どなたでも内容を確認できます。</p></section><section class="sec"><h2><span class="num">2</span>誤検知への対応</h2><p>ContextStructについては、Microsoftへ誤検知の審査を申請済みです（2026年11月16日申請、受付番号 50381d4d-b4e9-4f95-89a6-ea0c7be0b528、現在は審査結果待ち）。</p><p>万一、将来いずれかの製品で検出が出た場合は、本ページと各アプリの表示を速やかに更新します。</p><p>また、アプリを更新したときは、そのつど再検査を行い、結果リンクとSHA-256を新しいものに差し替えます。</p></section><section class="sec"><h2><span class="num">3</span>ソースコードの公開</h2><p>全13アプリのソースコードを、GitHubで公開しています（MITライセンス）。「中身が不安」という方は、ソースコードをご自身で確認したり、ご自身でビルドしたりしていただけます。</p><p>→ <a href='https://github.com/syoutarou900/-' target='_blank' rel='noopener'>GitHubリポジトリを見る</a></p><p>Mac版のキットにもソースコード一式が含まれています。</p></section><section class="sec"><h2><span class="num">4</span>ファイルの真正確認（SHA-256）</h2><p>ダウンロードしたファイルが本物かどうかは、SHA-256ハッシュ値で照合できます。</p><ul><li>Windows：コマンドプロンプトで <code class='cmd'>certutil -hashfile ファイル名 SHA256</code></li><li>Mac：ターミナルで <code class='cmd'>shasum -a 256 ファイル名</code></li></ul><p>表示された値が、下記一覧と一致すれば本物です（対象は各アプリの実行ファイルです）。</p><table><tr><th>アプリ App</th><th>SHA-256</th></tr><tr><td class='app'>たしかめーる TashikaMail</td><td class='hash'>0c8fe5acf1272611614199d78bb3a6db9d86a828144c70883f177d873ade7ca3</td></tr><tr><td class='app'>転記見守り君 TranscribeGuard</td><td class='hash'>bf38959dd3a873f0b22142027efe98ba09b7a34b3cefd4a166412bc204082cd8</td></tr><tr><td class='app'>FormatPassport</td><td class='hash'>b02463ae63de76a5d2b3e82f6c1fdf37a275449275e3d6673a60f19c67c03675</td></tr><tr><td class='app'>MatchDetective</td><td class='hash'>248de6c4f2cec3b874845c91d982336da55e63a97c19c5a49eb485eca71fb743</td></tr><tr><td class='app'>UniList</td><td class='hash'>08fd59643868e8286154df170435889db6583ac3485ec995649231608048e23d</td></tr><tr><td class='app'>StepOnce</td><td class='hash'>f9c96384d25dba9255e2625d40ecd5a0722a5767a0f8c77248b8112ec4574724</td></tr><tr><td class='app'>VersionDetective</td><td class='hash'>d9b39b2e588004f0be348b9a3a813a4d9ed8180a03d6d2d7d02af710d4b85ea3</td></tr><tr><td class='app'>RedactShot</td><td class='hash'>e3f13bc3df47d97401d63b55980d44a3fb55af2075157d9a603dd14c6f6801da</td></tr><tr><td class='app'>PurePaste</td><td class='hash'>54a0aa271ba1c46e2771707c8c6cfc0559777f63120347d7a2e5cbc2c83ee1a1</td></tr><tr><td class='app'>ContextStruct</td><td class='hash'>506d21acf018239020ccf47c1d3dff5e5c83d68214c0fc73df0946bf5b2e9b70</td></tr><tr><td class='app'>GlobalHours</td><td class='hash'>b40fce7e099b6eaabc471ec0d1ac9e26c116f7213f6da069903156c875a57efc</td></tr><tr><td class='app'>ClipStock</td><td class='hash'>74d87e2db6d0a8767f6a72f62b7763ddac73261e1c340bd031793f4db270cd51</td></tr><tr><td class='app'>DropLauncher</td><td class='hash'>7c207f8e9313bb6574dddac5b74fa793a1258d3491fd180c70a8d3fcf955263f</td></tr></table><p>※ DropLauncherのVirusTotal検査済みファイルはフォルダ形式版（SHA-256: a85244f2ecbc8d930a5085f301afa038ff2a9dfcb57b9d33947725d5aeafd161）です。上の値は配布中の1ファイル版のものです。</p></section><section class="sec"><h2><span class="num">5</span>コード署名について（正直な説明）</h2><p>大手企業のアプリには「コード署名」という、開発者を証明する仕組みが付いていることが多く、その場合は警告が出ません。</p><p>このサイトのアプリに署名が付いていないのは、署名用の証明書が個人には高額で、無料配布の範囲ではまかなうのが難しいためです。署名がない代わりに、公開前のVirusTotal検査と結果の公開、SHA-256による真正確認の手段を用意しています。</p><div class='callout good'><p><span class='co-title'>現在の進み具合：</span>オープンソース向けの無料署名プログラム「SignPath Foundation」への申請手続きを進めています。進展があり次第、本ページでお知らせします。</p></div></section><section class="sec"><h2><span class="num">6</span>データの扱い</h2><p>アプリがあなたのデータを収集することはありません。処理は原則としてパソコンの中で完結しますが、一部の機能を使うときだけインターネットと通信します。詳しくは<a href='privacy.html'>プライバシーポリシー</a>をご覧ください。</p></section><nav class="pagenav"><a href="privacy.html">プライバシーポリシー<span class="pn-sub">データの取り扱いについて</span></a><a href="terms.html">利用条件<span class="pn-sub">無料で使うための条件</span></a><a href="disclaimer.html">免責事項<span class="pn-sub">ご利用の前に知ってほしいこと</span></a><a href="safety.html" class="current">安全への取り組み<span class="pn-sub">検査と確認の仕組み</span></a></nav></div><div class="content-en" hidden><div class="hero"><div class="badge-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h1>Our Approach to Safety</h1><p class="updated">Last updated: November 18, 2026</p><p class="lead">Rather than just saying "safe", everything is set up so you can verify it yourself.</p></div><div class="keypoints"><p class="kp-title">Key points</p><ul><li>Every app is scanned on VirusTotal before release (no detections by all 71 engines)</li><li>The source code is published on GitHub, so you can read what is inside</li><li>SHA-256 values let you verify that your download is genuine</li></ul></div><section class="sec"><h2><span class="num">1</span>Virus scanning before release</h2><p>Every app is scanned on <strong>VirusTotal</strong> (a service that checks files with security products from around the world) before release.</p><div class='big-stat'><div class='stat-card'><div class='stat-num'>0 / 71</div><p class='stat-label'>Scan of November 16, 2026: all distributed files reported "no detection" by all 71 products</p></div><div class='stat-card'><div class='stat-num'>0 / 71</div><p class='stat-label'>ClipStock was scanned on November 17, 2026, with the same result</p></div></div><p>The result for each app is linked from its section on the top page, so anyone can review it before downloading.</p></section><section class="sec"><h2><span class="num">2</span>Handling of false positives</h2><p>For ContextStruct, a false-positive review has been submitted to Microsoft (submitted November 16, 2026; submission ID 50381d4d-b4e9-4f95-89a6-ea0c7be0b528; determination pending).</p><p>If any product reports a detection in the future, this page and the app sections will be updated promptly.</p><p>Whenever an app is updated, it is re-scanned, and the result link and SHA-256 value are replaced with the new ones.</p></section><section class="sec"><h2><span class="num">3</span>Published source code</h2><p>The source code of all 13 apps is published on GitHub (MIT License). If you would like to check what is inside, you can read the source or build the apps yourself.</p><p>→ <a href='https://github.com/syoutarou900/-' target='_blank' rel='noopener'>View the GitHub repository</a></p><p>The Mac kits also include the complete source code.</p></section><section class="sec"><h2><span class="num">4</span>Verifying your download (SHA-256)</h2><p>You can verify that a downloaded file is genuine by comparing its SHA-256 hash.</p><ul><li>Windows: in Command Prompt, run <code class='cmd'>certutil -hashfile &lt;filename&gt; SHA256</code></li><li>Mac: in Terminal, run <code class='cmd'>shasum -a 256 &lt;filename&gt;</code></li></ul><p>If the value matches the list below, the file is genuine (the values are for each app's executable file).</p><table><tr><th>アプリ App</th><th>SHA-256</th></tr><tr><td class='app'>たしかめーる TashikaMail</td><td class='hash'>0c8fe5acf1272611614199d78bb3a6db9d86a828144c70883f177d873ade7ca3</td></tr><tr><td class='app'>転記見守り君 TranscribeGuard</td><td class='hash'>bf38959dd3a873f0b22142027efe98ba09b7a34b3cefd4a166412bc204082cd8</td></tr><tr><td class='app'>FormatPassport</td><td class='hash'>b02463ae63de76a5d2b3e82f6c1fdf37a275449275e3d6673a60f19c67c03675</td></tr><tr><td class='app'>MatchDetective</td><td class='hash'>248de6c4f2cec3b874845c91d982336da55e63a97c19c5a49eb485eca71fb743</td></tr><tr><td class='app'>UniList</td><td class='hash'>08fd59643868e8286154df170435889db6583ac3485ec995649231608048e23d</td></tr><tr><td class='app'>StepOnce</td><td class='hash'>f9c96384d25dba9255e2625d40ecd5a0722a5767a0f8c77248b8112ec4574724</td></tr><tr><td class='app'>VersionDetective</td><td class='hash'>d9b39b2e588004f0be348b9a3a813a4d9ed8180a03d6d2d7d02af710d4b85ea3</td></tr><tr><td class='app'>RedactShot</td><td class='hash'>e3f13bc3df47d97401d63b55980d44a3fb55af2075157d9a603dd14c6f6801da</td></tr><tr><td class='app'>PurePaste</td><td class='hash'>54a0aa271ba1c46e2771707c8c6cfc0559777f63120347d7a2e5cbc2c83ee1a1</td></tr><tr><td class='app'>ContextStruct</td><td class='hash'>506d21acf018239020ccf47c1d3dff5e5c83d68214c0fc73df0946bf5b2e9b70</td></tr><tr><td class='app'>GlobalHours</td><td class='hash'>b40fce7e099b6eaabc471ec0d1ac9e26c116f7213f6da069903156c875a57efc</td></tr><tr><td class='app'>ClipStock</td><td class='hash'>74d87e2db6d0a8767f6a72f62b7763ddac73261e1c340bd031793f4db270cd51</td></tr><tr><td class='app'>DropLauncher</td><td class='hash'>7c207f8e9313bb6574dddac5b74fa793a1258d3491fd180c70a8d3fcf955263f</td></tr></table><p>Note: the VirusTotal-scanned DropLauncher file is the folder-format build (SHA-256: a85244f2ecbc8d930a5085f301afa038ff2a9dfcb57b9d33947725d5aeafd161). The value above is for the single-file build currently distributed.</p></section><section class="sec"><h2><span class="num">5</span>About code signing (an honest explanation)</h2><p>Apps from large companies often carry "code signing", a certificate that proves the developer's identity, and no warning appears for them.</p><p>The apps on this site are unsigned because signing certificates are expensive for an individual, and difficult to cover while distributing the apps for free. Instead of a signature, we provide a VirusTotal scan and published results before release, plus SHA-256 values so you can verify your download.</p><div class='callout good'><p><span class='co-title'>Current status:</span> an application to SignPath Foundation, a free signing program for open-source projects, is in progress. Updates will be announced on this page.</p></div></section><section class="sec"><h2><span class="num">6</span>Your data</h2><p>The apps never collect your data. Processing stays on your device in principle; a few features access the internet only when you use them. See the <a href='privacy.html'>Privacy Policy</a> for details.</p></section><nav class="pagenav"><a href="privacy.html">Privacy Policy<span class="pn-sub">How your data is handled</span></a><a href="terms.html">Terms of Use<span class="pn-sub">Conditions for free use</span></a><a href="disclaimer.html">Disclaimer<span class="pn-sub">Please read before use</span></a><a href="safety.html" class="current">Safety<span class="pn-sub">Scanning and verification</span></a></nav></div>
+  <p class="back"><a href="index.html" data-i18n="back_apps2">← アプリ一覧に戻る</a></p>
+</main>
+<footer class="wrap foot">
+  <nav class="foot-links">
+    <a href="about.html" data-i18n="foot_about">運営者について</a>
+    <a href="privacy.html" data-i18n="foot_privacy">プライバシーポリシー</a>
+    <a href="terms.html" data-i18n="foot_terms">利用条件</a>
+    <a href="disclaimer.html" data-i18n="foot_disclaimer">免責事項</a>
+    <a href="safety.html" data-i18n="foot_safety">安全への取り組み</a>
+    <a href="index.html#faq" data-i18n="foot_faq">よくある質問</a>
+    <a href="mailto:syoutarou3230ficpo@gmail.com" data-i18n="foot_contact">お問い合わせ：syoutarou3230ficpo@gmail.com</a>
+  </nav>
+  <div data-i18n="foot_copy">© 2026 フルタカ</div>
+</footer>
+<script>
+var CHROME = {
+  "ja": {"back_apps": "アプリ一覧", "back_apps2": "← アプリ一覧に戻る", "foot_about": "運営者について", "foot_privacy": "プライバシーポリシー", "foot_terms": "利用条件", "foot_disclaimer": "免責事項", "foot_safety": "安全への取り組み", "foot_faq": "よくある質問", "foot_contact": "お問い合わせ：syoutarou3230ficpo@gmail.com", "foot_copy": "© 2026 フルタカ"},
+  "en": {"back_apps": "Apps", "back_apps2": "← Back to the app list", "foot_about": "About the operator", "foot_privacy": "Privacy Policy", "foot_terms": "Terms of Use", "foot_disclaimer": "Disclaimer", "foot_safety": "Safety", "foot_faq": "FAQ", "foot_contact": "Contact: syoutarou3230ficpo@gmail.com", "foot_copy": "© 2026 Furutaka"}
+};
+var TITLES = {"ja": "安全への取り組み - 自作アプリ一覧", "en": "Safety - get-quicknote"};
+function applyLang(lang) {
+  var isJa = (lang === 'ja');
+  document.documentElement.lang = isJa ? 'ja' : lang;
+  document.title = isJa ? TITLES.ja : TITLES.en;
+  document.querySelectorAll('.content-ja').forEach(function (el) { el.hidden = !isJa; });
+  document.querySelectorAll('.content-en').forEach(function (el) { el.hidden = isJa; });
+  var t = CHROME[isJa ? 'ja' : 'en'];
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var v = t[el.getAttribute('data-i18n')];
+    if (v) { el.innerHTML = v; }
+  });
+}
+(function () {
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('gq-theme', next); } catch (e) {}
+    });
+  }
+  var sel = document.getElementById('lang');
+  if (sel) {
+    var saved = null;
+    try { saved = localStorage.getItem('gq-lang'); } catch (e) {}
+    if (saved) {
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === saved) { sel.value = saved; break; }
+      }
+    }
+    applyLang(sel.value);
+    sel.addEventListener('change', function () {
+      try { localStorage.setItem('gq-lang', sel.value); } catch (e) {}
+      applyLang(sel.value);
+    });
+  }
+})();
+</script>
+</body>
+</html>
