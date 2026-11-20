@@ -1,1 +1,125 @@
+# =====================================================================
+# get-quicknote Desktop Tools - Windows build (all 13 apps)
+#
+# 前提: リポジトリの直下に各アプリのフォルダ (ClipStock, TashikaMail, ...) が
+#       ある構成。各アプリのフォルダで、そのアプリの requirements.txt を
+#       入れてから PyInstaller でビルドします。
+# ビルド手順は、配布中の最終ビルドで使った MakeExe-*.bat / PyInstaller の
+# spec ファイル / ビルドログの内容を再現したものです。
+# Python 3.12 は、元のビルド環境 (Python 3.12.10) に合わせています。
+# =====================================================================
 
+name: Build Windows apps
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: ClipStock
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm ClipStock.spec'
+            artifact_path: 'ClipStock/dist/ClipStock.exe'
+          - app: ContextStruct
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name ContextStruct app.py'
+            artifact_path: 'ContextStruct/dist/ContextStruct'
+          - app: DropLauncher
+            extra_pip: 'pypdf imageio-ffmpeg'
+            build: 'python -m PyInstaller --noconfirm --onefile --windowed --name DropLauncher --icon assets/icon.ico --add-data "assets;assets" --collect-all imageio_ffmpeg app.py'
+            artifact_path: 'DropLauncher/dist/DropLauncher.exe'
+          - app: FormatPassport
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name FormatPassport --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'FormatPassport/dist/FormatPassport'
+          - app: GlobalHours
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name GlobalHours --icon assets/icon.ico --add-data "fonts;fonts" --add-data "assets;assets" --collect-all holidays --collect-all tzdata --collect-all babel --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'GlobalHours/dist/GlobalHours'
+          - app: MatchDetective
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name MatchDetective --icon assets/icon.ico --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'MatchDetective/dist/MatchDetective'
+          - app: PurePaste
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onefile --windowed --name PurePaste --icon assets/icon.ico --add-data "assets;assets" app.py'
+            artifact_path: 'PurePaste/dist/PurePaste.exe'
+          - app: RedactShot
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name RedactShot --icon assets/icon.ico --add-data "fonts;fonts" --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'RedactShot/dist/RedactShot'
+          - app: StepOnce
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name StepOnce --icon assets/icon.ico --add-data "assets;assets" app.py'
+            artifact_path: 'StepOnce/dist/StepOnce'
+          - app: TashikaMail
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name TashikaMail --icon assets/icon.ico --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'TashikaMail/dist/TashikaMail'
+          - app: TranscribeGuard
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name TranscribeGuard --icon assets/icon.ico --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'TranscribeGuard/dist/TranscribeGuard'
+          - app: UniList
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name UniList --icon assets/icon.ico --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'UniList/dist/UniList'
+          - app: VersionDetective
+            extra_pip: ''
+            build: 'python -m PyInstaller --noconfirm --onedir --windowed --name VersionDetective --icon assets/icon.ico --add-data "fonts;fonts" --add-data "assets;assets" --exclude-module PySide6.QtWebEngine --exclude-module PySide6.QtWebEngineCore --exclude-module PySide6.QtWebEngineWidgets --exclude-module PySide6.QtQml --exclude-module PySide6.QtQuick --exclude-module PySide6.QtQuickWidgets --exclude-module PySide6.Qt3DCore --exclude-module PySide6.Qt3DRender --exclude-module PySide6.Qt3DInput --exclude-module PySide6.Qt3DLogic --exclude-module PySide6.Qt3DAnimation --exclude-module PySide6.Qt3DExtras --exclude-module PySide6.QtCharts --exclude-module PySide6.QtDataVisualization --exclude-module PySide6.QtMultimedia --exclude-module PySide6.QtMultimediaWidgets --exclude-module PySide6.QtNetwork --exclude-module PySide6.QtSvg --exclude-module PySide6.QtSvgWidgets --exclude-module PySide6.QtPrintSupport --exclude-module PySide6.QtSql --exclude-module PySide6.QtTest --exclude-module PySide6.QtXml --exclude-module PySide6.QtConcurrent --exclude-module PySide6.QtDBus --exclude-module PySide6.QtHelp --exclude-module PySide6.QtUiTools --exclude-module PySide6.QtDesigner --exclude-module PySide6.QtPositioning --exclude-module PySide6.QtLocation --exclude-module PySide6.QtSensors --exclude-module PySide6.QtSerialPort --exclude-module PySide6.QtBluetooth --exclude-module PySide6.QtNfc --exclude-module PySide6.QtWebSockets --exclude-module PySide6.QtWebChannel --exclude-module PySide6.QtRemoteObjects --exclude-module PySide6.QtScxml --exclude-module PySide6.QtStateMachine --exclude-module PySide6.QtTextToSpeech --exclude-module PySide6.QtPdf --exclude-module PySide6.QtPdfWidgets --exclude-module PySide6.QtOpenGL --exclude-module PySide6.QtOpenGLWidgets --exclude-module PySide6.QtAsyncio --exclude-module tkinter --exclude-module _tkinter --exclude-module unittest --exclude-module pytest --exclude-module numpy --exclude-module lxml --exclude-module pandas --exclude-module matplotlib --exclude-module IPython app.py'
+            artifact_path: 'VersionDetective/dist/VersionDetective'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.app }}
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pyinstaller ${{ matrix.extra_pip }}
+
+      - name: Build (${{ matrix.app }})
+        working-directory: ${{ matrix.app }}
+        run: ${{ matrix.build }}
+
+      - name: Upload artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.app }}-windows
+          path: ${{ matrix.artifact_path }}
+
+      # ===============================================================
+      # 【SignPath署名ステップ：承認後にここへ入れる場所】
+      # SignPath Foundation の審査に通ったら、下のコメントを外して有効化します。
+      # これは「ビルドした成果物(artifact)を SignPath に送って署名してもらう」
+      # ためのステップです。有効化の前に、リポジトリの Settings > Secrets に
+      # SIGNPATH_API_TOKEN を登録し、organization-id などを自分の値に
+      # 書き換えてください（詳しくは設置手順のREADMEを見てください）。
+      #
+      # - name: Sign with SignPath
+      #   uses: signpath/github-action-submit-signing-request@v1
+      #   with:
+      #     api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+      #     organization-id: <YOUR-ORGANIZATION-ID>
+      #     project-slug: <YOUR-PROJECT-SLUG>
+      #     signing-policy-slug: <YOUR-SIGNING-POLICY-SLUG>
+      #     artifact-configuration-slug: <YOUR-ARTIFACT-CONFIGURATION-SLUG>
+      #     github-artifact-id: ${{ steps.upload.outputs.artifact-id }}
+      #     wait-for-completion: true
+      #     output-artifact-directory: signed/${{ matrix.app }}
+      # ===============================================================
