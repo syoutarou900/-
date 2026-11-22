@@ -235,7 +235,9 @@ h1 em { font-style: normal; color: var(--accent); }
 .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px; margin-bottom: 12px; }
 .faq-item summary { cursor: pointer; font-weight: 700; padding: 12px 0; color: var(--ink); }
 .faq-item p { margin: 0 0 14px; }
-.news-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.news-list { list-style: none; padding: 4px 10px 4px 2px; margin: 0; display: grid; gap: 10px; max-height: 320px; overflow-y: auto; scrollbar-width: thin; }
+.news-list::-webkit-scrollbar { width: 8px; }
+.news-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
 .news-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; }
 
 /* Footer links (§12) */
@@ -1227,6 +1229,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
   <section class="content-section" id="news">
     <h2 data-i18n="news_title">更新履歴</h2>
     <ul class="news-list">
+      <li data-i18n="news_7">2026年11月22日：評価・感想フォームと、チップ受付（Ko-fi）を開始しました。各アプリの画面写真の下と、ページ下部から送れます。アプリは今後も完全無料です。</li>
       <li data-i18n="news_5">2026年11月22日：全13アプリにWindowsインストーラー版（MSI）を追加しました。インストールするとデスクトップとスタートメニューにショートカットが作られます。MSI版もVirusTotalで検査し、すべて検出なしでした。</li>
       <li data-i18n="news_6">2026年11月19日：企業向け一括導入パック（アプリ別）を追加しました。各アプリ欄にライセンス（MIT）の表記も追加しました。</li>
       <li data-i18n="news_1">2026年11月18日：全13アプリのソースコードをGitHubで公開しました（MITライセンス）。</li>
@@ -1634,6 +1637,7 @@ const translations = {
     faq_q8: "Q. 感想や要望は送れますか？",
     faq_a8: "A. はい、歓迎します。いただいた声をもとに改善していきます。メールでお寄せください。",
     news_title: "更新履歴",
+    news_7: "2026年11月22日：評価・感想フォームと、チップ受付（Ko-fi）を開始しました。各アプリの画面写真の下と、ページ下部から送れます。アプリは今後も完全無料です。",
     news_5: "2026年11月22日：全13アプリにWindowsインストーラー版（MSI）を追加しました。インストールするとデスクトップとスタートメニューにショートカットが作られます。MSI版もVirusTotalで検査し、すべて検出なしでした。",
     news_6: "2026年11月19日：企業向け一括導入パック（アプリ別）を追加しました。各アプリ欄にライセンス（MIT）の表記も追加しました。",
     news_1: "2026年11月18日：全13アプリのソースコードをGitHubで公開しました（MITライセンス）。",
@@ -1768,6 +1772,7 @@ const translations = {
     faq_q8: "Q. Can I send feedback or requests?",
     faq_a8: "A. Yes, very welcome. Feedback is how the apps improve. Please send it by email.",
     news_title: "Update History",
+    news_7: "Nov 22, 2026: Launched rating & feedback forms and optional tips (Ko-fi). You can find them under each app's screenshot and at the bottom of the page. The apps remain completely free.",
     news_5: "Nov 22, 2026: Added Windows installer (MSI) editions for all 13 apps. Installing creates Desktop and Start Menu shortcuts. The MSI editions were also scanned on VirusTotal — no detections.",
     news_6: "Nov 19, 2026: Added per-app enterprise deployment packs. Also added the license (MIT) line to each app card.",
     news_1: "November 18, 2026: Source code for all 13 apps published on GitHub (MIT License).",
@@ -2606,6 +2611,21 @@ document.getElementById('lang').addEventListener('change', (e) => {
       setTimeout(function(){ dl(a.getAttribute('href')); }, 800);
     });
   });
+})();
+</script>
+<script>
+(function () {
+  var el = document.querySelector('.news-list');
+  if (!el) return;
+  el.addEventListener('wheel', function (e) {
+    var d = e.deltaY;
+    var canDown = el.scrollTop + el.clientHeight < el.scrollHeight - 1;
+    var canUp = el.scrollTop > 0;
+    if ((d > 0 && canDown) || (d < 0 && canUp)) {
+      e.preventDefault();
+      el.scrollTop += d;
+    }
+  }, { passive: false });
 })();
 </script>
 </body>
