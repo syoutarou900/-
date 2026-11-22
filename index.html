@@ -178,6 +178,19 @@ h1 em { font-style: normal; color: var(--accent); }
 .modal-content img { max-width: 100%; max-height: 85vh; border-radius: 12px; display: block; margin: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 .modal-close { position: absolute; top: -45px; right: 0; background: #fff; color: #0F1B33; border: none; padding: 8px 16px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
 .modal-lang { position: absolute; top: -45px; left: 0; background: #fff; color: #0F1B33; border: none; padding: 8px 10px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 0.9rem; max-width: 46%; }
+.support-sec { padding-block: 4px 34px; }
+.support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.support-grid.one { grid-template-columns: minmax(0, 640px); justify-content: center; }
+@media (max-width: 820px) { .support-grid { grid-template-columns: 1fr; } }
+.support-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 28px; box-shadow: 0 10px 30px -10px rgba(15, 27, 51, 0.08); }
+.support-card h2 { margin: 8px 0 10px; font-size: 1.25rem; }
+.support-card p { color: var(--muted); line-height: 1.7; margin: 0 0 14px; }
+.support-stars { font-size: 1.5rem; color: #F59E0B; letter-spacing: 4px; line-height: 1; }
+.support-icon { font-size: 1.5rem; line-height: 1; }
+.btn-feedback { background: #D97706; color: #fff; }
+.btn-feedback:hover { background: #B45309; }
+.btn-tip { background: #0284C7; color: #fff; }
+.btn-tip:hover { background: #0369A1; }
 
 /* Footer */
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
@@ -336,6 +349,7 @@ h1 em { font-style: normal; color: var(--accent); }
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/96c3a66fc348c83e365ead1a9c5512557b59fb5fff7adc7db0b82097e59b8797" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/DropLauncher.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app1">Windows版 約153 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -400,6 +414,7 @@ h1 em { font-style: normal; color: var(--accent); }
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/5af43439c6976646f465f6bc16d21bc0b356a45e360591f4ea230c43a9a86c4e" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/VersionDetective.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app2">Windows版 約47 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.1 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -464,6 +479,7 @@ h1 em { font-style: normal; color: var(--accent); }
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/1912eda3b919de0428be41dc937b5a60ad92fe4f49376bd0964381662b3435b7" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/UniList.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app3">Windows版 約41 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.3 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -528,6 +544,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/10ac5c71c90fda38bf2ffc6fca1c2f8a0fb7bfa22f208576a4cbd5b035be939f" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/61）</span>
             <a class="btn btn-src" href="source/TranscribeGuard.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app4">Windows版 約102 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.6 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -592,6 +609,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/292f1c1c4acf7f2ff17886466f7769b9347178dfcf31e3b5099e10596d36e6af" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/59）</span>
             <a class="btn btn-src" href="source/TashikaMail.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_110">バージョン 1.1.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app5">Windows版 約151 MB ／ Mac版 約47 MB ／ 取扱説明書（PDF・13言語）約2.1 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -656,6 +674,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/11e46f080de3b17ee66478551cdc8a90830f46c7a948aa86274d4c6d5b8fc41f" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/61）</span>
             <a class="btn btn-src" href="source/StepOnce.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app6">Windows版 約56 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
             <span class="req app-meta" data-i18n="note_steponce">・StepOnce：Mac版は、ボタンを押して記録する手動方式です（Windows版はクリックを自動記録します）。</span>
@@ -720,6 +739,7 @@ PDF・Excel・画像の元資料を項目に分解して左に並べ、右の入
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/ecc47f8e41ab98ab092c2e352bf5e3ea2ab3f4f5f7f7904ddee409b4cee30bd8" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/61）</span>
             <a class="btn btn-src" href="source/RedactShot.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app7">Windows版 約100 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.5 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -784,6 +804,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/36c77c641f7e1623c1b7a8a65d6f13df6b15e7a409812f5798f31e293b2ec0b9" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/61）</span>
             <a class="btn btn-src" href="source/PurePaste.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app8">Windows版 約34 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.2 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -848,6 +869,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/1c1f344aa2645e116b04d1189178b6d47d3a7f554ecb4c64e03d33531991d0dd" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/54）</span>
             <a class="btn btn-src" href="source/MatchDetective.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app9">Windows版 約41 MB ／ Mac版 約0.2 MB ／ 取扱説明書（PDF・13言語）約1.4 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -912,6 +934,7 @@ WebやPDFからコピーしたときに入る変な改行、余分な空白、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/ca1539022f6bf9449280ecd65bfaaaaf1d54be3a5ffc63085edd7ab34ff5ab9c" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/FormatPassport.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app10">Windows版 約41 MB ／ Mac版 約0.3 MB ／ 取扱説明書（PDF・13言語）約1.8 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -976,6 +999,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/8e44f7c83a4a94c15d16a0db18e640390bed2eddb4fa7feef08bcbc8959e46a6" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/58）</span>
             <a class="btn btn-src" href="source/ContextStruct.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app11">Windows版 約154 MB ／ Mac版 約12 MB ／ 取扱説明書（PDF・13言語）約1.7 MB</span>
             <span class="req app-meta" data-i18n="note_contextstruct">・ContextStruct：初回起動時に、読み取り用AIモデル（約2.8GB）を自動でダウンロードします。ダウンロード後は完全オフラインで動作します。</span>
@@ -1040,6 +1064,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/faf0f9aebbf073279d2bc88ad4f7896d9f79ac3dc6ecb072e9c884941ca0eb7d" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/GlobalHours.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_100">バージョン 1.0.0 ／ 最終更新：2026年11月16日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app12">Windows版 約63 MB ／ Mac版 約13 MB ／ 取扱説明書（PDF・13言語）約1.5 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -1104,6 +1129,7 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
             <a class="btn btn-vt btn-vt-msi" href="https://www.virustotal.com/gui/file/6a4829a5f377cdfca923666e6f6841c717f5f2e61e4826c3111b387e412a709c" target="_blank" rel="noopener noreferrer" data-i18n="msi_vt_btn">MSIの検査結果（VirusTotal）</a>
             <span class="req"><span data-i18n="msi_vt_note">検出なし・2026年11月22日検査</span>（0/60）</span>
             <a class="btn btn-src" href="source/ClipStock.html" target="_blank" rel="noopener noreferrer" data-i18n="src_btn">ソースコードを見る</a>
+            <a class="btn btn-feedback" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_app_btn">このアプリの評価・感想を送る</a>
             <span class="req app-meta" data-i18n="meta_ver_clip">バージョン 1.0.0 ／ 最終更新：2026年11月17日 ／ 対応：Windows 10/11（64bit）・macOS 11以降 ／ 画面：13言語</span>
             <span class="req app-meta" data-i18n="size_app13">Windows版 約35 MB ／ Mac版 約1.9 MB ／ 取扱説明書（PDF・13言語）約1 MB</span>
             <span class="req app-meta" data-i18n="note_mac_kit">・Mac版は、お使いのMacで組み立てるキット形式です。手順は取扱説明書に図解があります。</span>
@@ -1167,6 +1193,18 @@ FAXのPDF、スキャンした納品書、取引先のWebカタログなど、�
       <li data-i18n="news_3">2026年11月16日：全アプリを最終ビルドに差し替えました（VirusTotal再検査：71社すべて検出なし）。ContextStructについてMicrosoftへ誤検知の審査を申請しました。</li>
       <li data-i18n="news_4">2026年11月16日：運営者ページを公開しました。</li>
     </ul>
+  </section>
+
+  <!-- 評価・感想（チップは職員確認後に追加予定） -->
+  <section class="wrap support-sec" id="support">
+    <div class="support-grid one">
+      <div class="support-card">
+        <div class="support-stars" aria-hidden="true">★★★★★</div>
+        <h2 data-i18n="fb_title">評価・感想フォーム</h2>
+        <p data-i18n="fb_lead">使ってみた感想を、星と一言だけでも大歓迎です。メールアドレスなどの個人情報は入力しないでください。いただいた感想は、許可をいただいた場合のみサイトで紹介することがあります。</p>
+        <p><a class="btn btn-feedback" id="feedbackBtnLink" href="https://tally.so/r/J1O28X" target="_blank" rel="noopener" data-i18n="fb_btn">評価・感想はこちら（1分で終わります）</a></p>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -1561,6 +1599,13 @@ const translations = {
     foot_safety: "安全への取り組み",
     foot_faq: "よくある質問",
     foot_contact: "お問い合わせ：syoutarou3230ficpo@gmail.com",
+    fb_title: "評価・感想フォーム",
+    fb_lead: "使ってみた感想を、星と一言だけでも大歓迎です。メールアドレスなどの個人情報は入力しないでください。いただいた感想は、許可をいただいた場合のみサイトで紹介することがあります。",
+    fb_btn: "評価・感想はこちら（1分で終わります）",
+    fb_app_btn: "このアプリの評価・感想を送る",
+    tip_title: "チップについて（任意）",
+    tip_lead: "アプリは今後も完全無料で、すべての機能をお使いいただけます。もし「役に立ったから気持ちだけでも」という方がいらっしゃれば、任意のチップを受け付けています。金額にかかわらず、アプリの内容は一切変わりません。",
+    tip_btn: "チップで応援する（Ko-fi）",
     foot_copy: "© 2026 フルタカ"
   },
   en: {
@@ -1687,9 +1732,23 @@ const translations = {
     foot_safety: "Safety",
     foot_faq: "FAQ",
     foot_contact: "Contact: syoutarou3230ficpo@gmail.com",
+    fb_title: "Rating & Feedback Form",
+    fb_lead: "Your rating and a few words are very welcome. Please do not enter personal information such as your email address. With your permission, comments may be quoted on the site.",
+    fb_btn: "Rate & review (takes 1 minute)",
+    fb_app_btn: "Rate & review this app",
+    tip_title: "Tips (completely optional)",
+    tip_lead: "The apps are, and will remain, completely free with all features included. If an app helped you and you would like to say thanks, voluntary tips are accepted here. Tips never change what the apps provide.",
+    tip_btn: "Tip on Ko-fi",
     foot_copy: "© 2026 フルタカ"
   },
   es: {
+    fb_title: "Formulario de valoración y comentarios",
+    fb_lead: "Tu valoración y unas palabras son muy bienvenidas. Por favor, no introduzcas información personal como tu dirección de correo electrónico. Con tu permiso, los comentarios podrán citarse en el sitio.",
+    fb_btn: "Valorar y comentar (1 minuto)",
+    fb_app_btn: "Valorar y comentar esta app",
+    tip_title: "Propinas (totalmente opcional)",
+    tip_lead: "Las aplicaciones son y seguirán siendo completamente gratuitas, con todas sus funciones. Si una aplicación te ha sido útil y quieres dar las gracias, aceptamos propinas voluntarias aquí. Las propinas nunca cambian lo que ofrecen las aplicaciones.",
+    tip_btn: "Propina en Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicaciones",
     eyebrow: "Compatible con Windows y Mac · 100% Gratuito",
@@ -1748,6 +1807,13 @@ const translations = {
     app13_desc: "Una aplicación para almacenar y gestionar de forma segura el historial del portapapeles con privacidad local."
   },
   zh: {
+    fb_title: "评分与反馈表",
+    fb_lead: "非常欢迎您的评分和留言。请勿输入电子邮件地址等个人信息。经您许可，留言可能会在网站上引用。",
+    fb_btn: "评价与感想（约1分钟）",
+    fb_app_btn: "评价这款应用",
+    tip_title: "小费（完全自愿）",
+    tip_lead: "这些应用现在是、将来也将是完全免费的，包含全部功能。如果某个应用对您有帮助，而您想表示感谢，可以在这里自愿打赏。打赏绝不会改变应用所提供的内容。",
+    tip_btn: "在 Ko-fi 打赏",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "应用程序",
     eyebrow: "兼容 Windows 和 Mac · 完全免费",
@@ -1806,6 +1872,13 @@ const translations = {
     app13_desc: "安全存储和管理剪贴板历史记录的应用程序。自动记录文本与图像，支持一键调用，本地运行保障隐私安全。"
   },
   fr: {
+    fb_title: "Formulaire de note et d'avis",
+    fb_lead: "Votre note et quelques mots sont les bienvenus. Veuillez ne pas saisir d'informations personnelles telles que votre adresse e-mail. Avec votre permission, les commentaires pourront être cités sur le site.",
+    fb_btn: "Noter et commenter (1 minute)",
+    fb_app_btn: "Noter et commenter cette app",
+    tip_title: "Pourboires (entièrement facultatifs)",
+    tip_lead: "Les applications sont et resteront entièrement gratuites, avec toutes leurs fonctionnalités. Si une application vous a été utile et que vous souhaitez dire merci, les pourboires volontaires sont acceptés ici. Les pourboires ne changent jamais ce que les applications offrent.",
+    tip_btn: "Pourboire sur Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applications",
     eyebrow: "Compatible Windows et Mac · 100% Gratuit",
@@ -1864,6 +1937,13 @@ const translations = {
     app13_desc: "Une application pour stocker et gérer en toute sécurité l'historique du presse-papiers."
   },
   de: {
+    fb_title: "Formular für Bewertung & Rückmeldung",
+    fb_lead: "Ihre Bewertung und ein paar Worte sind herzlich willkommen. Bitte geben Sie keine persönlichen Daten wie Ihre E-Mail-Adresse ein. Mit Ihrer Erlaubnis dürfen Kommentare auf der Website zitiert werden.",
+    fb_btn: "Bewerten & kommentieren (1 Minute)",
+    fb_app_btn: "Diese App bewerten & kommentieren",
+    tip_title: "Trinkgeld (völlig freiwillig)",
+    tip_lead: "Die Apps sind und bleiben völlig kostenlos, mit allen Funktionen. Wenn Ihnen eine App geholfen hat und Sie Danke sagen möchten, können Sie hier freiwillig ein Trinkgeld geben. Trinkgeld ändert niemals, was die Apps bieten.",
+    tip_btn: "Trinkgeld auf Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Apps",
     eyebrow: "Windows- & Mac-kompatibel · 100% kostenlos",
@@ -1922,6 +2002,13 @@ const translations = {
     app13_desc: "Eine App zum sicheren Speichern und Verwalten des Zwischenablageverlaufs."
   },
   pt: {
+    fb_title: "Formulário de avaliação e comentários",
+    fb_lead: "A sua avaliação e algumas palavras são muito bem-vindas. Por favor, não introduza informações pessoais, como o seu endereço de e-mail. Com a sua permissão, os comentários poderão ser citados no site.",
+    fb_btn: "Avaliar e comentar (1 minuto)",
+    fb_app_btn: "Avaliar e comentar este app",
+    tip_title: "Gorjetas (totalmente opcional)",
+    tip_lead: "Os apps são e continuarão sendo totalmente gratuitos, com todos os recursos. Se um app o ajudou e você quiser agradecer, gorjetas voluntárias são aceitas aqui. As gorjetas nunca alteram o que os apps oferecem.",
+    tip_btn: "Gorjeta no Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicativos",
     eyebrow: "Compatível com Windows e Mac · 100% Gratuito",
@@ -1980,6 +2067,13 @@ const translations = {
     app13_desc: "Um aplicativo para armazenar e gerenciar com segurança o histórico da área de transferência."
   },
   ru: {
+    fb_title: "Форма оценки и отзыва",
+    fb_lead: "Ваша оценка и несколько слов будут очень кстати. Пожалуйста, не указывайте личные данные, например адрес электронной почты. С вашего разрешения комментарии могут быть опубликованы на сайте.",
+    fb_btn: "Оценить и оставить отзыв (1 минута)",
+    fb_app_btn: "Оценить это приложение и оставить отзыв",
+    tip_title: "Чаевые (полностью добровольно)",
+    tip_lead: "Приложения являются и останутся полностью бесплатными, со всеми функциями. Если приложение вам помогло и вы хотите сказать спасибо, здесь можно оставить добровольные чаевые. Чаевые никогда не меняют то, что предлагают приложения.",
+    tip_btn: "Чаевые на Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Приложения",
     eyebrow: "Для Windows и Mac · 100% Бесплатно",
@@ -2038,6 +2132,13 @@ const translations = {
     app13_desc: "Приложение для безопасного хранения и управления историей буфера обмена."
   },
   it: {
+    fb_title: "Modulo di valutazione e commenti",
+    fb_lead: "La tua valutazione e qualche parola sono molto gradite. Per favore, non inserire informazioni personali come il tuo indirizzo email. Con il tuo permesso, i commenti potranno essere citati sul sito.",
+    fb_btn: "Valuta e commenta (1 minuto)",
+    fb_app_btn: "Valuta e recensisci questa app",
+    tip_title: "Mance (del tutto facoltative)",
+    tip_lead: "Le app sono e rimarranno completamente gratuite, con tutte le funzionalità. Se un'app ti è stata utile e vuoi ringraziare, le mance volontarie sono accettate qui. Le mance non cambiano mai ciò che le app offrono.",
+    tip_btn: "Mancia su Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applicazioni",
     eyebrow: "Compatibile Windows e Mac · 100% Gratuito",
@@ -2096,6 +2197,13 @@ const translations = {
     app13_desc: "Un'applicazione per archiviare e gestire in sicurezza la cronologia degli appunti."
   },
   tr: {
+    fb_title: "Puan ve Yorum Formu",
+    fb_lead: "Puanınız ve birkaç kelimeniz çok memnuniyet vericidir. Lütfen e-posta adresiniz gibi kişisel bilgilerinizi girmeyin. İzninizle yorumlar sitede alıntılanabilir.",
+    fb_btn: "Puan ver ve yorum yap (1 dakika)",
+    fb_app_btn: "Bu uygulamayı puanla ve yorum yap",
+    tip_title: "Bahşiş (tamamen isteğe bağlı)",
+    tip_lead: "Uygulamalar tüm özellikleriyle tamamen ücretsizdir ve öyle kalacaktır. Bir uygulama size yardımcı olduysa ve teşekkür etmek isterseniz, burada gönüllü bahşiş kabul edilir. Bahşişler, uygulamaların sunduklarını asla değiştirmez.",
+    tip_btn: "Ko-fi'da bahşiş",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Uygulamalar",
     eyebrow: "Windows ve Mac Uyumlu · %100 Ücretsiz",
@@ -2154,6 +2262,13 @@ const translations = {
     app13_desc: "Pano geçmişinizi güvenle depolayan ve yöneten bir uygulama."
   },
   ar: {
+    fb_title: "نموذج التقييم والتعليقات",
+    fb_lead: "نرحب بتقييمك وبضع كلمات منك. يرجى عدم إدخال معلومات شخصية مثل عنوان بريدك الإلكتروني. وبإذنك، قد يتم اقتباس التعليقات على الموقع.",
+    fb_btn: "التقييم والتعليق (دقيقة واحدة)",
+    fb_app_btn: "قيّم هذا التطبيق واكتب تعليقك",
+    tip_title: "الإكراميات (اختيارية تمامًا)",
+    tip_lead: "التطبيقات مجانية بالكامل وستبقى كذلك، بجميع ميزاتها. إذا ساعدك أحد التطبيقات وتريد أن تقول شكرًا، يتم قبول الإكراميات الطوعية هنا. الإكراميات لا تغيّر أبدًا ما تقدمه التطبيقات.",
+    tip_btn: "إكرامية على Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "التطبيقات",
     eyebrow: "متوافق مع Windows و Mac · مجاني 100%",
@@ -2212,6 +2327,13 @@ const translations = {
     app13_desc: "تطبيق لتخزين وإدارة سجل الحافظة بأمان."
   },
   id: {
+    fb_title: "Formulir Penilaian & Komentar",
+    fb_lead: "Penilaian dan beberapa kata dari Anda sangat kami sambut. Mohon jangan memasukkan informasi pribadi seperti alamat email Anda. Dengan izin Anda, komentar dapat dikutip di situs ini.",
+    fb_btn: "Beri penilaian & komentar (1 menit)",
+    fb_app_btn: "Beri nilai & ulasan untuk aplikasi ini",
+    tip_title: "Tip (sepenuhnya opsional)",
+    tip_lead: "Aplikasi ini sepenuhnya gratis dan akan tetap gratis, dengan semua fiturnya. Jika sebuah aplikasi membantu Anda dan Anda ingin berterima kasih, tip sukarela diterima di sini. Tip tidak pernah mengubah apa yang ditawarkan aplikasi.",
+    tip_btn: "Tip di Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Daftar Aplikasi",
     eyebrow: "Kompatibel dengan Windows & Mac · 100% Gratis",
@@ -2270,6 +2392,13 @@ const translations = {
     app13_desc: "Aplikasi untuk menyimpan dan mengelola riwayat clipboard dengan aman."
   },
   ko: {
+    fb_title: "평가 및 감상 양식",
+    fb_lead: "별점과 한마디 말씀을 남겨 주시면 감사하겠습니다. 이메일 주소와 같은 개인정보는 입력하지 마세요. 허락해 주신 경우, 댓글은 사이트에 인용될 수 있습니다。",
+    fb_btn: "평가 및 감상 남기기 (1분 소요)",
+    fb_app_btn: "이 앱 평가·감상 보내기",
+    tip_title: "팁 (전적으로 자발적)",
+    tip_lead: "이 앱들은 모든 기능을 포함해 완전히 무료이며 앞으로도 무료입니다. 앱이 도움이 되어 감사의 마음을 전하고 싶으시다면, 이곳에서 자발적인 팁을 보내실 수 있습니다. 팁은 앱이 제공하는 내용을 결코 바꾸지 않습니다.",
+    tip_btn: "Ko-fi에서 팁 보내기",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "앱 목록",
     eyebrow: "Windows 및 Mac 호환 · 완전 무료",
