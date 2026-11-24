@@ -339,6 +339,16 @@ h1 em { font-style: normal; color: var(--accent); }
 .dl-group .btn-msi-main{font-size:1.2rem;font-weight:800;letter-spacing:.02em}
 .dl-group .btn-msi-sub{font-size:0.95rem;font-weight:600;color:rgba(255,255,255,.92)}
 .dl-group .req{font-size:.95rem;line-height:1.7;color:var(--ink);opacity:.85}
+
+/* ===== Patch 5: 補足文・MSI表示をさらに拡大、余白を埋める ===== */
+.dl-group{display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.dl-group>*{margin-top:0!important}
+.dl-group .req{font-size:1.15rem;line-height:1.8;font-weight:600;opacity:1;padding:4px 6px}
+.dl-group .btn{font-size:1.35rem;min-height:84px;padding:24px 28px}
+.dl-group .btn-pack{min-height:96px}
+.dl-group .btn-msi{min-height:110px;padding:22px 24px;gap:8px}
+.dl-group .btn-msi-main{font-size:1.4rem}
+.dl-group .btn-msi-sub{font-size:1.15rem;font-weight:700}
 </style>
 </head>
 <body>
