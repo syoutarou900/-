@@ -349,6 +349,13 @@ h1 em { font-style: normal; color: var(--accent); }
 .dl-group .btn-msi{min-height:110px;padding:22px 24px;gap:8px}
 .dl-group .btn-msi-main{font-size:1.4rem}
 .dl-group .btn-msi-sub{font-size:1.15rem;font-weight:700}
+
+/* ===== Patch 6: 左下の仕様欄を右の安全ボックスと同じ高さまで埋める ===== */
+.app-footer{align-items:stretch}
+.app-footer .app-meta-group{height:100%}
+.app-footer .app-meta-group .req.app-meta{flex:1 1 auto;display:flex;align-items:center;font-size:1.15rem;line-height:1.9;padding:16px 20px}
+.app-footer .app-meta-group .req.app-meta:first-child{flex:1.3 1 auto;font-size:1.25rem}
+.app-footer .app-meta-group .req.app-meta:nth-child(3){font-size:1.15rem}
 </style>
 </head>
 <body>
