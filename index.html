@@ -371,6 +371,13 @@ h1 em { font-style: normal; color: var(--accent); }
 .h1-row h1{margin:0}
 .h1-row .nav-media{margin-left:0;flex-direction:column;justify-content:center;text-align:center;gap:6px;padding:18px 26px;border-radius:22px;font-size:1.15rem;line-height:1.5;max-width:230px}
 .h1-row .nav-media-ic{font-size:2.2rem}
+
+/* ===== ボタンを見出しのすぐ右隣に（横並び固定） ===== */
+.h1-row{flex-wrap:nowrap;gap:24px;justify-content:flex-start;margin-top:24px}
+.h1-row h1{width:auto!important;flex:0 1 auto;min-width:0;font-size:clamp(1.8rem,3.4vw,3.4rem)}
+.h1-row .nav-media{flex:0 0 auto;white-space:nowrap;max-width:none;flex-direction:row;padding:16px 26px;border-radius:999px;font-size:1.15rem}
+.h1-row .nav-media-ic{font-size:1.6rem}
+@media (max-width:900px){.h1-row{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -414,8 +421,8 @@ h1 em { font-style: normal; color: var(--accent); }
     <div>
       <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Windows・Mac対応・完全無料</span></span>
       <div class="h1-row">
-        <a class="nav-media" href="media-apps.html"><span class="nav-media-ic" aria-hidden="true">🎬</span><span data-i18n="nav_media">動画・画像アプリ一覧はこちら →</span></a>
         <h1 data-i18n="h1">アプリ作成初心者が作成した<em>無料デスクトップツール</em></h1>
+        <a class="nav-media" href="media-apps.html"><span class="nav-media-ic" aria-hidden="true">🎬</span><span data-i18n="nav_media">動画・画像アプリ一覧はこちら →</span></a>
       </div>
       <div class="trust-banner">
         <p data-i18n="trust_1">個人利用・商用利用ともに完全無料 ／ データ収集なし・処理はパソコンの中で完結</p>
