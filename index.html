@@ -356,6 +356,21 @@ h1 em { font-style: normal; color: var(--accent); }
 .app-footer .app-meta-group .req.app-meta{flex:1 1 auto;display:flex;align-items:center;font-size:1.15rem;line-height:1.9;padding:16px 20px}
 .app-footer .app-meta-group .req.app-meta:first-child{flex:1.3 1 auto;font-size:1.25rem}
 .app-footer .app-meta-group .req.app-meta:nth-child(3){font-size:1.15rem}
+
+/* ===== 動画・画像アプリページへのリンク（ヘッダー左側） ===== */
+.nav{justify-content:flex-start}
+.nav-right{margin-left:auto}
+.nav-media{display:inline-flex;align-items:center;gap:8px;margin-left:20px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 20px -6px rgba(99,60,237,.55);transition:transform .15s,box-shadow .15s}
+.nav-media:hover{transform:translateY(-2px);box-shadow:0 12px 24px -6px rgba(99,60,237,.65)}
+.nav-media-ic{font-size:1.25rem}
+
+/* ===== ボタンをh1の左隣に配置 ===== */
+.nav{justify-content:space-between}
+.nav-right{margin-left:0}
+.h1-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.h1-row h1{margin:0}
+.h1-row .nav-media{margin-left:0;flex-direction:column;justify-content:center;text-align:center;gap:6px;padding:18px 26px;border-radius:22px;font-size:1.15rem;line-height:1.5;max-width:230px}
+.h1-row .nav-media-ic{font-size:2.2rem}
 </style>
 </head>
 <body>
@@ -398,7 +413,10 @@ h1 em { font-style: normal; color: var(--accent); }
   <section class="hero">
     <div>
       <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Windows・Mac対応・完全無料</span></span>
-      <h1 data-i18n="h1">アプリ作成初心者が作成した<em>無料デスクトップツール</em></h1>
+      <div class="h1-row">
+        <a class="nav-media" href="media-apps.html"><span class="nav-media-ic" aria-hidden="true">🎬</span><span data-i18n="nav_media">動画・画像アプリ一覧はこちら →</span></a>
+        <h1 data-i18n="h1">アプリ作成初心者が作成した<em>無料デスクトップツール</em></h1>
+      </div>
       <div class="trust-banner">
         <p data-i18n="trust_1">個人利用・商用利用ともに完全無料 ／ データ収集なし・処理はパソコンの中で完結</p>
         <p data-i18n="trust_2">全アプリをVirusTotalで検査済み（71社すべて検出なし）／ 画面は13言語対応</p>
@@ -1687,6 +1705,7 @@ function closeModal() {
 const translations = {
   ja: {
     nav_dl: "アプリ一覧",
+    nav_media: "動画・画像アプリ一覧はこちら →",
     eyebrow: "Windows・Mac対応・完全無料",
     h1: "アプリ作成初心者が作成した<em>無料デスクトップツール</em>",
     preview_text: "アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)",
@@ -1823,6 +1842,7 @@ const translations = {
   },
   en: {
     nav_dl: "Apps",
+    nav_media: "Video & Image Apps →",
     eyebrow: "Windows & Mac Compatible · 100% Free",
     h1: "Free Desktop Tools Created by a Beginner Developer",
     preview_text: "App Preview Image<br>(Screenshot will appear here)",
@@ -1968,6 +1988,7 @@ const translations = {
     tip_btn: "Propina en Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicaciones",
+    nav_media: "Apps de vídeo e imagen →",
     eyebrow: "Compatible con Windows y Mac · 100% Gratuito",
     h1: "Herramientas de escritorio gratuitas creadas por un desarrollador principiante",
     preview_text: "Vista previa de la aplicación<br>(La captura aparecerá aquí)",
@@ -2034,6 +2055,7 @@ const translations = {
     tip_btn: "在 Ko-fi 打赏",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "应用程序",
+    nav_media: "视频与图像应用 →",
     eyebrow: "兼容 Windows 和 Mac · 完全免费",
     h1: "由应用开发新手制作的<em>免费桌面工具</em>",
     preview_text: "应用图片预览<br>(截图将在此处显示)",
@@ -2100,6 +2122,7 @@ const translations = {
     tip_btn: "Pourboire sur Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applications",
+    nav_media: "Applis vidéo et image →",
     eyebrow: "Compatible Windows et Mac · 100% Gratuit",
     h1: "Outils de bureau gratuits créés par un développeur débutant",
     preview_text: "Aperçu de l'application<br>(La capture d'écran apparaîtra ici)",
@@ -2166,6 +2189,7 @@ const translations = {
     tip_btn: "Trinkgeld auf Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Apps",
+    nav_media: "Video- & Bild-Apps →",
     eyebrow: "Windows- & Mac-kompatibel · 100% kostenlos",
     h1: "Kostenlose Desktop-Tools, entwickelt von einem Anfänger",
     preview_text: "App-Vorschau<br>(Screenshot wird hier angezeigt)",
@@ -2232,6 +2256,7 @@ const translations = {
     tip_btn: "Gorjeta no Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicativos",
+    nav_media: "Apps de vídeo e imagem →",
     eyebrow: "Compatível com Windows e Mac · 100% Gratuito",
     h1: "Ferramentas de desktop gratuitas criadas por um desenvolvedor iniciante",
     preview_text: "Pré-visualização do app<br>(A captura aparecerá aqui)",
@@ -2298,6 +2323,7 @@ const translations = {
     tip_btn: "Чаевые на Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Приложения",
+    nav_media: "Приложения для видео и фото →",
     eyebrow: "Для Windows и Mac · 100% Бесплатно",
     h1: "Бесплатные настольные утилиты, созданные начинающим разработчиком",
     preview_text: "Предпросмотр приложения<br>(Здесь появится скриншот)",
@@ -2364,6 +2390,7 @@ const translations = {
     tip_btn: "Mancia su Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applicazioni",
+    nav_media: "App video e immagini →",
     eyebrow: "Compatibile Windows e Mac · 100% Gratuito",
     h1: "Strumenti desktop gratuiti creati da uno sviluppatore principiante",
     preview_text: "Anteprima app<br>(Lo screenshot apparirà qui)",
@@ -2430,6 +2457,7 @@ const translations = {
     tip_btn: "Ko-fi'da bahşiş",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Uygulamalar",
+    nav_media: "Video ve görsel uygulamaları →",
     eyebrow: "Windows ve Mac Uyumlu · %100 Ücretsiz",
     h1: "Yeni Başlayan Bir Geliştirici Tarafından Hazırlanan <em>Ücretsiz Masaüstü Araçları</em>",
     preview_text: "Uygulama Görseli Önizlemesi<br>(Ekran görüntüsü burada görünecektir)",
@@ -2496,6 +2524,7 @@ const translations = {
     tip_btn: "إكرامية على Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "التطبيقات",
+    nav_media: "تطبيقات الفيديو والصور →",
     eyebrow: "متوافق مع Windows و Mac · مجاني 100%",
     h1: "أدوات سطح مكتب مجانية تم تطويرها بواسطة مطور مبتدئ",
     preview_text: "معاينة صورة التطبيق<br>(ستظهر لقطة الشاشة هنا)",
@@ -2562,6 +2591,7 @@ const translations = {
     tip_btn: "Tip di Ko-fi",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Daftar Aplikasi",
+    nav_media: "Aplikasi Video & Gambar →",
     eyebrow: "Kompatibel dengan Windows & Mac · 100% Gratis",
     h1: "Alat Desktop Gratis yang Dibuat oleh Pengembang Pemula",
     preview_text: "Pratinjau Gambar Aplikasi<br>(Tangkapan layar akan muncul di sini)",
@@ -2628,6 +2658,7 @@ const translations = {
     tip_btn: "Ko-fi에서 팁 보내기",
     foot_copy: "© 2026 フルタカ",
     nav_dl: "앱 목록",
+    nav_media: "동영상·이미지 앱 →",
     eyebrow: "Windows 및 Mac 호환 · 완전 무료",
     h1: "앱 개발 초보자가 만든 <em>무료 데스크톱 도구</em>",
     preview_text: "앱 이미지 미리보기<br>(여기에 스크린샷이 표시됩니다)",
