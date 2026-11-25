@@ -388,7 +388,7 @@ h1 em { font-style: normal; color: var(--accent); }
 /* ===== 左の余白に固定表示するボタン（広い画面のみ） ===== */
 .nav-media-side{display:none}
 @media (min-width:2120px){
-  .nav-media-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:absolute;z-index:5;top:50%;left:calc(-1 * ((100vw - 1680px)/4 + 136px));transform:translateY(-50%);width:208px;padding:26px 14px;border-radius:26px;background:linear-gradient(160deg,#7C3AED,#2563EB);color:#fff;text-decoration:none;text-align:center;box-shadow:0 14px 30px -8px rgba(99,60,237,.6);transition:transform .15s,box-shadow .15s}
+  .nav-media-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:fixed;z-index:50;top:226px;left:calc((100vw - 1680px)/4 - 104px);transform:translateY(-50%);width:208px;padding:26px 14px;border-radius:26px;background:linear-gradient(160deg,#7C3AED,#2563EB);color:#fff;text-decoration:none;text-align:center;box-shadow:0 14px 30px -8px rgba(99,60,237,.6);transition:transform .15s,box-shadow .15s}
   .nav-media-side:hover{transform:translateY(calc(-50% - 3px));box-shadow:0 18px 34px -8px rgba(99,60,237,.7)}
   .nms-ic{font-size:3.2rem;line-height:1}
   .nms-tx{font-size:1.3rem;font-weight:800;line-height:1.55}
