@@ -387,18 +387,18 @@ h1 em { font-style: normal; color: var(--accent); }
 
 /* ===== 左の余白に固定表示するボタン（広い画面のみ） ===== */
 .nav-media-side{display:none}
-@media (min-width:2160px){
-  .nav-media-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:fixed;z-index:50;top:150px;left:calc((100vw - 1680px)/2 - 272px);width:208px;padding:26px 14px;border-radius:26px;background:linear-gradient(160deg,#7C3AED,#2563EB);color:#fff;text-decoration:none;text-align:center;box-shadow:0 14px 30px -8px rgba(99,60,237,.6);transition:transform .15s,box-shadow .15s}
-  .nav-media-side:hover{transform:translateY(-3px);box-shadow:0 18px 34px -8px rgba(99,60,237,.7)}
+@media (min-width:2120px){
+  .nav-media-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:absolute;z-index:5;top:50%;left:calc(-1 * ((100vw - 1680px)/4 + 136px));transform:translateY(-50%);width:208px;padding:26px 14px;border-radius:26px;background:linear-gradient(160deg,#7C3AED,#2563EB);color:#fff;text-decoration:none;text-align:center;box-shadow:0 14px 30px -8px rgba(99,60,237,.6);transition:transform .15s,box-shadow .15s}
+  .nav-media-side:hover{transform:translateY(calc(-50% - 3px));box-shadow:0 18px 34px -8px rgba(99,60,237,.7)}
   .nms-ic{font-size:3.2rem;line-height:1}
   .nms-tx{font-size:1.3rem;font-weight:800;line-height:1.55}
   .nms-ar{font-size:1.8rem;font-weight:800;line-height:1}
+  .h1-row{position:relative}
   .h1-row .nav-media{display:none}
 }
 </style>
 </head>
 <body>
-<a class="nav-media-side" href="media-apps.html"><span class="nms-ic" aria-hidden="true">🎬</span><span class="nms-tx" data-i18n="nav_media_side">動画・画像<br>アプリ一覧は<br>こちら</span><span class="nms-ar" aria-hidden="true">→</span></a>
 <header class="wrap nav">
   <a class="brand" href="#top" aria-label="get-quicknote">
     <span class="logo" aria-hidden="true">
@@ -439,6 +439,7 @@ h1 em { font-style: normal; color: var(--accent); }
     <div>
       <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Windows・Mac対応・完全無料</span></span>
       <div class="h1-row">
+        <a class="nav-media-side" href="media-apps.html"><span class="nms-ic" aria-hidden="true">🎬</span><span class="nms-tx" data-i18n="nav_media_side">動画・画像<br>アプリ一覧は<br>こちら</span><span class="nms-ar" aria-hidden="true">→</span></a>
         <a class="nav-media" href="media-apps.html"><span class="nav-media-ic" aria-hidden="true">🎬</span><span data-i18n="nav_media">動画・画像アプリ一覧はこちら →</span></a>
         <h1 data-i18n="h1">アプリ作成初心者が作成した<em>無料デスクトップツール</em></h1>
       </div>
