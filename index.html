@@ -384,9 +384,21 @@ h1 em { font-style: normal; color: var(--accent); }
 .h1-row h1{width:auto;flex:1 1 0;min-width:0;font-size:clamp(1.8rem,3.6vw,3.4rem)}
 .h1-row .nav-media{flex:0 0 auto;width:auto;order:0}
 .h1-row h1{flex:0 1 auto;order:1}
+
+/* ===== 左の余白に固定表示するボタン（広い画面のみ） ===== */
+.nav-media-side{display:none}
+@media (min-width:2160px){
+  .nav-media-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:fixed;z-index:50;top:150px;left:calc((100vw - 1680px)/2 - 232px);width:208px;padding:26px 14px;border-radius:26px;background:linear-gradient(160deg,#7C3AED,#2563EB);color:#fff;text-decoration:none;text-align:center;box-shadow:0 14px 30px -8px rgba(99,60,237,.6);transition:transform .15s,box-shadow .15s}
+  .nav-media-side:hover{transform:translateY(-3px);box-shadow:0 18px 34px -8px rgba(99,60,237,.7)}
+  .nms-ic{font-size:3.2rem;line-height:1}
+  .nms-tx{font-size:1.3rem;font-weight:800;line-height:1.55}
+  .nms-ar{font-size:1.8rem;font-weight:800;line-height:1}
+  .h1-row .nav-media{display:none}
+}
 </style>
 </head>
 <body>
+<a class="nav-media-side" href="media-apps.html"><span class="nms-ic" aria-hidden="true">🎬</span><span class="nms-tx" data-i18n="nav_media_side">動画・画像<br>アプリ一覧は<br>こちら</span><span class="nms-ar" aria-hidden="true">→</span></a>
 <header class="wrap nav">
   <a class="brand" href="#top" aria-label="get-quicknote">
     <span class="logo" aria-hidden="true">
@@ -1719,6 +1731,7 @@ const translations = {
   ja: {
     nav_dl: "アプリ一覧",
     nav_media: "動画・画像アプリ一覧はこちら →",
+    nav_media_side: "動画・画像<br>アプリ一覧は<br>こちら",
     eyebrow: "Windows・Mac対応・完全無料",
     h1: "アプリ作成初心者が作成した<em>無料デスクトップツール</em>",
     preview_text: "アプリ画像プレビュー<br>(ここにスクリーンショットが表示されます)",
@@ -1856,6 +1869,7 @@ const translations = {
   en: {
     nav_dl: "Apps",
     nav_media: "Video & Image Apps →",
+    nav_media_side: "Video &amp; Image<br>Apps<br>Click here",
     eyebrow: "Windows & Mac Compatible · 100% Free",
     h1: "Free Desktop Tools Created by a Beginner Developer",
     preview_text: "App Preview Image<br>(Screenshot will appear here)",
@@ -2002,6 +2016,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicaciones",
     nav_media: "Apps de vídeo e imagen →",
+    nav_media_side: "Apps de vídeo<br>e imagen<br>Ver aquí",
     eyebrow: "Compatible con Windows y Mac · 100% Gratuito",
     h1: "Herramientas de escritorio gratuitas creadas por un desarrollador principiante",
     preview_text: "Vista previa de la aplicación<br>(La captura aparecerá aquí)",
@@ -2069,6 +2084,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "应用程序",
     nav_media: "视频与图像应用 →",
+    nav_media_side: "视频与图像<br>应用列表<br>点击进入",
     eyebrow: "兼容 Windows 和 Mac · 完全免费",
     h1: "由应用开发新手制作的<em>免费桌面工具</em>",
     preview_text: "应用图片预览<br>(截图将在此处显示)",
@@ -2136,6 +2152,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applications",
     nav_media: "Applis vidéo et image →",
+    nav_media_side: "Applis vidéo<br>et image<br>Voir ici",
     eyebrow: "Compatible Windows et Mac · 100% Gratuit",
     h1: "Outils de bureau gratuits créés par un développeur débutant",
     preview_text: "Aperçu de l'application<br>(La capture d'écran apparaîtra ici)",
@@ -2203,6 +2220,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Apps",
     nav_media: "Video- & Bild-Apps →",
+    nav_media_side: "Video- &amp; Bild-<br>Apps<br>Hier klicken",
     eyebrow: "Windows- & Mac-kompatibel · 100% kostenlos",
     h1: "Kostenlose Desktop-Tools, entwickelt von einem Anfänger",
     preview_text: "App-Vorschau<br>(Screenshot wird hier angezeigt)",
@@ -2270,6 +2288,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Aplicativos",
     nav_media: "Apps de vídeo e imagem →",
+    nav_media_side: "Apps de vídeo<br>e imagem<br>Veja aqui",
     eyebrow: "Compatível com Windows e Mac · 100% Gratuito",
     h1: "Ferramentas de desktop gratuitas criadas por um desenvolvedor iniciante",
     preview_text: "Pré-visualização do app<br>(A captura aparecerá aqui)",
@@ -2337,6 +2356,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Приложения",
     nav_media: "Приложения для видео и фото →",
+    nav_media_side: "Приложения<br>для видео и фото<br>Нажмите",
     eyebrow: "Для Windows и Mac · 100% Бесплатно",
     h1: "Бесплатные настольные утилиты, созданные начинающим разработчиком",
     preview_text: "Предпросмотр приложения<br>(Здесь появится скриншот)",
@@ -2404,6 +2424,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Applicazioni",
     nav_media: "App video e immagini →",
+    nav_media_side: "App video<br>e immagini<br>Vai qui",
     eyebrow: "Compatibile Windows e Mac · 100% Gratuito",
     h1: "Strumenti desktop gratuiti creati da uno sviluppatore principiante",
     preview_text: "Anteprima app<br>(Lo screenshot apparirà qui)",
@@ -2471,6 +2492,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Uygulamalar",
     nav_media: "Video ve görsel uygulamaları →",
+    nav_media_side: "Video ve görsel<br>uygulamaları<br>Tıklayın",
     eyebrow: "Windows ve Mac Uyumlu · %100 Ücretsiz",
     h1: "Yeni Başlayan Bir Geliştirici Tarafından Hazırlanan <em>Ücretsiz Masaüstü Araçları</em>",
     preview_text: "Uygulama Görseli Önizlemesi<br>(Ekran görüntüsü burada görünecektir)",
@@ -2538,6 +2560,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "التطبيقات",
     nav_media: "تطبيقات الفيديو والصور →",
+    nav_media_side: "تطبيقات<br>الفيديو والصور<br>اضغط هنا",
     eyebrow: "متوافق مع Windows و Mac · مجاني 100%",
     h1: "أدوات سطح مكتب مجانية تم تطويرها بواسطة مطور مبتدئ",
     preview_text: "معاينة صورة التطبيق<br>(ستظهر لقطة الشاشة هنا)",
@@ -2605,6 +2628,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "Daftar Aplikasi",
     nav_media: "Aplikasi Video & Gambar →",
+    nav_media_side: "Aplikasi Video<br>&amp; Gambar<br>Klik di sini",
     eyebrow: "Kompatibel dengan Windows & Mac · 100% Gratis",
     h1: "Alat Desktop Gratis yang Dibuat oleh Pengembang Pemula",
     preview_text: "Pratinjau Gambar Aplikasi<br>(Tangkapan layar akan muncul di sini)",
@@ -2672,6 +2696,7 @@ const translations = {
     foot_copy: "© 2026 フルタカ",
     nav_dl: "앱 목록",
     nav_media: "동영상·이미지 앱 →",
+    nav_media_side: "동영상·이미지<br>앱 목록<br>바로가기",
     eyebrow: "Windows 및 Mac 호환 · 완전 무료",
     h1: "앱 개발 초보자가 만든 <em>무료 데스크톱 도구</em>",
     preview_text: "앱 이미지 미리보기<br>(여기에 스크린샷이 표시됩니다)",
